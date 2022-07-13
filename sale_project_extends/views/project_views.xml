@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+       <!--  TASK TREE VIEW INHERIT --> 
+
+       <record id="view_task_tree" model="ir.ui.view">
+           <field name="name">view.task.tree.inherit</field>
+           <field name="model">project.task</field>
+           <field name="inherit_id" ref="project.view_task_tree2"/>
+           <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="multi_edit">1</attribute>
+                </xpath>
+                <field name="name" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+                <field name="project_id" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+                <field name="project_id" position="after">
+                    <field name="parent_id" optional="show"/>
+                    <!--field name="service_cost_line_id"/>-->
+                </field>
+           </field>
+       </record>
+
+        <record id="project_stage_tree" model="ir.ui.view">
+            <field name="name">project.stage.tree</field>
+            <field name="model">project.project.stage</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="open_project_stages" model="ir.actions.act_window">
+            <field name="name">Project Stages</field>
+            <field name="res_model">project.project.stage</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="project_stage_tree"/>
+        </record>
+
+        <menuitem action="open_project_stages" id="menu_project_config_project_stage" name="Project Stages" parent="project.menu_project_config" sequence="4"/>
+
+        <record id="view_task_form2_extend" model="ir.ui.view">
+            <field name="name">view.task.form2.extend</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="attributes">
+                    <attribute name="attrs">{'invisible': [ ('name', '=', False) ]}</attribute>
+                </field>
+                
+                <h1 position="after">
+                    <h3 class="d-flex flex-row justify-content-between">
+                        <field name="product_tmpl_id" placeholder="Name..." options="{'no_create': True, 'no_create_edit': True}"/>
+                    </h3>
+                </h1>
+
+                <field name="parent_id" position="replace"/>
+                <field name="project_id" position="after">
+                    <field name="parent_id" 
+                            domain="[('parent_id', '=', False)]" 
+                            attrs="{'invisible' : [('subtask_count', '&gt;', 0)]}" 
+                            groups="project.group_subtask_project"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record id="quick_create_task_form" model="ir.ui.view">
+            <field name="name">quick.create.task.form.extend</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.quick_create_task_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="product_tmpl_id" options="{'no_open': True,'no_create': True}" string="Task Title"/>
+                </field>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="project_edit_project_form_view_inherit" model="ir.ui.view">
+            <field name="name">	project.edit.project.form.view.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <field name="stage_id" widget="statusbar" options="{'clickable': True}"/>
+                </header> 
+
+                <field name="partner_id" position="after">
+                    <field name="analytic_account_id"/>
+                    <field name="analytic_tag_ids" widget="many2many_tags"/>
+                    <field name="sale_id"/>
+                </field>
+                <field name="privacy_visibility" position="after">
+                    <field name="stock_location_id"/>
+                </field>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" name="action_requisition_view" type="object" icon="fa-files-o">
+                        <field string="Requisiciones" name="requisition_count" widget="statinfo"/>
+                    </button>
+                    
+                    <button type="object"
+                        name="action_view_picking"
+                        class="oe_stat_button"
+                        icon="fa-truck" attrs="{'invisible':[('picking_ids','=',[])]}">
+                        <field name="picking_count" widget="statinfo" string="Transferencias"/>
+                        <field name="picking_ids" invisible="1"/>
+                    </button>
+                </xpath>
+                <xpath expr="//page[@name='settings']" position="after">
+                    <page string="Productos requeridos">
+                        <field name="project_requisition_lines_ids" readonly='True'>
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="name"/>
+                                <field name="product_uom"/>
+                                <field name="quantity" sum="Total"/>
+                                <field name="quantity_purchase" sum="Total requerido"/>
+                                <field name="quantity_transfer" sum="Total transferido"/>
+                                <field name="quantity_available" string="Disponible" sum="Total disponible"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//form/header" position="inside">
+                    <button name="action_create_requisition" string="Crear Requisicion" class="oe_stat_button" type="object"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_project_kanban_inherit" model="ir.ui.view">
+            <field name="name">project.project.kanban.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="default_group_by">stage_id</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="after">
+                    <div class="o_project_kanban_boxes">
+                        <a type="edit" class="o_project_kanban_box">
+                            <div>
+                            <span class="o_label">
+                                Project details
+                            </span>
+                            </div>
+                        </a>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_task_form2_inherited_extends2">
+            <field name="name">project.task.form.inherited.extends2</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='employee_id']" position="after">
+                    <field name="is_pay" invisible="1"/>
+                    <field name="cost_unit" invisible="0"/>
+                    <field name="subtotal_cost" invisible="0"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_payslip_view_form_inherits">
+            <field name="name">hr.payslip.inherit.form.inherits</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='compute_sheet']" position="after">
+                    <button string="Calcular Mano de Obra" name="action_calculate_labour_cost" type="object" attrs="{'invisible': [('state', 'not in', 'verify')]}" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>        
+    </data>
+</odoo>

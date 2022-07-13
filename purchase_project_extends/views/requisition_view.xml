@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_requisition_order_form_inherit" model="ir.ui.view">
+        <field name="name">requisition.order.form.inherit</field>
+        <field name="model">po.requisition</field>
+        <field name="inherit_id" ref="requisitions.po_requisition_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/header/button[@name='action_approve_po_requisition']" position="after">
+                <button name="action_purchase" states="approve" string="Crear compra" type="object" class="oe_highlight"/>
+            </xpath>
+            <field name="partner_ids" position="replace">
+                <field name="partner_ids" widget="many2many_tags" invisible="1"/>
+            </field>
+            <field name="partner_id" position="replace">
+                <field name="partner_id" invisible="0"/>
+            </field>
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                    name="action_view_purchases"
+                    class="oe_stat_button"
+                    icon="fa-truck" attrs="{'invisible':[('purchase_ids','=',[])]}">
+                    <field name="purchase_count" widget="statinfo" string="Compras" help="Incoming Shipments"/>
+                    <field name="purchase_ids" invisible="1"/>
+                </button>
+                    </div>
+            </xpath>
+            <!--<xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="readonly">['|', ('state', 'in', ('confirm', 'approve','cancel'))]</attribute>
+                    <attribute name="force_save">True</attribute>
+                </xpath>-->
+            <xpath expr="//field[@name='product_qty']" position="after">
+                    <field name="quantity_purchase"/>
+                    <field name="quantity_available"/>
+                    <field name="supplier_id"/>
+                </xpath>
+        </field>
+    </record>
+
+</odoo>

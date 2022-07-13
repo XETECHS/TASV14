@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="group_edit_requisition_lines" model="res.groups">
+        <field name="name">Editar Lineas de Requisicion</field>
+        <field name="category_id" ref="requisitions.module_category_po_requisition"/>
+    </record>
+
+    <record id="group_edit_purchase_order_lines" model="res.groups">
+        <field name="name">Editar Lineas de Orden de Compra</field>
+        <field name="category_id" ref="requisitions.module_category_po_requisition"/>
+    </record>
+
+</odoo>

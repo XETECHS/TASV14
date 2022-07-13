@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="theme_alan.p_offer_timer_snippet">
+        <div class="o_technical_modal modal" role="dialog" id="offer_timer_modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Configure Offer Timer</h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="ti-close" />
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row align-items-center form-group m_tab_collection_container">
+                            <label for="p_offer_timer" class="col-sm-3 m-0 control-label">Date</label>
+                            <div class="col-sm-9">
+                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="timer_val" name="timer_val" />
+                                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker1').datetimepicker({
+                                    widgetParent: 'body'
+                                });
+                            });  
+                        </script>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn_continue" data-dismiss="modal">Continue</button>
+                        <button type="button" class="btn btn-secondary btn_close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="theme_alan.banner_coffee">
+        <section class="bg-no-repeat bg-cover bg-center" style="background-image: url(http://alan-snippets.atharvasystem.com/img/coffee-banner.jpg);">
+            <div class="container">
+                <div class="row full-screen align-items-center justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h1 class="font-w-700 display-1 white-color">Colombian Roasted Cofee</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+    <t t-name="theme_alan.banner_cloths">
+        <section class="bg-no-repeat bg-cover" style="background-image: url(http://alan-snippets.atharvasystem.com/img/fashion-banner-1.jpg);">
+            <div class="container">
+                <div class="row full-screen align-items-center">
+                    <div class="col-lg-10">
+                        <label class="white-color lead font-w-600">The Best Products</label>
+                        <h1 class="font-w-700 display-4 white-color">2018 New Collections</h1>
+                        <div class="p-15px-t">
+                            <a class="as-btn as-btn-dark" href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+    <t t-name="theme_alan.banner_gym">
+        <section class="bg-cover bg-no-repeat bg-center" style="background-image: url(http://alan-snippets.atharvasystem.com/img/gym-banner-1.jpg);">
+            <div class="container">
+                <div class="row full-screen align-items-center p-100px-tb">
+                    <div class="col-lg-7 m-50px-tb">
+                        <h1 class="white-color font-w-700 display-3">FITNESS THAT <span class="theme-color">EMPOWERS</span></h1>
+                        <p class="lead font-w-600 white-color-alt">WORK OUT MORE EFFICIENTLY THAN EVER!</p>
+                        <div class="p-15px-t">
+                            <a class="as-btn as-btn-theme" href="#">Sign up today</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+    <t t-name="theme_alan.banner_skate">
+        <section class="bg-cover bg-center bg-no-repeat" style="background-image: url(http://alan-snippets.atharvasystem.com/img/skate-banner-1.jpg);">
+            <div class="container">
+                <div class="row full-screen align-items-end p-6-tb">
+                    <div class="col-12 p-100px-b">
+                        <h1 class="font-w-700 white-color">The All New Skate</h1>
+                        <div class="p-15px-t">
+                            <a class="as-btn as-btn-white" href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+</templates>

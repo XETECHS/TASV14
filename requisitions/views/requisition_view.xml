@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Requisition form -->
+        <record model="ir.ui.view" id="po_requisition_form">
+            <field name="name">po.requisition.form</field>
+            <field name="model">po.requisition</field>
+            <field name="arch" type="xml">
+                <form string="PO Requisition">
+                    <header>
+                        <button name="action_confirm" states="draft" string="Confirmar" type="object"
+                                class="oe_highlight"/>
+                        <button name="action_approve_po_requisition" states="confirm" string="Aprobar" type="object"
+                                class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve,cancel"/>
+                    </header>
+                    <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Req"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                        <group>
+                            <group>
+                                <field name="delivery_date" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}"/>
+                                <field name="po_reference" invisible="1"/>
+                                <field name="purchase_order_ids" string="Pedidos de compra" widget="many2many_tags" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}"/>
+                                <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}"/>
+                            </group>
+                            <group>
+                                <field name="partner_id" invisible="1"/>
+                                <field name="partner_ids" widget="many2many_tags" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}"/>
+                                <field name="solicited_by" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}" required="1"/>
+                                <field name="po_reference" readonly="1" invisible="1"/>
+                            </group>
+
+                        </group>
+                        
+                        <notebook>
+                            <page string="Products">
+                                <field name="order_line" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}">
+                                    <tree string="Purchase Order Lines" editable="bottom">
+                                        <field name="product_id" force_save="1"/>
+
+                                        <field name="product_qty"/>
+
+                                        <field name="product_uom" force_save="1"/>
+
+                                    </tree>
+
+                                </field>
+
+                            </page>
+
+                        </notebook>
+                        <group>
+                            <group>
+                                <field name="notes" attrs="{'readonly': [('state', 'in', ('confirm', 'approve','cancel'))]}"/>
+                            </group>
+
+                        </group>
+
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Requisition action -->
+        <record model="ir.actions.act_window" id="po_requisition_action">
+            <field name="name">Requisición de Compra</field>
+            <field name="res_model">po.requisition</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Requisition
+                </p>
+            </field>
+        </record>
+
+        <!-- Requisition tree -->
+        <record model="ir.ui.view" id="po_requisition_tree">
+            <field name="name">po.requisition.tree</field>
+            <field name="model">po.requisition</field>
+            <field name="arch" type="xml">
+                <tree string="PO Requisition">
+                    <field name="id" invisible="1"/>
+                    <field name="name" string="Name"/>
+                    <field name="project_id"/>
+                    <field name="warehouse_id"/>
+                    <field name="delivery_date"/>
+                    <field name="solicited_by"/>
+                    <field name="po_reference" readonly="1" invisible="1"/>
+
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Requisition menu -->
+        <menuitem id="menu_procurement_management_po_requisition" name="Requisición de Compra"
+                  parent="project.menu_main_pm" action="po_requisition_action" sequence="3"/>
+    </data>
+</odoo>

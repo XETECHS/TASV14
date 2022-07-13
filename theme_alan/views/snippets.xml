@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_editors_alan_builder" inherit_id="website.assets_editor" name="Alan Snippet Builder JS" priority="20">
+        <xpath expr="link[last()]" position="after">
+            <script src="/theme_alan/static/src/js/snippet_builder.js"></script>
+        </xpath>
+    </template>
+    <template id="website_snippet_builder" name="Alan Snippet Builder">
+        <section class="alan_snippet_builder"></section>
+    </template>
+    <template id="grid_snippet" name="Grid Snippet">
+        <section class="as_ui_kit_section">
+            <div class="as_ui_kit_container container">
+                <div class="as_ui_kit_row row">
+                    <div class="as_ui_kit_column col col-12 col-lg-12 content oe_structure"></div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Offer Timer Snippet -->
+    <template name="Offer Timer" id="offer_timer_body">
+        <div class="offer_timer dt-deal-count" data-date="nan" contentEditable="false">
+            <h2>Offer Timer</h2>
+        </div>
+    </template>
+
+    <template name="Deal of the day 1" id="deal_day_1">
+        <section class="section p-0px-b" style="background: #c5f3ff;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 m-30px-tb">
+                        <div class="dark-color display-4 font-w-300 m-20px-b">Deal Of <span class="font-w-600">The Day</span></div>
+                        
+                        <div class="as_offer_timer"></div>
+
+                        <div class="p-30px-t">
+                            <a class="as-btn as-btn-dark" href="#">Shop Now</a>
+                            <a class="as-btn as-btn-t-dark" href="#">View All</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="http://odoo-snippets.atharvasystem.com/source/img/alan-fashion-col-7.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template name="Deal of the day 2" id="deal_day_2">
+        <section class="section deal-of-day-snip-rounder bg-cover" style="background-image: url(http://odoo-snippets.atharvasystem.com/source/img/fa-deal-day.jpg);">
+            <div class="container">
+                <div class="row justify-content-center p-100px-tb">
+                    <div class="col-lg-6">
+                        <div class="deal-text m-20-tb text-center">
+                            <div class="display-4 font-w-600 white-color after-50px white-after p-20px-b m-20px-b">SALE NOW ON</div>
+                            <p class="white-color-alt lead m-20px-t">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+                            <div class="as_offer_timer"></div>
+                            <div class="p-30px-t">
+                                <a class="as-btn as-btn-t-white" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template name="Deal of the day 3" id="deal_day_3">
+        <section class="section deal-of-day-snip-rounder" style="background-color: #f8f9fa;">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="m-15px-tb col-lg-5">
+                        <div class="p-50px-r md-p-0px-r">
+                            <div class="display-4 dark-color font-w-700 m-20px-b after-50px dark-after p-20px-b">Deals Of The Day</div>
+                            <p>Lorem ipsum dolor sit amet, eam viris essent dissentiet at, nec falli percipit petentium ut. Delenit molestie sententiae ea his....</p>
+                            <div class="as_offer_timer">
+                            </div>
+                            <div class="p-30px-t">
+                                <a class="as-btn as-btn-t-dark" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 m-15px-tb">
+                        <div class="hover-shine">
+                            <img src="http://odoo-snippets.atharvasystem.com/source/img/alan-v2-cat-6.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Snippet Options -->
+    <template id="alan_dynamic_snippet_options" name="Dynamic Snippet Options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <!-- Offer Timer Snippet -->
+            <div data-js="offer_timer" data-selector=".offer_timer" data-drop-in=".as_offer_timer">
+                <we-button data-modify_date="" data-no-preview="true">Modify Time</we-button>
+            </div>
+        </xpath>
+    </template>
+    <template id="snippet_builder" name="Snippet Builder"  inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']//div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="theme_alan.website_snippet_builder" t-thumbnail="/theme_alan/static/src/icon/html_builder-icon.png"/>
+            <!-- <t t-snippet="theme_alan.grid_snippet" t-thumbnail="/theme_alan/static/src/icon/grid_snippet.png"/> -->
+            <!-- Offer Timer Snippet -->
+            <t t-snippet="theme_alan.offer_timer_body" t-thumbnail="/theme_alan/static/src/icon/timer-snippet.png"/>
+            <t t-snippet="theme_alan.deal_day_1" t-thumbnail="/theme_alan/static/src/icon/deal-snippet.png"/>
+            <t t-snippet="theme_alan.deal_day_2" t-thumbnail="/theme_alan/static/src/icon/deal-snippet.png"/>
+            <t t-snippet="theme_alan.deal_day_3" t-thumbnail="/theme_alan/static/src/icon/deal-snippet.png"/>
+        </xpath>
+    </template>
+    <template id="options_embeded" inherit_id="website.snippets" name="Customized Builder Options">
+        <xpath expr="//div[@id='snippet_options']" position="inside">
+            <div data-js="summernote_embeded"
+            data-selector=".alan_snippet_builder">
+                <we-button data-select_snippet="" data-no-preview="true">Modify</we-button>
+            </div>
+
+            <div data-selector=".s_product_slider, .tqt-product-brand-slider">
+                <we-button data-select-class="sp-title-hide">Hide Heading</we-button>
+                <we-button data-select-class="">Show Heading</we-button>
+            </div>
+
+            <div data-selector="section .container" data-no-preview="true">
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/> Container</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="container-large">Large</we-button>
+                        <we-button data-select-class="container-xl">Extra Large</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+            </div>
+
+            <div data-selector="section .row">
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/>Row Gutters</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="no-gutters">No Gutters</we-button>
+                        <we-button data-select-class="">Gutters</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-v"/>Vertical Align(All)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="align-items-start">Start</we-button>
+                        <we-button data-select-class="align-items-end">End</we-button>
+                        <we-button data-select-class="align-items-center">Center</we-button>
+                        <we-button data-select-class="align-items-baseline">Baseline</we-button>
+                        <we-button data-select-class="align-items-stretch">Stretch</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-v"/>Vertical Align(>576px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="align-items-sm-start">Start (sm)</we-button>
+                        <we-button data-select-class="align-items-sm-end">End (sm)</we-button>
+                        <we-button data-select-class="align-items-sm-center">Center (sm)</we-button>
+                        <we-button data-select-class="align-items-sm-baseline">Baseline (sm)</we-button>
+                        <we-button data-select-class="align-items-sm-stretch">Stretch (sm)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-v"/>Vertical Align(>768px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="align-items-md-start">Start (md)</we-button>
+                        <we-button data-select-class="align-items-md-end">End (md)</we-button>
+                        <we-button data-select-class="align-items-md-center">Center (md)</we-button>
+                        <we-button data-select-class="align-items-md-baseline">Baseline (md)</we-button>
+                        <we-button data-select-class="align-items-md-stretch">Stretch (md)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-v"/>Vertical Align(>992px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="align-items-lg-start">Start (lg)</we-button>
+                        <we-button data-select-class="align-items-lg-end">End (lg)</we-button>
+                        <we-button data-select-class="align-items-lg-center">Center (lg)</we-button>
+                        <we-button data-select-class="align-items-lg-baseline">Baseline (lg)</we-button>
+                        <we-button data-select-class="align-items-lg-stretch">Stretch (lg)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-v"/>Vertical Align(>1200px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="align-items-xl-start">Start (xl)</we-button>
+                        <we-button data-select-class="align-items-xl-end">End (xl)</we-button>
+                        <we-button data-select-class="align-items-xl-center">Center (xl)</we-button>
+                        <we-button data-select-class="align-items-xl-baseline">Baseline (xl)</we-button>
+                        <we-button data-select-class="align-items-xl-stretch">Stretch (xl)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/>Horizontal Align(All)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="justify-content-start">Start</we-button>
+                        <we-button data-select-class="justify-content-end">End</we-button>
+                        <we-button data-select-class="justify-content-center">Center</we-button>
+                        <we-button data-select-class="justify-content-between">Between</we-button>
+                        <we-button data-select-class="justify-content-around">Around</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/>Horizontal Align(>576px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="justify-content-sm-start">Start (sm)</we-button>
+                        <we-button data-select-class="justify-content-sm-end">End (sm)</we-button>
+                        <we-button data-select-class="justify-content-sm-center">Center (sm)</we-button>
+                        <we-button data-select-class="justify-content-sm-between">Between (sm)</we-button>
+                        <we-button data-select-class="justify-content-sm-around">Around (sm)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/>Horizontal Align(>768px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="justify-content-md-start">Start (md)</we-button>
+                        <we-button data-select-class="justify-content-md-end">End (md)</we-button>
+                        <we-button data-select-class="justify-content-md-center">Center (md)</we-button>
+                        <we-button data-select-class="justify-content-md-between">Between (md)</we-button>
+                        <we-button data-select-class="justify-content-md-around">Around (md)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/>Horizontal Align(>992px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="justify-content-lg-start">Start (lg)</we-button>
+                        <we-button data-select-class="justify-content-lg-end">End (lg)</we-button>
+                        <we-button data-select-class="justify-content-lg-center">Center (lg)</we-button>
+                        <we-button data-select-class="justify-content-lg-between">Between (lg)</we-button>
+                        <we-button data-select-class="justify-content-lg-around">Around (lg)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-fw fa-arrows-h"/>Horizontal Align(>1200px)</we-toggler>
+                    <we-collapse>
+                        <we-button data-select-class="justify-content-xl-start">Start (xl)</we-button>
+                        <we-button data-select-class="justify-content-xl-end">End (xl)</we-button>
+                        <we-button data-select-class="justify-content-xl-center">Center (xl)</we-button>
+                        <we-button data-select-class="justify-content-xl-between">Between (xl)</we-button>
+                        <we-button data-select-class="justify-content-xl-around">Around (xl)</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+            </div>
+
+            <div data-selector="section .row > div, footer .row > div">
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-columns"/> Column (All)</we-toggler>
+                    <we-collapse data-no-preview="true">
+                        <we-button data-select-class="col">Column</we-button>
+                        <we-button data-select-class="col-1">Column 1</we-button>
+                        <we-button data-select-class="col-2">Column 2</we-button>
+                        <we-button data-select-class="col-3">Column 3</we-button>
+                        <we-button data-select-class="col-4">Column 4</we-button>
+                        <we-button data-select-class="col-5">Column 5</we-button>
+                        <we-button data-select-class="col-6">Column 6</we-button>
+                        <we-button data-select-class="col-7">Column 7</we-button>
+                        <we-button data-select-class="col-8">Column 8</we-button>
+                        <we-button data-select-class="col-9">Column 9</we-button>
+                        <we-button data-select-class="col-10">Column 10</we-button>
+                        <we-button data-select-class="col-11">Column 11</we-button>
+                        <we-button data-select-class="col-12">Column 12</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-columns"/> Column (>576px)</we-toggler>
+                    <we-collapse data-no-preview="true">
+                        <we-button data-select-class="col-sm">Column</we-button>
+                        <we-button data-select-class="col-sm-1">Column 1</we-button>
+                        <we-button data-select-class="col-sm-2">Column 2</we-button>
+                        <we-button data-select-class="col-sm-3">Column 3</we-button>
+                        <we-button data-select-class="col-sm-4">Column 4</we-button>
+                        <we-button data-select-class="col-sm-5">Column 5</we-button>
+                        <we-button data-select-class="col-sm-6">Column 6</we-button>
+                        <we-button data-select-class="col-sm-7">Column 7</we-button>
+                        <we-button data-select-class="col-sm-8">Column 8</we-button>
+                        <we-button data-select-class="col-sm-9">Column 9</we-button>
+                        <we-button data-select-class="col-sm-10">Column 10</we-button>
+                        <we-button data-select-class="col-sm-11">Column 11</we-button>
+                        <we-button data-select-class="col-sm-12">Column 12</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-columns"/> Column (>768px)</we-toggler>
+                    <we-collapse data-no-preview="true">
+                        <we-button data-select-class="col-md">Column</we-button>
+                        <we-button data-select-class="col-md-1">Column 1</we-button>
+                        <we-button data-select-class="col-md-2">Column 2</we-button>
+                        <we-button data-select-class="col-md-3">Column 3</we-button>
+                        <we-button data-select-class="col-md-4">Column 4</we-button>
+                        <we-button data-select-class="col-md-5">Column 5</we-button>
+                        <we-button data-select-class="col-md-6">Column 6</we-button>
+                        <we-button data-select-class="col-md-7">Column 7</we-button>
+                        <we-button data-select-class="col-md-8">Column 8</we-button>
+                        <we-button data-select-class="col-md-9">Column 9</we-button>
+                        <we-button data-select-class="col-md-10">Column 10</we-button>
+                        <we-button data-select-class="col-md-11">Column 11</we-button>
+                        <we-button data-select-class="col-md-12">Column 12</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-columns"/> Column (>992px)</we-toggler>
+                    <we-collapse data-no-preview="true">
+                        <we-button data-select-class="col-lg">Column</we-button>
+                        <we-button data-select-class="col-lg-1">Column 1</we-button>
+                        <we-button data-select-class="col-lg-2">Column 2</we-button>
+                        <we-button data-select-class="col-lg-3">Column 3</we-button>
+                        <we-button data-select-class="col-lg-4">Column 4</we-button>
+                        <we-button data-select-class="col-lg-5">Column 5</we-button>
+                        <we-button data-select-class="col-lg-6">Column 6</we-button>
+                        <we-button data-select-class="col-lg-7">Column 7</we-button>
+                        <we-button data-select-class="col-lg-8">Column 8</we-button>
+                        <we-button data-select-class="col-lg-9">Column 9</we-button>
+                        <we-button data-select-class="col-lg-10">Column 10</we-button>
+                        <we-button data-select-class="col-lg-11">Column 11</we-button>
+                        <we-button data-select-class="col-lg-12">Column 12</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+
+                <we-collapse-area>
+                    <we-toggler><i class="fa fa-columns"/> Column (>1200px)</we-toggler>
+                    <we-collapse data-no-preview="true">
+                        <we-button data-select-class="col-xl">Column</we-button>
+                        <we-button data-select-class="col-xl-1">Column 1</we-button>
+                        <we-button data-select-class="col-xl-2">Column 2</we-button>
+                        <we-button data-select-class="col-xl-3">Column 3</we-button>
+                        <we-button data-select-class="col-xl-4">Column 4</we-button>
+                        <we-button data-select-class="col-xl-5">Column 5</we-button>
+                        <we-button data-select-class="col-xl-6">Column 6</we-button>
+                        <we-button data-select-class="col-xl-7">Column 7</we-button>
+                        <we-button data-select-class="col-xl-8">Column 8</we-button>
+                        <we-button data-select-class="col-xl-9">Column 9</we-button>
+                        <we-button data-select-class="col-xl-10">Column 10</we-button>
+                        <we-button data-select-class="col-xl-11">Column 11</we-button>
+                        <we-button data-select-class="col-xl-12">Column 12</we-button>
+                        <we-button data-select-class="">Reset</we-button>
+                    </we-collapse>
+                </we-collapse-area>
+            </div>
+
+        </xpath>
+    </template>
+</odoo>

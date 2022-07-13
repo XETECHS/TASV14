@@ -1,0 +1,150 @@
+#footer {
+	background: $as-footer-bg !important;
+}
+.top-footer {
+	padding: 20px 0 50px 0;
+	border-top: 1px solid rgba($as-footer-text,0.12);
+	.fot-title {
+		h6 {
+		    font-size: 16px;
+		    font-weight: 500;
+		    text-transform: uppercase;
+		    margin: 30px 0 20px;
+		    color: $as-footer-title;
+		}
+	}
+	.fot-menu {
+		margin: 0;
+	    padding: 0;
+	    list-style: none;
+	    li {
+	    	padding: 4px 0;
+	    	a {
+		    font-weight: 400;
+		    text-transform: uppercase;
+		    font-size: 13px;
+		    position: relative;
+		    color: rgba($as-footer-text, 0.5);
+		    display: inline-block;
+		    vertical-align: top;
+		    	&:hover {
+		    		color:$as-footer-text;
+		    	}
+	    	}
+	    }
+	}
+}
+
+.middle-footer {
+	padding: 50px 0;
+    border-top: 1px solid rgba($as-footer-text,0.12);
+    border-bottom: 1px solid rgba($as-footer-text,0.12);
+	.subscribe-section {
+		text-align: center;
+		h3 {
+			font-size: 24px;
+			font-weight: 300;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			position: relative;
+			margin: 0 0 20px;
+			padding: 0 0 20px;
+			color: $as-footer-title;
+			&:after {
+				content:"";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 50px;
+				height: 2px;
+				margin: auto;
+				background: $as-theme;
+			}
+		}
+		
+		.js_subscribe {
+			margin-top: 30px;
+			position: relative;
+			.form-control {
+			    background: none;
+			    border: 1px solid rgba($as-footer-text,0.12) !important;
+			    border-bottom: 2px solid rgba($as-footer-text,0.12) !important;
+			    height: 50px;
+			    padding: 10px 70px 10px 20px;
+			    box-shadow: none !important;
+			    z-index: 0;
+			    background: transparent;
+			    color: $as-footer-text;
+			}
+			.btn {
+			    height: 50px;
+			    position: absolute;
+			    right: 0;
+			    bottom: 0;
+			    padding: 0;
+			    line-height: 48px;
+			    width: 50px;
+			    background: none !important;
+			    color: $as-footer-text !important;
+			    font-size: 20px;
+			    border-radius: 0;
+			    border: 1px solid transparent !important;
+			    border-left: 1px solid rgba($as-footer-text,0.12) !important;
+			}
+		}
+	}
+
+	.link-follow {
+		padding: 45px 0 0;
+		.nav {
+			li {
+				margin: 0 5px;
+			}
+			a {
+				width: 40px;
+			    height: 40px;
+			    border: 1px solid rgba($as-footer-text,0.12);
+			    display: block;
+			    text-align: center;
+			    line-height: 40px;
+			    color: rgba($as-footer-text, 0.5);
+			    @include transition(ease all 0.55s);
+			    border-radius: 50%;
+			    &:hover {
+			    	background: $as-theme;
+			    	border-color: $as-theme;
+			    	color: $as-white;
+			    }
+			}
+		}
+	}
+	
+}
+
+.footer-last {
+    padding: 15px 0;
+	.copyright {
+	    margin: 15px 0;
+	    font-size: 13px;
+	    color: rgba($as-footer-text,.5);
+	    font-weight: 400;
+	}
+
+	.nav {
+		> li {
+			margin: 0 10px 0 0;
+			> a {
+		        font-size: 13px;
+			    color: rgba($as-footer-text,.5);
+			    display: block;
+			    &:hover {
+			    	color:$as-footer-text;
+			    }
+			}
+		}
+	}
+}
+.o_footer_copyright{
+	display: none !important;
+}

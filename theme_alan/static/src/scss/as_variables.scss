@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Literata:400,400i,500,500i,600,600i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+
+
+// Container Width
+$as-container:					         1400px !default;
+$as-container-lg:				         1440px !default;
+$as-container-xl:                1760px !default;
+$as-body-bg:					           #fff !default;
+
+// Font size
+$as-font-size-base: 			       0.95rem !default;
+$as-line-height-base:            1.5  !default;
+
+// Font Family Theme
+$as-family-1:					           'Roboto', sans-serif !default;
+$as-family-2:					           'Arimo', sans-serif !default;
+$as-family-3:					           'Montserrat', sans-serif !default;
+$as-family-4:					           'Work Sans', sans-serif !default;
+$as-family-5:					           'Poppins', sans-serif !default;
+$as-family-6:					           'Literata', serif !default;
+
+$as-body-font-family:			        $as-family-1 !default;
+$as-font-alt:					            $as-family-1 !default;
+
+// Font Color
+$as-body-color:					          #616161 !default;
+$as-dark-color:					          #323232;
+$as-dark-gray-color:		          #7a7a7a !default;
+
+
+// color map
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "theme":    $as-theme,
+    "white":  	$as-white,
+    "black":  	$as-black,
+    "dark":  	  $as-dark-color,
+    "blue":     $as-blue,
+    "green":    $as-green,
+    "yellow":   $as-yellow,
+    "red":      $as-red,
+    "pink":      $as-pink,
+  ),
+  $theme-colors
+);
+
+
+$as-btn-radius: 0 !default;
+
+/*Theme Color Solid*/
+$as-btn-theme:    $as-theme !default;
+$as-btn-border-theme:   $as-theme !default;
+$as-btn-color-theme:  $as-white !default;
+
+$as-btn-theme-hover:  darken($as-theme, 10%) !default;
+$as-btn-border-theme-hover: darken($as-theme, 10%) !default;
+$as-btn-color-theme-hover:  $as-white !default;
+
+/*Dark Color Solid*/
+$as-btn-dark:   $as-dark-color !default;
+$as-btn-border-dark:  $as-dark-color !default;
+$as-btn-color-dark:   $as-white !default;
+
+$as-btn-dark-hover:   $as-white !default;
+$as-btn-border-dark-hover:  $as-dark-color !default;
+$as-btn-color-dark-hover: $as-dark-color !default;
+
+/*White Color Solid*/
+$as-btn-white:  $as-white !default;
+$as-btn-border-white: $as-white !default;
+$as-btn-color-white:  $as-dark-color !default;
+
+$as-btn-white-hover:  $as-theme !default;
+$as-btn-border-white-hover: $as-theme !default;
+$as-btn-color-white-hover:  $as-white !default;

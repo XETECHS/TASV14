@@ -1,0 +1,663 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* industry_fsm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-12 22:31+0000\n"
+"PO-Revision-Date: 2022-07-12 22:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__delay_endings_days
+msgid "# Days to Deadline"
+msgstr "# Días para la fecha límite"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__working_days_open
+msgid "# Working Days to Assign"
+msgstr "# Días laborales por asignar"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__working_days_close
+msgid "# Working Days to Close"
+msgstr "# Días laborables por cerrar"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__nbr
+msgid "# of Tasks"
+msgstr "# de tareas"
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid ""
+"<b>Save</b> the time spent on your intervention. <i>Notice that a rounding "
+"of 15min was applied. You can customize this value from the settings of the "
+"Timesheets app.</i>"
+msgstr ""
+"<b>Guarda</b> el tiempo utilizado en tu intervención. <i>Nota que se aplicó "
+"un redondeo de 15 minutos. Puedes personalizar este valor desde los ajustes "
+"de la aplicación de Hoja de horas.</i>"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid ""
+"<i class=\"fa fa-long-arrow-right mx-2 oe_edit_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>\n"
+"                        <i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\" attrs=\"{'invisible': [('planned_date_begin', '=', False), ('planned_date_end', '=', False)]}\"/>"
+msgstr ""
+"<i class=\"fa fa-long-arrow-right mx-2 oe_edit_only\" aria-label=\"Ícono de flecha\" title=\"Flecha\"/>\n"
+"                        <i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Ícono de flecha\" title=\"Flecha\" attrs=\"{'invisible': [('planned_date_begin', '=', False), ('planned_date_end', '=', False)]}\"/>"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "<span class=\"align-middle\">for this employee at the same time.</span>"
+msgstr "<span class=\"align-middle\">para este empleado al mismo tiempo.</span>"
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid "Add a task title <i>(e.g. Boiler replacement).</i>"
+msgstr "Añade un título a la tarea <i>(ej. remplazo de calentador).</i>"
+
+#. module: industry_fsm
+#: model:res.groups,name:industry_fsm.group_fsm_manager
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_all_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_all_tasks_root
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_all_tasks_todo
+msgid "All Tasks"
+msgstr "Todas las tareas"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__user_id
+msgid "Assigned To"
+msgstr "Asignado a"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__user_id
+msgid "Assigned to"
+msgstr "Asignada a"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__date_assign
+msgid "Assignment Date"
+msgstr "Fecha de asignación"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.project_task_menu_planning_by_project_fsm
+msgid "By Project"
+msgstr "Por proyecto"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.project_task_menu_planning_by_user_fsm
+msgid "By User"
+msgstr "Por usuario"
+
+#. module: industry_fsm
+#: model:ir.model,name:industry_fsm.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__company_id
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Company"
+msgstr "Empresa"
+
+#. module: industry_fsm
+#: model:ir.model,name:industry_fsm.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_settings
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_user_action_report_fsm
+msgid "Create tasks to get statistics."
+msgstr "Crea tareas para obtener estadísticas."
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__partner_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__date_deadline
+msgid "Deadline"
+msgstr "Fecha límite"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__display_enabled_conditions_count
+msgid "Display Enabled Conditions Count"
+msgstr "Mostrar conteo de condiciones habilitadas"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__display_fsm_dates
+msgid "Display Fsm Dates"
+msgstr "Mostrar fechas de Orden de Trabajo"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__display_mark_as_done_primary
+msgid "Display Mark As Done Primary"
+msgstr "Mostrar marcar como hecho primario"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__display_mark_as_done_secondary
+msgid "Display Mark As Done Secondary"
+msgstr "Mostrar marcar como hecho secundario"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_project__display_name
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__display_name
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__display_name
+#: model:ir.model.fields,field_description:industry_fsm.field_res_company__display_name
+#: model:ir.model.fields,field_description:industry_fsm.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__display_satisfied_conditions_count
+msgid "Display Satisfied Conditions Count"
+msgstr "Mostrar el conteo de condiciones satisfechas"
+
+#. module: industry_fsm
+#: model:ir.model.fields,help:industry_fsm.field_project_project__is_fsm
+#: model:ir.model.fields,help:industry_fsm.field_project_task__is_fsm
+msgid ""
+"Display tasks in the Field Service module and allow planning with start/end "
+"dates."
+msgstr ""
+"Visualiza tareas en el módulo Orden de Trabajo y permite la planificación "
+"con fechas de inicio / finalización."
+
+#. module: industry_fsm
+#: model:project.task.type,name:industry_fsm.planning_project_stage_1
+msgid "Done"
+msgstr "Hecho"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__hours_effective
+msgid "Effective Hours"
+msgstr "Horas reales"
+
+#. module: industry_fsm
+#: model:project.task.type,legend_normal:industry_fsm.planning_project_stage_0
+#: model:project.task.type,legend_normal:industry_fsm.planning_project_stage_1
+msgid "En progreso"
+msgstr ""
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__date_end
+msgid "Ending Date"
+msgstr "Fecha de finalización"
+
+#. module: industry_fsm
+#: model:ir.model,name:industry_fsm.model_report_project_task_user_fsm
+msgid "FSM Tasks Analysis"
+msgstr "Análisis de las tareas del Orden de Trabajo "
+
+#. module: industry_fsm
+#: code:addons/industry_fsm/models/company.py:0
+#: model:ir.model.fields,field_description:industry_fsm.field_project_project__is_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__is_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_root
+#: model_terms:ir.ui.view,arch_db:industry_fsm.res_config_settings_view_form
+#, python-format
+msgid "Field Service"
+msgstr "Orden de Trabajo"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm_map
+msgid "Find here your itinerary for today's tasks."
+msgstr "Encuentra aquí el itinerario de tus tareas de hoy."
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm
+msgid "Find here your tasks planned for the following days."
+msgstr "Encuentra aquí tus tareas planeadas para los próximos días."
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Future"
+msgstr "Futuro"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__has_complete_partner_address
+msgid "Has Complete Partner Address"
+msgstr "Tiene la dirección completa del partner"
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid ""
+"Here is the <b>Field Service app</b>. Click on the icon to start managing "
+"your onsite interventions."
+msgstr ""
+"Aquí está la<b> aplicación de Orden de Trabajo</b>. Haz clic en el ícono "
+"para comenzar a gestionar tus intervenciones en el lugar de trabajo."
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid ""
+"Here is the view of the users who are on the field. Click CREATE to start "
+"your first task."
+msgstr ""
+"Aquí está la vista de los usuarios que están en el campo. Haz clic en CREAR "
+"para comenzar tu primera tarea."
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_project__id
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__id
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__id
+#: model:ir.model.fields,field_description:industry_fsm.field_res_company__id
+#: model:ir.model.fields,field_description:industry_fsm.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid ""
+"If everything looks good to you, mark the task as done. When doing so, your "
+"stock will automatically be updated and your task will move to the next "
+"stage."
+msgstr ""
+"Si todo se ve bien, marca la tarea como terminada. Cuando lo hagas, tus "
+"existencias se actualizarán automáticamente y tu tarea será movida a la "
+"siguiente etapa."
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__state
+msgid "Kanban State"
+msgstr "Estado de kanban"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.res_config_settings_view_form
+msgid ""
+"Keep track of the products used during your interventions and invoice your "
+"time and material"
+msgstr ""
+"Lleva el registro de los productos utilizados en tus intervenciones y "
+"factura tu tiempo y materiales"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_project____last_update
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task____last_update
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm____last_update
+#: model:ir.model.fields,field_description:industry_fsm.field_res_company____last_update
+#: model:ir.model.fields,field_description:industry_fsm.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__date_last_stage_update
+msgid "Last Stage Update"
+msgstr "Última actualización de la fase"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm_planning_groupby_project
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm_planning_groupby_user
+msgid "Let's start your planning by adding a new task."
+msgstr "Empecemos tu planeación añadiendo una nueva tarea."
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_view_form_inherit
+msgid "Manage tasks in the Field Service module"
+msgstr "Gestiona tareas en el módulo de Orden de Trabajo"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_fsm_map
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_tasks_map
+msgid "Map"
+msgstr "Mapa"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "Mark as done"
+msgstr "Marcar como hecho"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_tasks_menu
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "My Tasks"
+msgstr "Mis tareas"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "Navigate To"
+msgstr "Ir a"
+
+#. module: industry_fsm
+#: model:project.task.type,name:industry_fsm.planning_project_stage_0
+msgid "New"
+msgstr "Nuevo"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_user_action_report_fsm
+msgid "No data yet!"
+msgstr "¡No hay información aún!"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_project_action_only_fsm
+msgid "No projects found. Let's create one!"
+msgstr "No se encontraron proyectos. ¡Vamos a crear uno!"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm_planning_groupby_project
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm_planning_groupby_user
+msgid "No tasks found"
+msgstr "No se encontraron tareas"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_all_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_fsm_map
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_to_schedule_fsm
+msgid "No tasks found. Let's create one!"
+msgstr "No se encontraron tareas. ¡Vamos a crear una!"
+
+#. module: industry_fsm
+#: model:project.task.type,legend_blocked:industry_fsm.planning_project_stage_0
+#: model:project.task.type,legend_blocked:industry_fsm.planning_project_stage_1
+msgid "Not validated"
+msgstr "No validado"
+
+#. module: industry_fsm
+#: model:ir.model.fields,help:industry_fsm.field_report_project_task_user_fsm__working_days_open
+msgid "Number of Working Days to Open the task"
+msgstr "Nº de días laborables para abrir la tarea"
+
+#. module: industry_fsm
+#: model:ir.model.fields,help:industry_fsm.field_report_project_task_user_fsm__working_days_close
+msgid "Number of Working Days to close the task"
+msgstr "Nº de días laborables para cerrar la tarea"
+
+#. module: industry_fsm
+#: code:addons/industry_fsm/models/project.py:0
+#, python-format
+msgid "Overlapping Tasks"
+msgstr "Tareas traslapadas"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "Planned Date"
+msgstr "Fecha planeada"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__hours_planned
+msgid "Planned Hours"
+msgstr "Horas planeadas"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Planned for Today"
+msgstr "Planeado para hoy"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_planning
+msgid "Planning"
+msgstr "Planeación"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__planning_overlap
+msgid "Planning Overlap"
+msgstr "Traslape de planeación"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_fsm_planning_groupby_project
+msgid "Planning by Project"
+msgstr "Planeación por proyecto"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_fsm_planning_groupby_user
+msgid "Planning by User"
+msgstr "Planeación por usuario"
+
+#. module: industry_fsm
+#: model:project.task.type,legend_done:industry_fsm.planning_project_stage_0
+#: model:project.task.type,legend_done:industry_fsm.planning_project_stage_1
+msgid "Preparado"
+msgstr ""
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__progress
+msgid "Progress"
+msgstr "Progreso"
+
+#. module: industry_fsm
+#: model:ir.model,name:industry_fsm.model_project_project
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__project_id
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_project_action_only_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_settings_project
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_project_action_only_fsm
+msgid ""
+"Projects regroup tasks on the same topic and each have their own dashboard."
+msgstr ""
+"Los proyectos reagrupan tareas sobre el mismo tema y cada uno tiene su "
+"propio tablero."
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.res_config_settings_view_form
+msgid "Provide custom worksheet reports to be signed off by customers"
+msgstr ""
+"Proporciona informes de hojas de trabajo personalizados para que sean "
+"firmados por los clientes"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__remaining_hours
+msgid "Remaining Hours"
+msgstr "Horas restantes"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_reporting
+msgid "Reporting"
+msgstr "Informes"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_to_schedule_fsm
+msgid "Schedule tasks and assign them to your workers."
+msgstr "Programa tareas y asígnalas a tus trabajadores. "
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Search planning"
+msgstr "Buscar planeación"
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid "Select or create a customer."
+msgstr "Selecciona o crea un cliente."
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.res_config_settings_action_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_settings_res_config
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__stage_id
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_kanban
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid "Start recording your time."
+msgstr "Comienza a registrar tu tiempo."
+
+#. module: industry_fsm
+#. openerp-web
+#: code:addons/industry_fsm/static/src/js/tours/industry_fsm_tour.js:0
+#, python-format
+msgid "Stop the timer and save your timesheet."
+msgstr "Detén el cronómetro y guarda tu hoja de horas."
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_project__allow_subtasks
+msgid "Sub-tasks"
+msgstr "Sub-tareas"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.menu_project_tags_act
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: industry_fsm
+#: model:ir.model,name:industry_fsm.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_project_task__fsm_done
+msgid "Task Done"
+msgstr "Tarea hecha"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_report_project_task_user_fsm__name
+msgid "Task Title"
+msgstr "Título de tarea"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_tasks_kanban
+#: model:project.project,label_tasks:industry_fsm.fsm_project
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_calendar_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_list_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_user_action_report_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_reporting_task_analysis
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_user_view_graph
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_user_view_pivot
+msgid "Tasks Analysis"
+msgstr "Análisis de tareas"
+
+#. module: industry_fsm
+#: code:addons/industry_fsm/models/project.py:0
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+#, python-format
+msgid "Time"
+msgstr "Tiempo"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.timesheet_view_form
+msgid "Time Spent"
+msgstr "Tiempo dedicado"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_res_config_settings__module_industry_fsm_sale
+msgid "Time and Material"
+msgstr "Tiempo y materiales"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "Time recorded on this task"
+msgstr "Tiempo registrado en esta tarea"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.timesheet_view_form
+msgid "Timesheet"
+msgstr "Hoja de horas"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "To Do"
+msgstr "Por hacer"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_to_schedule_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_all_tasks_schedule
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "To Schedule"
+msgstr "Por programar"
+
+#. module: industry_fsm
+#: model_terms:ir.actions.act_window,help:industry_fsm.project_task_action_all_fsm
+msgid ""
+"To get things done, use activities and status on tasks.<br>\n"
+"                Chat in real time or by email to collaborate efficiently."
+msgstr ""
+"Para ser más eficiente, usa actividades y estados en las tareas.<br>\n"
+"                Chatea en tiempo real o por correo electrónico para colaborar eficazmente."
+
+#. module: industry_fsm
+#: model:res.groups,name:industry_fsm.group_fsm_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: industry_fsm
+#: model:ir.model.fields,field_description:industry_fsm.field_res_config_settings__module_industry_fsm_report
+msgid "Worksheets"
+msgstr "Hojas de trabajo"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "is FSM ?"
+msgstr "es Orden de Trabajo?"
+
+#. module: industry_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.view_task_form2_inherit
+msgid "other tasks"
+msgstr "otras tareas"

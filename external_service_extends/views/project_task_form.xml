@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project_task_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.form.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+
+            <field name="name" position="before">
+                <field name="number" />
+            </field>
+
+
+            <!--<xpath expr="//field[@name='recurring_task']" position="after">
+                <field name="tipo_visita"/>
+                <field name="service_ticket_ids" invisible="1"/>
+            </xpath>-->
+
+            <xpath expr="//field[@name='sale_line_id']" position="after">
+                <field name="partner_child" domain="[('parent_id', '>=', 1)]" class="o_task_customer_field" />
+                <field name="partner_child_email" widget="email" />
+                <field name="partner_child_mobile" widget="phone" />
+                <!-- <field name="recurring_task" attrs="{'invisible': [('allow_recurring_tasks', '=', False)]}"/> -->
+                <field name="recurring_task" invisible="1" />
+
+
+                <field name="tipo_visita" />
+            </xpath>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_service_ticket" type="object" class="oe_stat_button" icon="fa-tasks" context="{'default_user_id': user_id}">
+                    <field string="Service Ticket" name="service_ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
+
+            <field name="user_id" position="after">
+                <field name="stage_id_name" invisible="1" />
+                <field name="resources_list_ids" invisible="1" />
+                <field name="assign_to" widget="many2many_tags" string="Técnico" attrs="{'invisible': [('stage_id_name', '=', 'Creado Esperando Inicio')]}" />
+            </field>
+
+            <!--New Fields-->
+            <xpath expr="//field[@name='tag_ids']" position="replace">
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" invisible="1" />
+                <field name="analytic_group_id" options="{'no_create': True, 'no_create_edit': True}" />
+                <field name="analytic_subgroup_id" options="{'no_create': True, 'no_create_edit': True}" domain="[('group_id', '=', analytic_group_id)]" />
+                <field name="service_type_id" options="{'no_create': True, 'no_create_edit': True}" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='recurring_task']" position="replace">
+                <field name="service_ticket_ids" invisible="1" />
+                <!-- <field name="recurring_task" attrs="{'invisible': [('allow_recurring_tasks', '=', False)]}" invisible="1"/> -->
+                <field name="recurring_task" invisible="1" />
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="project_view_task_tree_inherit_number" model="ir.ui.view">
+        <field name="name">project.view.task.tree.inherit.number</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_closed']" position="after">
+                <field name="number" />
+            </xpath>
+        </field>
+    </record>
+    <!-- Aprobar Servicios por lotes 
+    <record id="action_cancel_invoice_batch" model="ir.actions.act_window">
+        <field name="name">Aprobar por lote</field>
+        <field name="res_model">wizard.service.approved</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="external_service_extends.model_project_tasks_service_ticket"/>
+        <field name="binding_view_types">list</field>
+    </record>
+    -->
+    <!-- Project Tasks Service Ticket -->
+
+    <record id="project_tasks_service_ticket_view_search" model="ir.ui.view">
+        <field name="name">project.tasks.service.ticket.view.search</field>
+        <field name="model">project.tasks.service.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="task_id" />
+                <field name="name" />
+                <field name="user_id" />
+                <field name="partner_id" />
+                <filter string="Aprobadas" name="state" domain="[('state','=','approved')]" />
+                <filter string="Para Aprobar" name="state" domain="[('state','=','to approved')]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="project_tasks_service_ticket_view_tree" model="ir.ui.view">
+        <field name="name">project.tasks.service.ticket.view.tree</field>
+        <field name="model">project.tasks.service.ticket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="task_id" />
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="user_id" />
+                <field name="date_assign" />
+                <field name="hours_planned_in" readonly="1" />
+                <field name="hours_planned_out" readonly="1" />
+                <field name="timer_finished" invisible="0" />
+                <field name="variable" widget="monetary" attrs="{'readonly': [('state', '=', 'closed')]}" options="{'currency_field': 'company.currency_id'}" />
+                <field name="state" decoration-success="state == 'approved'" decoration-primary="state == 'to approved'" decoration-info="state == 'process' or state == 'closed'" string="Estado" widget="badge" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_tasks_service_ticket_view_form" model="ir.ui.view">
+        <field name="name">project.tasks.service.ticket.view.form</field>
+        <field name="model">project.tasks.service.ticket</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <field name="state" widget="statusbar" />
+                    <!-- <button class="btn-primary" name="action_timer_start" type="object" string="Start" attrs="{'invisible': [('display_timer_start_primary', '=', False)]}" groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                    <button class="btn-primary btn-danger o_fsm_stop" name="action_timer_stop" type="object" string="Stop" attrs="{'invisible': [('display_timer_stop', '=', False)]}" groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                    <button class="btn-primary" name="action_timer_pause" type="object" string="Pause" attrs="{'invisible': [('display_timer_pause', '=', False)]}" groups="hr_timesheet.group_hr_timesheet_user"/>
+                    <button class="btn-primary btn-info" name="action_timer_resume" type="object" string="Resume" attrs="{'invisible': [('display_timer_resume', '=', False)]}" groups="hr_timesheet.group_hr_timesheet_user"/> 
+                    <button class="btn-secondary" name="action_fsm_create_quotation" type="object" string="Nuevo Presupuesto" groups="sales_team.group_sale_salesman,industry_fsm_sale.group_fsm_quotation_from_task"/> -->
+                    <button attrs="{'invisible': [('status_timer', '!=', 'draft')]}" string="Iniciar" name="%(service_ticket_timer_action)d" type="action" class="oe_highlight" context="{'default_condition': True}" />
+                    <button attrs="{'invisible': [('status_timer', '!=', 'started')]}" string="Terminar" name="%(service_ticket_timer_action)d" type="action" class="oe_highlight" context="{'default_condition': False}" />
+                    <button states="closed" string="Para Aprobar" name="to_approved" type="object" class="oe_highlight" />
+                    <button states="to approved" string="Aprobar" name="approved" type="object" class="oe_highlight" />
+                    <field name="status_timer" invisible="1" />
+                </header>
+                <sheet>
+                    <!-- <div class="oe_button_box" name="button_box">
+                        <button name="action_fsm_view_quotations"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-dollar"
+                            attrs="{'invisible': [('quotation_count', '=', 0)]}">
+                            <field string="Quotations" name="quotation_count" widget="statinfo"/>
+                        </button>
+                    </div> -->
+                    <div class="oe_title col-9 float-left">
+                        <h1>
+                            REPORTE DE SERVICIO
+                            <field name="name" force_save="1" />
+                        </h1>
+                    </div>
+                    <div class="col-3 float-right text-right">
+                        <field name="company_logo" widget="image" style="width:200px;" />
+                    </div>
+                    <group>
+                        <group>
+                            <field name="task_id" string="No. de OT" attrs="{'readonly':[('state', 'in' ,['closed','approved','process'])]}" />
+                            <field name="date_assign" attrs="{'readonly':[('state', 'in' ,['closed','approved','to approved'])]}" />
+                            <field name="partner_id" />
+                            <field name="active_sign" invisible="1" />
+                            <label for="partner_id_vat" invisible="1" />
+                            <field name="partner_id_vat" nolabel="1" />
+                            <label for="partner_id_phone" invisible="1" />
+                            <field name="partner_id_phone" nolabel="1" />
+                            <label for="partner_id_street" invisible="1" />
+                            <field name="partner_id_street" nolabel="1" />
+                            <label for="partner_id_city" invisible="1" />
+                            <field name="partner_id_city" nolabel="1" />
+                            <label for="partner_id_state_id" invisible="1" />
+                            <field name="partner_id_state_id" nolabel="1" />
+                            <label for="partner_id_zip" invisible="1" />
+                            <field name="partner_id_zip" nolabel="1" />
+                            <label for="partner_id_country_id" invisible="1" />
+                            <field name="partner_id_country_id" nolabel="1" />
+                        </group>
+                        <group>
+                            <field name="tipo_visita" readonly="1" />
+                            <field name="user_admin" invisible="1" />
+                            <field name="variable" widget="monetary" options="{'currency_field': 'company.currency_id'}" />
+                            <field name="user_id" force_save="1" />
+                            <field name="service_type_id" attrs="{'readonly':[('state', 'in' ,['closed','approved','to approved'])]}" />
+                            <!-- <field name="display_timer_start_primary"/>
+                            <field name="display_timer_stop"/>
+                            <field name="display_timer_pause"/>
+                            <field name="display_timer_resume"/> -->
+                            <field name="company_id" invisible="1" />
+                            <field name="stage_id" force_save="1" attrs="{'readonly':[('state', 'in' ,['closed','approved','to approved'])]}" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="resources_page" string="Recursos">
+                            <group class="col-12">
+                                <label for="resources_ids" />
+                                <field name="resources_ids" nolabel="1" context="{'default_task_id': task_id}" attrs="{'readonly':[('state', 'in' ,['closed','approved','to approved'])]}">
+                                    <!-- <field name="resources_ids" nolabel="1" context="{'default_task_id': parent_id}"> -->
+                                    <tree editable="bottom">
+                                        <field name="resources_list_ids" invisible="1" />
+                                        <field name="referencia" />
+                                        <field name="product_id" domain="[('id','in',resources_list_ids)]" />
+                                        <field name="uom" />
+                                        <field name="cantidad" />
+                                        <field name="cost" invisible="1" />
+                                        <field name="subtotal" sum="Total" invisible="1" />
+                                    </tree>
+                                    <form>
+                                        <group class="col-6 float-left">
+                                            <field name="resources_list_ids" invisible="1" />
+                                            <field name="product_id" domain="[('id','in',resources_list_ids)]" />
+                                            <field name="cost" invisible="1" />
+                                            <field name="referencia" />
+                                            <field name="task_id" readonly="1" />
+                                        </group>
+                                        <group class="col-6 float-left">
+                                            <field name="uom" />
+                                            <field name="subtotal" invisible="1" />
+                                            <field name="cantidad" />
+                                            <!-- <field name="task_ticket_id"/> -->
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                            <br />
+                            <group class="col-12">
+                                <label for="work_done_xt" />
+                                <field name="work_done_xt" nolabel="1" />
+                            </group>
+                            <br />
+                            <group class="col-6 float-left">
+                                <field name="hours_planned_in" readonly="1" />
+                            </group>
+                            <group class="col-6 float-left">
+                                <field name="hours_planned_out" readonly="1" />
+                                <field name="timer_finished" invisible="1" />
+                            </group>
+                            <br />
+                            <t></t>
+                            <group class="col-6 float-left">
+                                <label for="partner_sign" attrs="{'invisible':[('status_timer', '!=' ,'finished')]}" />
+                                <field name="partner_sign" nolabel="1" widget="signature" attrs="{'invisible':[('status_timer', '!=' ,'finished')],'readonly': [('state', 'in' ,['approved','to approved'])]}" />
+                                <!-- <field name="partner_sign" nolabel="1" widget="signature"/> -->
+                            </group>
+                            <group class="col-6 float-left">
+                                <label for="technical_sign" attrs="{'invisible':[('status_timer', '!=' ,'finished')]}" />
+                                <field name="technical_sign" nolabel="1" widget="signature" attrs="{'invisible':[('status_timer', '!=' ,'finished')],'readonly': [('state', 'in' ,['approved','to approved'])]}" />
+                                <!-- <field name="technical_sign" nolabel="1" widget="signature"/> -->
+                            </group>
+                            <br />
+                            <group class="col-12">
+                                <label for="client_note" />
+                                <field name="client_note" nolabel="1" />
+                            </group>
+                        </page>
+                        <!--
+                        <page name="other_data" string="Otros Datos">
+                            <group class="col-12">
+                                <label for="timesheet_ids"/>
+                                <field name="timesheet_ids" nolabel="1"/>
+                            </group>
+                             <group class="col-12">
+                                <field name="resources_list_ids" invisible="1"/>
+                            </group>
+                        </page>
+                        -->
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_tasks_service_ticket_view_form_group" model="ir.ui.view">
+        <field name="name">project.tasks.service.ticket.view.form.group</field>
+        <field name="model">project.tasks.service.ticket</field>
+        <field name="inherit_id" ref="external_service_extends.project_tasks_service_ticket_view_form" />
+        <field name="groups_id" eval="[(4, ref('task_resources.group_service_extends_xt'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='resources_ids']/tree/field[@name='cost']" position="attributes">
+                <attribute name="invisible">False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='resources_ids']/tree/field[@name='subtotal']" position="attributes">
+                <attribute name="invisible">False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='resources_ids']/form/field[@name='cost']" position="attributes">
+                <attribute name="invisible">False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='resources_ids']/form/field[@name='subtotal']" position="attributes">
+                <attribute name="invisible">False</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_tasks_service_ticket_view_form_group_collect" model="ir.ui.view">
+        <field name="name">project.tasks.service.ticket.view.form.group.collect</field>
+        <field name="model">project.tasks.service.ticket</field>
+        <field name="inherit_id" ref="external_service_extends.project_tasks_service_ticket_view_form" />
+        <field name="groups_id" eval="[(4, ref('task_resources.group_service_collect_extends_xt'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tipo_visita']" position="attributes">
+                <attribute name="readonly">False</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="project_tasks_service_ticket_view_form_group_collect" model="ir.ui.view">
+        <field name="name">project.tasks.service.ticket.view.form.group.collect</field>
+        <field name="model">project.tasks.service.ticket</field>
+        <field name="inherit_id" ref="external_service_extends.project_tasks_service_ticket_view_form" />
+        <field name="groups_id" eval="[(4, ref('external_service_extends.group_fsm_tecnico'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tipo_visita']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="project_tasks_service_ticket_action" model="ir.actions.act_window">
+        <field name="name">Service Ticket</field>
+        <field name="res_model">project.tasks.service.ticket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="project_tasks_service_ticket_view_search" />
+    </record>
+
+    <record id="project_tasks_service_type_view_tree" model="ir.ui.view">
+        <field name="name">project.tasks.service.type.view.tree</field>
+        <field name="model">project.task.service.type</field>
+        <field name="arch" type="xml">
+            <tree create="true">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_tasks_service_type_action" model="ir.actions.act_window">
+        <field name="name">Tipo Servicio</field>
+        <field name="res_model">project.task.service.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="fsm_menu_service_type_res_config" name="Tipo Servicio" parent="industry_fsm.fsm_menu_settings" sequence="50" action="external_service_extends.project_tasks_service_type_action" groups="base.group_system" />
+
+    <record id="service_ticket_action" model="ir.actions.act_window">
+        <field name="name">Service Ticket</field>
+        <field name="res_model">project.tasks.service.ticket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="service_ticket_menu" name="Service Ticket" action="service_ticket_action" parent="industry_fsm.fsm_tasks_menu" sequence="10" />
+
+    <!--Root Menu-->
+
+    <menuitem id="service_ticket_menu_root" name="Boleta de Servicio" web_icon="external_service_extends,static/description/icon.png" active="True" sequence="5" />
+
+    <menuitem id="service_ticket_submenu" name="Boleta de Servicio" action="service_ticket_action" parent="external_service_extends.service_ticket_menu_root" sequence="1" />
+
+    <!--Action Task-->
+    <!--<record id="industry_fsm.project_task_action_fsm" model="ir.actions.act_window">
+        <field name="name">My Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">tree,map,kanban,gantt,calendar,form,activity</field>
+        <field name="search_view_id" ref="industry_fsm.project_task_view_search_fsm"/>
+        <field name="domain">[('is_fsm', '=', True)]</field>
+        <field name="context">{
+            'fsm_mode': True,
+            'show_address': True,
+            'search_default_my_tasks': True,
+            'search_default_planned_future': True,
+            'search_default_planned_today': True,
+            'fsm_task_kanban_whole_date': False,
+        }</field>
+        <field name="help" type="html">
+            <p class='o_view_nocontent_smiling_face'>No tasks found. Let's create one!</p>
+            <p>Find here your tasks planned for the following days.</p>
+        </field>
+    </record>-->
+    <record id="project_view_task_search_inherit" model="ir.ui.view">
+        <field name="name">project.view.task.search.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="industry_fsm.project_task_view_search_fsm" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="number" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_view_task_search_inherit2" model="ir.ui.view">
+        <field name="name">project.view.task.search.inherit2</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="number" />
+            </xpath>
+        </field>
+    </record>
+
+    <!--<record id="view_project_kanban_inherited" model="ir.ui.view">
+            <field name="name">project.project.timesheet.kanban.inherited</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="priority">24</field>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="number" invisible="1"/>
+                </field>
+                <xpath expr="//div[hasclass('o_kanban_record_headings')]" position="inside">
+                    <strong class="o_kanban_record_title"><field name="number"/></strong>
+                </xpath>
+            </field>
+        </record>-->
+
+
+</odoo>

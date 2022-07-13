@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <!-- Tipo de Estructura-->
+    <record id="structure_type_labour_cost" model="hr.payroll.structure.type">
+            <field name="name">Mano de Obra</field>
+            <field name="wage_type">monthly</field>
+            <field name="country_id" ref="base.gt"/>
+    </record>
+
+    <record id="salary_rule_category_labour_cost" model="hr.salary.rule.category">
+        <field name="name">Mano de Obra</field>
+        <field name="code">OTRA</field>
+    </record>
+
+     <!-- Imputs en Estructura Salarial-->
+
+    <record id="input_labour_cost" model="hr.payslip.input.type">
+        <field name="name">Costo Mano de Obra</field>
+        <field name="code">COSTMO</field>
+    </record>
+    
+    <!--Rule Costo Mano de Obra-->
+
+    <record id="structure_worker_labour_cost" model="hr.payroll.structure">
+        <field name="name">Mano de Obra</field>
+        <field name="type_id" ref="structure_type_labour_cost"/>
+        <field name="schedule_pay">monthly</field>
+        <field name="country_id" ref="base.gt"/>
+    </record>
+
+    <record id="hr_salary_rule_labour_cost" model="hr.salary.rule">
+        <field name="amount_select">code</field>
+        <field name="code">CMO</field>
+        <field name="condition_select">none</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="category_id" ref="salary_rule_category_labour_cost"/>
+        <field name="name">Mano de obra</field>
+        <field name="sequence" eval="7"/>
+        <field name="amount_python_compute">if inputs.COSTMO and inputs.COSTMO.amount:
+       result = inputs.COSTMO.amount
+else:
+       result = 0.00</field>
+        <field name="struct_id" ref="structure_worker_labour_cost"/>
+    </record>
+</odoo>

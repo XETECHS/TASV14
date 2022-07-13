@@ -1,0 +1,32 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="sale_subscription_template_form_inherit" model="ir.ui.view">
+        <field name="name">sale.subscription.template.form.inherit</field>
+        <field name="model">sale.subscription.template</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_template_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group>
+                    <field name="number_periods" />
+                </group>
+
+                <group>
+                    <field name="number_dates" />
+                </group>
+                <group>
+                    <field name="days_in_periods" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale_subscription_form_inherit_2" model="ir.ui.view">
+        <field name="name">sale.subscription.form.inherit.2</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='template_id']" position="replace">
+                <field name="template_id" string="Frecuencia de Mantenimiento"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

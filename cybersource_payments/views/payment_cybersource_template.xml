@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<template id="cybersource_form">
+			<div>
+				<input type="hidden" name="data_set" t-att-data-action-url="tx_url" data-remove-me=""/>
+                <input type='hidden' name='c_login' t-att-value='c_login'/>
+                <input type='hidden' name='c_amount' t-att-value='c_amount'/>
+                <input type='hidden' name='c_show_form' t-att-value="c_show_form"/>
+                <input type='hidden' name='c_type' t-att-value="c_type"/>
+                <input type='hidden' name='c_method' t-att-value="c_method"/>
+                <input type='hidden' name='c_fp_sequence' t-att-value='c_fp_sequence'/>
+                <input type='hidden' name='c_version' t-att-value="c_version"/>
+                <input type="hidden" name="c_relay_response" t-att-value="c_relay_response"/>
+                <input type="hidden" name="c_relay_url" t-att-value="c_relay_url"/>
+                <input type='hidden' name="c_fp_timestamp" t-att-value="c_fp_timestamp"/>
+                <input type="hidden" name='return_url' t-att-value="returndata"/>
+                <input type="hidden" name='c_cancel_url' t-att-value="c_cancel_url"/>
+                <!--Order Information -->
+                <input type='hidden' name='c_invoice_num' t-att-value='reference'/>
+                <input type='hidden' name='c_currency_code' t-att-value='c_currency_code'/>
+                <!-- Billing Information-->
+                <input type='hidden' name='c_first_name' t-att-value="billing_first_name"/>
+                <input type='hidden' name='c_last_name' t-att-value="billing_last_name"/>
+                <input type='hidden' name='c_address' t-att-value="billing_address"/>
+                <input type='hidden' name='c_city' t-att-value="billing_city"/>
+                <input type='hidden' name='c_zip' t-att-value="billing_zip_code"/>
+                <input type='hidden' name='c_country' t-att-value="billing_country"/>
+                <input type='hidden' name='c_phone' t-att-value='billing_phone'/>
+                <input type='hidden' name='c_email' t-att-value="billing_email"/>|
+               <input type='hidden' name='c_state' t-att-value="billing_state"/>
+                <!-- Shipping Information-->
+                <input type='hidden' name='c_ship_to_first_name' t-att-value="first_name"/>
+                <input type='hidden' name='c_ship_to_last_name' t-att-value="last_name"/>
+                <input type='hidden' name='c_ship_to_address' t-att-value="address"/>
+                <input type='hidden' name='c_ship_to_city' t-att-value="city"/>
+                <input type='hidden' name='c_ship_to_zip' t-att-value="zip_code"/>
+                <input type='hidden' name='c_ship_to_country' t-att-value="country"/>
+                <input type='hidden' name='c_ship_to_phone' t-att-value='phone'/>
+                <input type='hidden' name='c_ship_to_email' t-att-value="email"/>
+                <input type='hidden' name='c_ship_to_state' t-att-value="state"/>
+            </div>			
+		</template>
+		<template id="cybersource_s2s_form">
+            <header>
+                <t t-set="finaltext" t-value="'https://h.online-metrix.net/fp/tags.js?'+'org_id='+order.company_id.cybersource_org_id+'&amp;session_id='+order.company_id.cybersource_merchant_id+''+str(order.id)"/>
+                <script type="text/javascript" t-att-src="finaltext"></script>
+            </header>
+            <input type="hidden" name="data_set" data-create-route="/payment/cybersource/s2s/create_json_3ds"/>
+            <div class="mt8">
+                <t t-set="finaltext_iframe" t-value="'https://h.online-metrix.net/fp/tags?'+'org_id='+order.company_id.cybersource_org_id+'&amp;session_id='+order.company_id.cybersource_merchant_id+''+str(order.id)"/>
+                <noscript>
+                    <iframe style="width: 100px; height: 100px; border: 0; position:absolute; top: -5000px;"
+                    t-att-src="finaltext_iframe"
+                    >
+                    </iframe>
+                </noscript>
+
+                <div t-att-class="'form-group col-md-12' if bootstrap_formatting else 'form-group'">
+                    <input type="tel" name="cc_number" id="cc_number" class="form-control" maxlength="19" placeholder="Card number" data-is-required="true"/>
+                    <div class="card_placeholder"></div>
+                    <div class="visa"></div>
+                    <input type="hidden" name="cc_brand" value=""/>
+                </div>
+                <div t-att-class="'form-group col-md-5' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="cc_holder_name" id="cc_holder_name" class="form-control" placeholder="Cardholder name" data-is-required="true"/>
+                </div>
+                <div t-att-class="'form-group col-md-5' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="recaptcha" id="recaptcha" class="form-control" placeholder="Recaptcha" data-is-required="true" disabled="true" hidden="true"/>
+                </div>
+                <div t-att-class="'form-group col-md-3' if bootstrap_formatting else 'form-group'">
+                    <input type="text" name="cc_expiry" id="cc_expiry" class="form-control" maxlength="7" placeholder="Expira (11 / 21) mes/año" data-is-required="true" />
+                </div>
+                <div t-att-class="'form-group col-md-4' if bootstrap_formatting else 'form-group'">
+                    <input type="password" name="cc_cvc" id="cc_cvc" class="form-control" maxlength="4" placeholder="CVC" data-is-required="true"/>
+                </div>
+                <center>
+                   <script src='https://www.google.com/recaptcha/api.js'></script>
+					<div class="g-recaptcha" t-att-data-sitekey="request.params.get('google_site_key')" data-callback="recaptchaCallback"></div>
+					<br/>
+                </center>
+            </div>
+            <input type="hidden" name="acquirer_id" t-att-value="id"/>
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <input t-if="return_url" type="hidden" name="return_url" t-att-value="return_url"/>
+            <input t-if="partner_id" type="hidden" name="partner_id" t-att-value="partner_id"/>
+        </template>
+
+        <template id="assets_backend" name="fl_emp_dashbord assets" inherit_id="web.assets_frontend">
+            <xpath expr="." position="inside">
+                <link href="/cybersource_payments/static/src/css/style.css" rel="stylesheet"/>
+            </xpath>
+        </template>
+
+<!--        <template id="assets_backend_fingerprnt" name="fl_emp_dashbord assets" inherit_id="web.assets_common_minimal_js">-->
+<!--            <xpath expr="." position="inside">-->
+<!--                <t t-set="finaltext" t-value="'https://h.online-metrix.net/fp/tags.js?'+'org_id='+order.company_id.cybersource_org_id"/>-->
+<!--                <script type="text/javascript" t-att-src="finaltext"></script>-->
+<!--            </xpath>-->
+<!--        </template>-->
+
+        <template id="PaymentFailed">
+         	<t t-call="web.login_layout">
+	            <form action="/shop" method="post" id="payment_failed">
+          			<div id="notfound" style="background-color: lightslategrey;">
+						<div class="notfound">
+							<div class="notfound-404">
+								<h2 style="color: red;"><t t-esc='reason'/></h2>
+							</div>
+							<a href="/shop/payment">Back</a>
+						</div>
+					</div>
+	            </form>
+            </t>
+        </template>
+	</data>
+</odoo>

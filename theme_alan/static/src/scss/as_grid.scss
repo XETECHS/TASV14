@@ -1,0 +1,225 @@
+/*
+ Grid For Admin
+------------------------------*/
+
+%grid {
+  min-height: 250px;
+  position: relative;
+  border: 2px dashed #ddd;
+  padding: 15px;
+  .oe_drop_zone{
+    width: 100%;
+    min-height: 80px;
+  }
+}
+
+%message-empty {
+    top: 10px;
+    right: 10px;
+    display:flex;
+    flex-direction:row;
+    position: absolute;
+    font-size: 20px;
+    color: gray('700');
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed gray('700');
+    width: #{"calc(100% - 20px)"};
+    height: #{"calc(100% - 20px)"};
+    @include gradient-y($white, gray('100'));
+}
+
+.editor_enable {
+  .as_ui_kit_section, .as_ui_kit_container, .as_ui_kit_row, .as_ui_kit_column {
+    .oe_drop_zone.oe_insert {
+      height: 80px ! important;
+      margin: (-80px/2) 0;
+    }
+  }
+  
+  .as_ui_kit_section {
+    @extend %grid;
+    
+    &:empty:before {
+        @extend %message-empty;
+      content: "Drop Container Here!";
+    }
+  }
+  
+  .as_ui_kit_container {
+    @extend %grid;
+    
+    &:empty:before {
+        @extend %message-empty;
+      content: "Drop Rows Here!";
+    }
+  }
+  
+  .as_ui_kit_row {
+    @extend %grid;
+    min-height: 150px;
+    
+    &:empty:before {
+        @extend %message-empty;
+      content: "Drop Columns Here!";
+    }
+  }
+  
+  .as_ui_kit_column {
+    @extend %grid;
+    min-height: 150px;
+    &:empty:before {
+        @extend %message-empty;
+      content: "Drop Content Here!";
+    }
+  }
+
+  .as_ui_kit_break {
+    @extend %grid;
+    min-height: 15px;
+    
+    &:before {
+        top: 5px;
+      right: 10px;
+        content: "";
+        position: absolute;
+        background: gray('700');
+      width: #{"calc(100% - 20px)"};
+        height: #{"calc(100% - 10px)"};
+    }
+  }
+
+}
+
+/*
+ Grid Related changes for snippets
+-------------------------------------------*/
+
+.as_ui_kit_column {
+  .container {
+    max-width: 100%;
+  }
+}
+
+.as_ui_kit_section {
+  .owl-nav {
+    button {
+      &.owl-prev {
+        left: 0;
+      }
+      &.owl-next {
+        right: 0;
+      }
+    }
+  }
+  .prod_slider {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  /*Title*/
+  .seaction-head {
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 20px;
+    text-align: left;
+    h2 {
+      font-size: 22px;
+      padding: 0 0 10px;
+      margin: 0;
+      &:after {
+        display:none;
+      }
+    }
+  }
+
+  .as-latest-blog {
+    padding-top: 0;
+    padding-bottom: 15px;
+  }
+
+  .as_ui_kit_column {
+    .v_tab_prod_snip {
+      padding: 0;
+    }
+    .prod_slider {
+      padding-top: 0;
+      padding-bottom: 10px;
+    }
+    .h_tab_prod_snip {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .multi_tab_slider {
+      .nav {
+        justify-content: flex-start;
+        padding-bottom: 20px;
+      }
+    }
+
+    &.shadow {
+      box-shadow: none !important;
+      padding-bottom: 30px;
+      > div {
+        + div {
+          margin-top: 30px;
+        }
+        + section {
+          margin-top: 30px;
+        }
+      }
+      > section {
+        + div {
+          margin-top: 30px;
+        }
+        + section {
+          margin-top: 30px;
+        }
+      }
+      > div,
+      > section {
+        border: 15px solid $as-white;
+        background-color: $as-white;
+        box-shadow: 0px 3px 10px 0px rgba(38, 59, 94, 0.1);
+      }
+      
+      &.rounded {
+        border-radius: 0 !important;
+        > div,
+        > section {
+          border-radius: 5px;
+        }
+      }
+    }
+
+    &.border {
+      border: none !important;
+      padding-bottom: 30px;
+      > div {
+        + div {
+          margin-top: 30px;
+        }
+        + section {
+          margin-top: 30px;
+        }
+      }
+      > section {
+        + div {
+          margin-top: 30px;
+        }
+        + section {
+          margin-top: 30px;
+        }
+      }
+      > div,
+      > section {
+        border: 1px solid #ddd;
+        padding: 15px;
+        background-color: $as-white;
+      }
+      &.rounded {
+        border-radius: 5px;
+      }
+    }
+
+  }
+}

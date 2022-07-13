@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <record id="inherit_res_partner_view_search" model="ir.ui.view">
+            <field name="name">res.partner.search.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="vat"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_helpdesk_ticket_view_form" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.form.inherited</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="before">
+                    <group style="width:50%;">
+
+                    </group>
+                    <group style="width:50%;">
+                        <span class="o_form_label o_td_label" name="address_name">
+                            <b>Address</b>
+                        </span>
+                        <div class="o_address_format">
+                            <field name="street" placeholder="Street..." class="o_address_street"/>
+                            <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                            <field name="city" placeholder="City" class="o_address_city"/>
+                            <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}"/>
+                            <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                            <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_open': True, 'no_create': True}"/>
+                        </div>
+                        <field name="vat"/>
+                        <field name="phone"/>
+                        <field name="mobile"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='description']" position="before">
+                    <notebook>
+                        <page string="Subscriptions" name="Subscriptions">
+                            <field name="subscriptions">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="partner_id"/>
+                                    <field name="recurring_next_date"/>
+                                    <field name="user_id"/>
+                                    <field name="activity_ids" widget="mail_activity"/>
+                                    <field name="company_id"/>
+                                    <field name="recurring_total"/>
+                                    <field name="percentage_satisfaction"/>
+                                    <field name="recurring_total_incl"/>
+                                    <field name="visitas_gratuitas_restantes"/>
+                                    <field name="total_visitas"/>
+                                    <field name="stage_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Tasks" name="Tasks">
+                            <field name="tasks"/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

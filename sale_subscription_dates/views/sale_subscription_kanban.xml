@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="sale_subscription_kanban_inherit" model="ir.ui.view">
+        <field name="name">sale.subscription.kanban.inherit</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_kanban"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//kanban/templates/t/div/div" position="before">
+                <field name="vencidas2" invisible="True"/>
+                <div class="alert alert-danger" role="alert" attrs="{'invisible': [('vencidas2','=', False)]}">
+                    <h2>Tienes tareas planificadas vencidas</h2>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

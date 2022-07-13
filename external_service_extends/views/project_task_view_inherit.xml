@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="project_task_tree_view_inherit" model="ir.ui.view">
+            <field name="name">project.task.tree.view.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="industry_fsm.project_task_view_list_fsm" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="replace">
+                    <field name="stage_id" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_form_view_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.view.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+                <!-- Odoo Original -->
+                <!-- <field name="parent_id" attrs="{'invisible' : [('allow_subtasks', '=', False)]}" groups="base.group_no_one" /> -->
+                <!-- <field name="recurring_task" attrs="{'invisible': ['|', ('allow_recurring_tasks', '=', False), ('active', '=', False)]}" /> -->
+
+                <!-- Campos modificados -->
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':True}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='sale_line_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':True}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='recurring_task']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- QUITANDO ACCESO A GRUPO industry_fsm.group_fsm_user-->
+        <record id="project_task_form_group_view_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.group.view_inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="priority">36</field>
+            <field name="groups_id" eval="[(4, ref('industry_fsm.group_fsm_user'))]" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='assign_to']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

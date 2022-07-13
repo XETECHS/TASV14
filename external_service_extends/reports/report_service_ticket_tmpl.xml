@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_service_ticket_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+                <style>
+                    .custom-header {
+                        width: 100%;
+                    }
+                    .td-custom-1 {
+                        width: 35%;
+                    }
+                    .td-custom-2 {
+                        width: 15%;
+                    }
+                    .tr-custom {
+                        height: 25px;
+                    }
+                </style>
+                <br/>
+                <br/>
+                <div>
+                    <center>
+                        <h4>
+                            <strong>
+                                REPORTE DE SERVICIOS
+                            </strong>
+                        </h4>
+                        <h5>
+                            <strong>
+                                <span t-field="doc.name"/>
+                            </strong>
+                        </h5>
+                    </center>
+                </div>
+                <div>
+                    <table class="custom-header">
+                        <tbody>
+                            <tr>
+                                <td class="td-custom-2">
+                                    <strong>Fecha:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.date_assign"/>
+                                </td>
+                                <td class="td-custom-2">
+                                    <strong>No. de OT:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <!-- <t t-set="codigo" t-value="doc.task_id.name+' #'+doc.task_id.number"/> -->
+                                    <span t-esc="'#'+doc.task_id.number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-custom-2">
+                                    <strong>Cliente:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.partner_id"/>
+                                </td>
+                                <td class="td-custom-2">
+                                    <strong>Tipo de Servicio:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.service_type_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-custom-2">
+                                    <strong>Colaborador:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.user_id.name"/>
+                                </td>
+                                <td class="td-custom-2">
+                                    <strong>Etapa:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.stage_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                            <!--
+                                <td class="td-custom-2">
+                                    <strong>Variable:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.variable"/>
+                                </td>
+                                <td class="td-custom-2">
+                                    <strong>A cobrar:</strong>
+                                </td>
+                                <td class="td-custom-1">
+                                    <span t-field="doc.tipo_visita"/>
+                                </td>
+                            -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Details-->
+                <table class="table table-sm o_main_table">
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <th class="text-left">Referencia</th>
+                            <th class="text-right">Producto</th>
+                            <th class="text-right">UdM</th>
+                            <th class="text-right">Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.resources_ids" t-as="line">
+                            <tr>
+                                <td class="text-left">
+                                    <span t-field="line.referencia"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="line.product_id.name"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="line.uom.name"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="line.cantidad"/>
+                                </td>
+                            </tr>
+
+                        </t>
+                    </tbody>
+                </table>
+                <table class="table table-borderless">
+                    <tr>
+                        <th class="text-center">Trabajo Realizado</th>
+                    </tr>
+                    <tr>
+                        <td class="text-justify">
+                            <span t-field="doc.work_done_xt"/>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div id="informations" class="row">
+                    <div class="col-6 text-center">
+                        <strong>Fecha de Inicio:</strong>
+                        <p t-field="doc.hours_planned_in" class="m-0"/>
+                    </div>
+                    <div class="col-6 text-center">
+                        <strong>Fecha de finalizaciòn:</strong>
+                        <p t-field="doc.hours_planned_out" class="m-0"/>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+
+                <div id="signature" class="row">
+                    <div class="col-6 text-center">
+                        <strong>Firma de cliente:</strong>
+                        <img t-att-src="'data:image/png;base64,%s' % to_text(doc.partner_sign)"/>
+                    </div>
+                    <div class="col-6 text-center">
+                        <strong>Firma de tecnico :</strong>
+                        <img t-att-src="'data:image/png;base64,%s' % to_text(doc.technical_sign)"/>
+                    </div>
+                </div>
+                <p t-field="doc.client_note"/>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_service_ticket_tmpl">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="external_service_extends.report_service_ticket_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

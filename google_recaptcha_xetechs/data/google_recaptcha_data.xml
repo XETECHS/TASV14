@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo noupdate="1">
+    
+	<record id="google_recaptcha_config" model="google.recaptcha.config">
+		<field name="name">Google reCAPTCHA Configuration</field>
+        <field name="enable_recaptcha">0</field>
+		<field name="re_site_key" /> 
+		<field name="re_secret_key"/> 
+		<field name="enable_on_login" /> 
+    </record>
+    
+</odoo>

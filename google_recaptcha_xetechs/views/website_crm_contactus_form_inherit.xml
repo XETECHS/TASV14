@@ -1,0 +1,42 @@
+<odoo>
+
+
+	<template id="contactus_form_recaptcha" name="Contact Form Recaptcha" inherit_id="website_crm.contactus_form" customize_show="True">
+            <xpath expr="//form" position="before">
+			<center>
+				<script src='https://www.google.com/recaptcha/api.js'></script>
+		    	<div class="g-recaptcha" t-att-data-sitekey="request.params.get('google_site_key')"></div>
+		    	<br/>
+		    </center>
+	    </xpath>
+	</template>
+
+	
+
+	<template id="payment_tokens_list_cyber" name="Submit Button" inherit_id="payment.payment_tokens_list" >
+		<xpath expr="//button[@id = 'o_payment_form_pay']" position="replace">
+			<button t-if="mode == 'payment'" id="o_payment_form_pay" type="submit" t-att-class="submit_class if submit_class else 'btn btn-primary btn-lg mb8 mt8'" disabled="true" >
+				<t t-if="submit_txt">
+					<i t-if="icon_class and not icon_right" t-attf-class="fa {{icon_class}}"/>
+					<t t-esc="submit_txt"/>
+					<i t-if="icon_class and icon_right" t-attf-class="fa {{icon_class}}"/>
+				</t>
+				<t t-else="">
+					<i class="fa fa-lock"/> Pay
+				</t>
+			</button>
+			<script>
+				var captcha = false;
+				function recaptchaCallback() {
+					document.getElementById("recaptcha").value = 'Recaptcha validado';
+				}
+			</script>
+	    </xpath>
+	</template>
+
+
+
+
+
+
+</odoo>

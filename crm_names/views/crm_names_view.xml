@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_crm_lead_names_form" model="ir.ui.view">
+        <field name="name">crm.lead.names.form</field>
+        <field name="model">crm.lead.names</field>
+        <field name="arch" type="xml">
+            <form string="Nombres de Oportunidades">
+                <group>
+                    <field name="name"/>
+                    <field name="active"/>
+                </group>
+                <field name="notes" nolabel="1" placeholder="Notas adicionales....!"/>
+            </form>
+        </field>
+    </record>
+    
+    <record id="view_crm_lead_names_tree" model="ir.ui.view">
+        <field name="name">crm.lead.names.tree</field>
+        <field name="model">crm.lead.names</field>
+        <field name="arch" type="xml">
+            <tree string="Nombres de Oportunidades">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_crm_lead_names" model="ir.actions.act_window">
+        <field name="name">Nombres de Oportunidades</field>
+        <field name="res_model">crm.lead.names</field>
+        <field name="view_id" ref="view_crm_lead_names_tree"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+            Click para crear un nuevo nombre para oportunidades
+            </p><p>
+            Nombre de oportunidades
+            </p>
+        </field>
+    </record>
+
+    <menuitem action="action_crm_lead_names" name="Nombre de oportunidades"
+            id="menu_crm_lead_names" parent="crm.crm_menu_config" groups="crm_names.group_lead_names"/>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="view_task_form2" model="ir.ui.view">
+            <field name="name">project.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <field name="stage_id" position="replace"/>
+                <field name="user_id" position="attributes">
+                    <attribute name="string">Responsable</attribute>
+                </field>
+                <field name="user_id" position="after">
+                    <field name="supervisor_id" invisible="1"/>
+                    <field name="stage_id" widget="selection"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_task_kanban" model="ir.ui.view">
+            <field name="name">project.task.kanban.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes" t-translation="off">
+                    <attribute name="group_create">0</attribute>
+                    <attribute name="default_order">planned_date_begin</attribute>
+                    <attribute name="default_group_by">stage_id</attribute>
+                    <attribute name="class">o_fsm_kanban</attribute>
+                    <attribute name="quick_create_view">industry_fsm.quick_create_task_form_fsm</attribute>
+                    <attribute name="on_create">quick_create</attribute>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+    
+
+</odoo>

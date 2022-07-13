@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Assets -->
+    <template id="assets_editor_dynamic_slider" inherit_id="website.assets_editor" name="Editor assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/atharva_theme_general/static/src/js/website.editor.js" />
+        </xpath>
+    </template>
+    <template id="assets_frontend_dynamic_slider" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/atharva_theme_general/static/src/js/website.front.js" />
+        </xpath>
+    </template>
+
+    <!-- Blog Slider -->
+    <template name="Latest Blog" id="latest_blog">
+        <section class="as-latest-blog web_blog_slider" data-blog-id="0" contentEditable="false">
+            <div class="seaction-head">
+                <h2>Blog Slider</h2>
+            </div>
+        </section>
+    </template>
+
+    <template id="blog_slider_items">
+        <div t-attf-class="tqt-blog-slide owl-carousel" t-if="blog_slider and blog_slider.blog_ids">
+            <t t-foreach="blog_slider.blog_ids" t-as="blog">
+                <div class="section-post">
+                    <a t-attf-href="/blog/#{slug(blog.blog_id)}/post/#{slug(blog)}" title="" t-if="blog.cover_properties">
+                        <t t-set="cover_property" t-value="json.loads(blog.cover_properties)" />
+                        <div class="section-post-media" t-attf-style="background-image: #{cover_property.get('background-image', 'none')}" t-if="blog.cover_properties"></div>
+                    </a>
+                    <div class="section-post-body">
+                        <div class="section-post-time">
+                            <span t-field="blog.write_date" />
+                        </div>
+                        <h4 class="section-post-title">
+                            <a t-attf-href="/blog/#{slug(blog.blog_id)}/post/#{slug(blog)}" t-field="blog.name"></a>
+                        </h4>
+                        <p class="section-post-excerpt" t-field="blog.subtitle"></p>
+                        <a t-attf-href="/blog/#{slug(blog.blog_id)}/post/#{slug(blog)}" title="" class="read-more">Read more</a>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="blog_slider_content">
+        <div class="container" t-if="blog_slider">
+            <div class="seaction-head">
+                <t t-if="blog_slider.name">
+                    <h2 t-field="blog_slider.name" />
+                </t>
+            </div>
+            <t t-call="atharva_theme_general.blog_slider_items" />
+        </div>
+        <div class="container" t-if="not blog_slider">
+            <div class="seaction-head">
+                <h2>Latest Blog</h2>
+            </div>
+            <div class="alrt alrt-text">
+                <p>No blogs found.!</p>
+            </div>
+        </div>
+    </template>
+    <!--  Blog Slider END -->
+
+    <!-- Brand Slider -->
+    <template name="Brand Slider" id="s_brand_multi_with_header">
+        <section class="oe_snippet_body js_brand_multi_collection">
+            <div class="container" contenteditable="false">
+                <div class="product_slide">
+                    <div class="seaction-head">
+                        <div class="h1">Brand Slider</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_brand_collection_configure" name="Brand Collection Slider">
+        <div class="container" t-if="obj">
+            <div class="seaction-head" t-if="obj and obj.label_active">
+                <h2 t-field="obj.name"/>
+            </div>
+            <t t-if="obj.brand_ids">
+                <div class="owl-carousel" id="as_our_brand">
+                    <t t-as="brand" t-foreach="obj.brand_ids">
+                        <t t-if="brand.brand_id.website_id.id in ( website.id , False)">
+                            <t t-if="obj.brand_link_active">
+                                <div class="brand-img">
+                                    <a t-att-href="'/shop?brand=%s-%s' % (brand.brand_id.name,brand.brand_id.id)">
+                                        <span class="brand_img_span">
+                                            <img t-att-alt="brand.brand_id.name" t-att-src="website.image_url(brand.brand_id, 'logo')" t-att-title="brand.brand_id.name"/>
+                                        </span>
+                                    </a>
+                                    <t t-if="obj.brand_name_active">
+                                        <a t-att-href="'/shop?brand=%s-%s' % (brand.brand_id.name,brand.brand_id.id)">
+                                            <span class="brand-name" t-esc="brand.brand_id.name"/>
+                                        </a>
+                                    </t>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="brand-img">
+                                    <span class="brand_img_span">
+                                        <img t-att-alt="brand.brand_id.name" t-att-src="website.image_url(brand.brand_id, 'logo')" t-att-title="brand.brand_id.name"/>
+                                    </span>
+                                    <t t-if="obj.brand_name_active">
+                                        <span class="brand-name" t-esc="brand.brand_id.name"/>
+                                    </t>
+                                </div>
+                            </t>
+                        </t>
+                    </t>
+                </div>
+            </t>
+            <t t-else="not obj.brand_ids">
+                <p>No brands found.!</p>
+            </t>
+        </div>
+    </template>
+    <!-- Brand Slider END-->
+
+    <!-- Dynamic Product Slider Start -->
+    <template id="s_product_slider" name="Product Dynamic Snippet">
+        <section class="s_product_slider" 
+            data-snippet_type="0" 
+            data-collection_id="0" 
+            data-collection_name="NO COLLECTION SELECTED" 
+            data-snippet_layout="0">
+            NO COLLECTION SELECTED
+        </section>
+    </template>
+
+    <!-- Single Tab Snippets -->
+    <template id="asp_inner" name="ASP inner">
+        <div class="asp-inner">
+            <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=curr_pl)"/>
+            <div class="pro-img">
+                <div class="sale" t-if="product.website_style_ids">
+                    <t t-foreach="product.website_style_ids" t-as="styles">
+                        <t t-if="not(style_set)">
+                            <label t-att-class="styles.html_class">
+                                <t t-esc="styles.name" />
+                            </label>
+                        </t>
+                        <t t-set="style_set" t-value="styles.id" />
+                    </t>
+                </div>
+                <a class="d-block h-100 asp-img" t-attf-href="/shop/product/#{slug(product)}">
+                    <span class="d-flex h-100 justify-content-center align-items-center"><img t-att-src="website.image_url(product, 'image_512')" title="" alt="" /></span>
+                </a>
+                <div class="pro-icons">
+                    <t t-if="request.website.viewref('atharva_theme_general.quick_view').active and product.product_variant_ids">
+                        <a type="button" 
+                        title="Quick View" 
+                        class="as-btn o_quick_view"
+                        t-att-data-product_template_id="product.id">
+                            <span class="fa fa-eye"></span>
+                        </a>
+                    </t>
+                    <t t-if="request.website.viewref('website_sale_wishlist.add_to_wishlist').active and product.product_variant_ids">
+                        <t t-set="in_wish" t-value="product._is_in_wishlist()" />
+                        <button type="button" role="button" class="as-btn o_add_wishlist" t-att-disabled="in_wish or None" title="Add to Wishlist" t-att-data-product-template-id="product.id" t-att-data-product-product-id="product.product_variant_ids[0].id" data-action="o_wishlist">
+                            <span class="fa fa-heart" role="img" aria-label="Add to wishlist"></span>
+                        </button>
+                    </t>
+                    <t t-if="request.website.viewref('website_sale_comparison.add_to_compare').active and product.product_variant_ids">
+                        <a class="d-none d-md-inline-block as-btn o_add_compare" title="Compare" t-att-data-product-product-id="product.product_variant_ids[0].id" data-action="o_comparelist">
+                            <span class="fa fa-balance-scale"></span>
+                        </a>
+                    </t>
+                </div>
+            </div>
+            <div class="pro-info">
+                <h6 class="o_wsale_products_item_title">
+                    <a t-attf-href="/shop/product/#{slug(product)}">
+                        <t t-esc="product.name" />
+                    </a>
+                </h6>
+                <t t-if="request.website.viewref('atharva_theme_general.average_rating').active">
+                    <div t-set="rating_avg_val" t-value="round(product.rating_get_stats().get('avg') * 2) / 2" />
+                    <div class="prod_rating">
+                        <t t-set="curr_rate" t-value="0" />
+                        <t t-set="half_flag" t-value="0" />
+                        <t t-foreach="range(0, 5)" t-as="each_rate">
+                            <t t-set="curr_rate" t-value="curr_rate + 1" />
+                            <t t-if="curr_rate &lt;= int(rating_avg_val // 1)">
+                                <i class="fa fa-star" />
+                            </t>
+                            <t t-else="">
+                                <t t-if="rating_avg_val % 1 == 0.5 and half_flag == 0">
+                                    <i class="fa fa-star-half-o" />
+                                    <t t-set="half_flag" t-value="1" />
+                                </t>
+                                <t t-else="">
+                                    <i class="fa fa-star-o" />
+                                </t>
+                            </t>
+                        </t>
+                        <span t-esc="str(rating_avg_val) + ' / 5'" />
+                    </div>
+                </t>
+                <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+                    <b>
+                        <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                        <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                        <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
+                        <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                    </b>
+                </div>
+                <div class="o_wsale_product_btn">
+                    <form action="/shop/cart/update" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
+                        <input name="product_id" t-att-value="product_variant_id" type="hidden"/>
+                        <t t-if="product_variant_id">
+                            <button class="as-btn as-btn-cart a-submit">
+                                <span class="fa fa-shopping-cart"></span>
+                                <span>ADD TO CART</span>
+                            </button>
+                        </t>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Single Tab Snippets END -->
+
+    <!-- Product Slider -->
+    <template name="Product Slider" id="product_slider_content">
+        <div t-att-class="'container%sprod_slider'%('-fluid fw_' if full_width else ' ')" contentEditable="false">
+            <div class="quality_product_slide">
+                <t t-if="product_collection">
+                    <div class="seaction-head">
+                        <h2>
+                            <t t-esc="product_collection.name" />
+                        </h2>
+                    </div>
+                </t>
+                <t t-if="product_collection">
+                    <t t-set="products" t-value="product_collection.product_ids.sudo().filtered(lambda p: p.product_id.website_published)"/>
+                    <t t-if="limit">
+                        <t t-set="products" t-value="products[:int(limit)]"/>
+                    </t>
+                </t>
+                <div t-attf-class="tqt-pro-slide owl-carousel" t-if="products">
+                    <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
+                    <t t-foreach="products" t-as="product_x">
+                        <div class="as-product">
+                            <t t-set="product" t-value="product_x.product_id" />
+                            <t t-call="atharva_theme_general.asp_inner" />
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!--  Product Slider END -->
+
+    <!-- Product Slider with Image -->
+    <template id="product_slider_2_content" name="">
+        <section class="category-product-snippet prod_slider_img_left">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-3">
+                        <div class="p-slider2-head_block" t-att-style="'background-image: url(%s)' %(website.image_url(product_collection, 'image'),)">
+                            <div class="p-slider2-section_name" t-esc="product_collection.name" />
+                            <div class="p-slider2-see_all">
+                                <a t-att-href="'/shop/?product_collection=%s' %(product_collection.id,)">See All Products</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="p-slider-content_block row">
+                            <t t-set="products" t-value="product_collection.product_ids.sudo().filtered(lambda p: p.product_id.website_published)"/>
+                            <t t-if="products">
+                                <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
+                                <t t-foreach="products" t-as="each_prod_line">
+                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                        <div class="as-product">
+                                            <t t-set="product" t-value="each_prod_line.product_id" />
+                                            <t t-call="atharva_theme_general.asp_inner" />
+                                        </div>
+                                    </div>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                NO PRODUCTS AVAILABLE
+                            </t>
+                        </div>
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+        </section>
+    </template>
+    <!-- Product Slider with Image END -->
+
+    <!-- Product Grid Start-->
+    <template id="latest_p_content" name="Product Content">
+        <t t-if="product_collection">
+            <div t-att-class="'container%sprod_grid'%('-fluid fw_' if full_width else ' ',)">
+                <div class="seaction-head">
+                    <h2 t-esc="product_collection.name" />
+                </div>
+                <t t-set="products" t-value="product_collection.product_ids.sudo().filtered(lambda p: p.product_id.website_published)"/>
+                <div class="row" t-if="products">
+                    <t t-set="curr_count" t-value="0" />
+                    <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
+                    <t t-foreach="products" t-as="each_tab_prod_line">
+                        <t t-set="curr_count" t-value="curr_count + 1" />
+                        <t t-if="curr_count &lt;= 15">
+                            <div class="col-12 col-md-4 col-lg-3 col-sm-6 prod-grid-col">
+                                <div class="as-product">
+                                    <t t-set="product" t-value="each_tab_prod_line.product_id" />
+                                    <t t-call="atharva_theme_general.asp_inner" />
+                                </div>
+                            </div>
+                            <!-- col -->
+                        </t>
+                    </t>
+                    <!-- Product Data here -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </t>
+    </template>
+    <!-- Product Grid END-->
+
+    <!-- Horizontal Tab Snippet -->
+    <template id="atharva_theme_general.snippet_products_item" name="Product Items">
+        <form action="/shop/cart/update" method="post" class="as-product">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <div itemscope="itemscope" itemtype="http://schema.org/Product" class="asp-inner">
+                <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=curr_pl)"/>
+                <div class="pro-img oe_product_image">
+                    <div class="sale" t-if="product.website_style_ids">
+                        <t t-foreach="product.website_style_ids" t-as="styles">
+                            <t t-if="not(style_set)">
+                                <label t-att-class="styles.html_class">
+                                    <t t-esc="styles.name" />
+                                </label>
+                            </t>
+                            <t t-set="style_set" t-value="styles.id" />
+                        </t>
+                    </div>
+                    <a class="d-block h-100 asp-img" itemprop="url" t-att-href="'/shop/product/%s' % slug(product)">
+                        <span class="d-flex h-100 justify-content-center align-items-center" itemprop="image" t-field="product.image_512" t-options="{'widget': 'image', 'preview_image': 'image_512'}" t-att-alt="product.name" />
+                    </a>
+                    <div class="pro-icons">
+                        <t t-if="request.website.viewref('atharva_theme_general.quick_view').active and product.product_variant_ids">
+                            <a type="button" 
+                            title="Quick View" 
+                            class="as-btn o_quick_view"
+                            t-att-data-product_template_id="product.id">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                        </t>
+                        <t t-if="request.website.viewref('website_sale_wishlist.add_to_wishlist').active and product.product_variant_ids">
+                            <t t-set="in_wish" t-value="product._is_in_wishlist()" />
+                            <button type="button" role="button" class="as-btn o_add_wishlist" t-att-disabled="in_wish or None" title="Add to Wishlist" t-att-data-product-template-id="product.id" t-att-data-product-product-id="product.product_variant_ids[0].id" data-action="o_wishlist">
+                                <span class="fa fa-heart" role="img" aria-label="Add to wishlist"></span>
+                            </button>
+                        </t>
+                        <t t-if="request.website.viewref('website_sale_comparison.add_to_compare').active and product.product_variant_ids">
+                            <a class="d-none d-md-inline-block as-btn o_add_compare" title="Compare" t-att-data-product-product-id="product.product_variant_ids[0].id" data-action="o_comparelist">
+                                <span class="fa fa-balance-scale"></span>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+                <div class="pro-info">
+                    <h6 class="o_wsale_products_item_title">
+                        <a itemprop="name" t-att-href="'/shop/product/%s' % slug(product)" t-field="product.name" />
+                    </h6>
+                    <t t-if="request.website.viewref('atharva_theme_general.average_rating').active">
+                        <div t-set="rating_avg_val" t-value="round(product.rating_get_stats().get('avg') * 2) / 2" />
+                        <div class="prod_rating">
+                            <t t-set="curr_rate" t-value="0" />
+                            <t t-set="half_flag" t-value="0" />
+                            <t t-foreach="range(0, 5)" t-as="each_rate">
+                                <t t-set="curr_rate" t-value="curr_rate + 1" />
+                                <t t-if="curr_rate &lt;= int(rating_avg_val // 1)">
+                                    <i class="fa fa-star" />
+                                </t>
+                                <t t-else="">
+                                    <t t-if="rating_avg_val % 1 == 0.5 and half_flag == 0">
+                                        <i class="fa fa-star-half-o" />
+                                        <t t-set="half_flag" t-value="1" />
+                                    </t>
+                                    <t t-else="">
+                                        <i class="fa fa-star-o" />
+                                    </t>
+                                </t>
+                            </t>
+                            <span t-esc="str(rating_avg_val) + ' / 5'" />
+                        </div>
+                    </t>
+                    <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+                        <b>
+                            <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                            <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
+                            <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                        </b>
+                    </div>
+                    <div class="o_wsale_product_btn">
+                        <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
+                        <input name="product_id" t-att-value="product_variant_id" type="hidden"/>
+                        <t t-if="product_variant_id">
+                            <button class="as-btn as-btn-cart a-submit">
+                                <span class="fa fa-shopping-cart"></span>
+                                <span>ADD TO CART</span>
+                            </button>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </template>
+    <template id="atharva_theme_general.s_collection_configure" name="Collection coursol">
+        <div class="container h_tab_prod_snip" t-if="obj" contentEditable="false">
+            <div class="product_slide">
+                <div class="seaction-head">
+                    <h2 t-field="obj.name" />
+                </div>
+            </div>
+            <div class="multi_tab_slider">
+                <t t-if="obj and obj.tab_collection_ids">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <t t-foreach="obj.tab_collection_ids" t-as="collection">
+                            <li role="presentation">
+                                <a t-att-class="'active' if obj.tab_collection_ids[0].id==collection.id else ''" t-att-href="'#more_info_%s' %(collection.id)" aria-controls="more_info" role="tab" data-toggle="tab">
+                                    <t t-esc="collection.name" />
+                                </a>
+                            </li>
+                        </t>
+                    </ul>
+                    <div class="tab-content">
+                        <t t-foreach="obj.tab_collection_ids" t-as="collection">
+                            <div role="tabpanel" t-att-class="'tab-pane active' if obj.tab_collection_ids[0].id==collection.id else 'tab-pane'" t-att-id="'more_info_%s' %(collection.id)">
+                                <t t-set="products" t-value="collection.product_ids.sudo().filtered(lambda p: p.product_id.website_published)"/>
+                                <t t-if="products">
+                                    <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
+                                    <div class="owl-carousel multi_slider">
+                                        <t t-foreach="products" t-as="product_x">
+                                            <t t-set="product" t-value="product_x.product_id" />
+                                            <t t-call="atharva_theme_general.snippet_products_item" />
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </template>
+    <!-- Horizontal Tab Snippet END -->
+
+    <!-- Vertical Tab Snippet -->
+    <template id="atharva_theme_general.snippet_products_item_list" name="Product Items">
+        <form action="/shop/cart/update" method="post" class="as-v-product">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=curr_pl)"/>
+            <div itemscope="itemscope" itemtype="http://schema.org/Product" class="asp-v-inner">
+                <div class="pro-img oe_product_image">
+                    <a class="d-block h-100" itemprop="url" t-att-href="'/shop/product/%s' % slug(product)">
+                        <span class="d-flex h-100 justify-content-center align-items-center" itemprop="image" t-field="product.image_512" t-options="{'widget': 'image', 'preview_image': 'image_512'}" t-att-alt="product.name" />
+                    </a>
+                </div>
+                <div class="pro-info">
+                    <div class="pro-name">
+                        <a itemprop="name" t-att-href="'/shop/product/%s' % slug(product)" t-field="product.name" />
+                    </div>
+                    <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+                        <b>
+                            <del t-attf-class="text-danger mr-2 {{'' if combination_info['has_discounted_price'] else 'd-none'}}" style="white-space: nowrap;" t-esc="combination_info['list_price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                            <span t-if="combination_info['price']" t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            <span itemprop="price" style="display:none;" t-esc="combination_info['price']" />
+                            <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
+                        </b>
+                    </div>
+                    <div class="pro-action">
+                        <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
+                        <input name="product_id" t-att-value="product_variant_id" type="hidden"/>
+                        <t t-if="product_variant_id">
+                            <button class="button btn btn-cart">ADD TO CART</button>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </template>
+    <template id="atharva_theme_general.product_tab_content" name="Collection coursol">
+        <div class="container multi_product v_tab_prod_snip" t-if="obj" contentEditable="false">
+            <div class="product_slide" t-if="obj">
+                <div class="seaction-head">
+                    <h2 t-field="obj.name" />
+                </div>
+            </div>
+            <div class="product_tab_content" t-if="obj.tab_collection_ids">
+                <div class="row">
+                    <t t-foreach="obj.tab_collection_ids" t-as="collection">
+                        <t t-set="len_p" t-value="len(obj.tab_collection_ids)" />
+                        <div t-attf-class=" product_detail #{len_p==1 and 'col-md-12' or ''} #{len_p==2 and 'col-sm-6' or ''} #{len_p==3 and 'col-md-4' or ''} #{len_p&gt;=4 and 'col-lg-3 col-sm-6' or ''}">
+                            <h2 class="filter_title" t-field="collection.name" />
+                            <div class="filter_value" t-if="collection.product_ids">
+                                <t t-set="max_qty" t-value="0" />
+                                <t t-set="products" t-value="collection.product_ids.sudo().filtered(lambda p: p.product_id.website_published)"/>
+                                <t t-set="curr_pl" t-value="website.get_current_pricelist()" />
+                                <t t-foreach="products" t-as="product_x">
+                                    <t t-set="product" t-value="product_x.product_id" />
+                                    <t t-if="max_qty&lt;=5">
+                                        <div class="item">
+                                            <t t-call="atharva_theme_general.snippet_products_item_list" />
+                                            <t t-set="max_qty" t-value="max_qty+1" />
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Vertical Tab Snippet  END-->
+
+    <!-- Dynamic Product Slider END -->
+
+    <!-- Category Snippet START -->
+    <template name="eCommerce Category Snippet" id="s_ecomm_cat_multi_with_header">
+        <section class="oe_snippet_body js_ecomm_cat_multi_collection">
+            <div class="container" contenteditable="false">
+                <div class="category_grid">
+                    <div class="seaction-head">
+                        <div class="h1">Categories</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="s_ecommerce_category_configure" name="eCommerce Category Grid">
+        <div class="container" t-if="obj">
+            <div class="seaction-head" t-if="obj and obj.label_active">
+                <h2 t-field="obj.name"/>
+            </div>
+            <t t-if="obj.categ_ids">
+                <div id="as_our_categ" class="row justify-content-center">
+                    <t t-set="count" t-value="0"/>
+                    <t t-foreach="obj.categ_ids" t-as="categ">
+                        <t t-if="categ.category_id.website_id.id in ( website.id , False) and count &lt; int(obj.item_count)">
+                            <t t-if="obj.category_link_active">
+                                <div class="col-sm-6 col-md-4 col-lg">
+                                    <div class="cat-s-box">
+                                        <div class="cat-s-img">
+                                            <a t-att-href="'/shop/category/%s' % slug(categ.category_id)" target="blank">
+                                                <img t-att-alt="categ.category_id.name" t-att-src="website.image_url(categ, 'image')" t-att-title="categ.category_id.name"/>
+                                            </a>
+                                        </div>
+                                        <t t-if="obj.category_name_active">
+                                            <h3 class="cat-s-name">
+                                                <a t-att-href="'/shop/category/%s' % slug(categ.category_id)" t-esc="categ.category_id.name"/>
+                                            </h3>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="col-sm-6 col-md-4 col-lg">
+                                    <div class="cat-s-box">
+                                        <div class="cat-s-img">
+                                            <img t-att-alt="categ.category_id.name" t-att-src="website.image_url(categ, 'image')" t-att-title="categ.category_id.name"/>
+                                        </div>
+                                        <t t-if="obj.category_name_active">
+                                            <h3 class="cat-s-name" t-esc="categ.category_id.name"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                        <t t-set="count" t-value="count + 1"/>
+                    </t>
+                </div>
+            </t>
+            <t t-else="not obj.categ_ids">
+                <p>No categories found!</p>
+            </t>
+        </div>
+    </template>
+    <!-- Category Snippet END -->
+
+
+    <!-- Snippet Options -->
+    <template id="dynamic_snippet_options" name="Dynamic Snippet Options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <!-- Blog Slider -->
+            <div data-js="latest_blog"
+            data-selector=".web_blog_slider">
+                <we-button data-website_blog_configure="" data-no-preview="true">Change Collection</we-button>
+            </div>
+
+            <!-- Brand Slider -->
+            <div data-js="s_brand_multi_with_header"
+            data-selector=".js_brand_multi_collection">
+                <we-button data-select_collection="" data-no-preview="true">Change Collection</we-button>
+            </div>
+
+            <!-- Product Slider -->
+            <div data-js="product_slider_actions" 
+            data-selector=".s_product_slider">
+                <we-button data-product_slider_configure="" data-no-preview="true">Change Collection</we-button>
+            </div>
+
+            <!-- Category Snippet -->
+            <div data-js="s_ecomm_cat_multi_with_header" 
+            data-selector=".js_ecomm_cat_multi_collection">
+                <we-button data-select_collection="" data-no-preview="true">Change Collection</we-button>
+            </div>
+
+        </xpath>
+    </template>
+
+    <!-- Snippets in Website -->
+    <template id="place_into_bar_blog" inherit_id="website.snippets" name="Place Snippet into bar">
+        <xpath expr="//div[@id='snippet_structure']//div[hasclass('o_panel_body')]" position="inside">
+            <!-- Blog Slider -->
+            <t t-snippet="atharva_theme_general.latest_blog" t-thumbnail="/atharva_theme_general/static/src/icon/blogs.png" />
+
+            <!-- Brand Slider -->
+            <t t-snippet="atharva_theme_general.s_brand_multi_with_header" t-thumbnail="/atharva_theme_general/static/src/icon/brand-slider.png" />
+
+            <!-- Dynamic Product Slider -->
+            <t t-snippet="atharva_theme_general.s_product_slider" t-thumbnail="/atharva_theme_general/static/src/icon/product_dynamic_snippet.png" />
+
+            <!-- Category Snippet -->
+            <t t-snippet="atharva_theme_general.s_ecomm_cat_multi_with_header" t-thumbnail="/atharva_theme_general/static/src/icon/cat_dynamic_snippet.png" />
+        </xpath>
+    </template>
+</odoo>

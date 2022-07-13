@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <data>
+
+        <record id="sales_team_supervisor" model="res.groups">
+            <field name="name">Supervisor Sale Team</field>
+            <field name="category_id" ref="base.module_category_sales_sales"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+
+        <record id="sales_team_rule" model="ir.rule">
+            <field name="name">See only sale orders of team members</field>
+            <field ref="sale.model_sale_order" name="model_id"/>
+            <field name="domain_force">[('supervisor_id','=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('sales_team_supervisor'))]"/>
+        </record>
+
+    </data>
+
+</odoo>

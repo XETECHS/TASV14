@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <field name="vat" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+
+                <field name="mobile" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+
+                <field name="email" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+
+                <xpath expr="//group[@name='misc']" position="replace"> </xpath>
+            
+                <xpath expr="/form/sheet/group[1]" position="inside">
+                    <group name="misc" string="Misc" class="float-right">
+                        <field name="reference" string="Referencia"/>
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" attrs="{'readonly': [('parent_id', '!=', False)]}" force_save="1"/>
+                        <field name="industry_id" attrs="{'invisible': [('is_company', '=', False)]}" options="{'no_create': True}"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_partner_reference_tree">
+        <field name="name">res.partner.reference.view.tree</field>
+        <field name="model">res.partner.reference</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <record id="res_partner_reference_action_window" model="ir.actions.act_window">
+            <field name="name">Referencia</field>
+            <field name="res_model">res.partner.reference</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem
+            id="reference_menu_config"
+            name="Referencia"
+            action="res_partner_reference_action_window"
+            parent="crm.crm_menu_config"
+            sequence="10"
+        />
+        
+    </data>
+
+</odoo>

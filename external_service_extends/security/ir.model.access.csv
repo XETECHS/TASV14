@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_tasks_service_ticket,access.project.tasks.service.ticket,model_project_tasks_service_ticket,,1,1,1,1
+access_project_task_service_type,access.project.task.service.type,model_project_task_service_type,,1,1,1,1
+access_service_ticket_timer,access.service.ticket.timer,model_service_ticket_timer,,1,1,1,1

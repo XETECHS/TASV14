@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_report_inherit_template" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-call='web.external_layout']/div/table/thead/tr/th[@name='th_taxes']" position="replace">
+
+        </xpath>
+        <xpath expr="//t[@t-call='web.external_layout']/div/table/tbody/t[@t-foreach='doc.order_line']/tr/t[@t-if='not line.display_type']/td[@name='td_taxes']" position="replace">
+
+        </xpath>
+
+<!--        <xpath expr="//t[@t-call='web.external_layout']/div/table/tbody/t[@t-foreach='doc.order_line']/t[3]" position="replace">-->
+
+<!--        </xpath>-->
+
+        <xpath expr="//t[@t-call='web.external_layout']/div/div[@name='so_total_summary']/div[@name='total']/div/table/tr" position="replace">
+
+        </xpath>
+
+        <xpath expr="//t[@t-call='web.external_layout']/div/div[@name='so_total_summary']/div[@name='total']/div/table/t[@t-foreach='doc.amount_by_group']" position="replace">
+
+        </xpath>
+
+
+    </template>
+</odoo>

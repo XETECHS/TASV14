@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_subscription_dates_manager,sale_sale_subscription_dates,model_sale_subscription_dates,base.group_user,1,1,1,1
+access_sale_subscription_dates_planning_manager,sale_sale_subscription_dates_planning,model_sale_subscription_dates_planning,base.group_user,1,1,1,1

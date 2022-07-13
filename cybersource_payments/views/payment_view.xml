@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="aspl_acquirer_form_cybersouce" model="ir.ui.view">
+        <field name="name">payment.acquirer.form.inherit</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.acquirer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr='//group[@name="acquirer"]' position='after'>
+                <group attrs="{'invisible': [('provider', '!=', 'cybersource')]}">
+                	<field name="cybersource_merchant_id" groups="base.group_user"/>
+                    <field name="cybersource_key" groups="base.group_user"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

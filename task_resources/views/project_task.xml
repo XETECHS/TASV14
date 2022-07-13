@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+
+        <record id="project_task_form_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='description_page']" position="after">
+                    <page name="resources_page" string="Recursos">
+                        <field name="resources_ids">
+                            <tree>
+                                <field name="referencia"/>
+                                <field name="product_id"/>
+                                <field name="uom"/>
+                                <field name="cantidad"/>
+                                <field name="cost" invisible="1"/>
+                                <field name="subtotal" sum="Total" invisible="1"/>
+                            </tree>
+                            <form>
+                                <group class="col-6 float-left">
+                                    <field name="product_id"/>
+                                    <field name="cost" invisible="1"/>
+                                    <field name="referencia"/>
+                                    <field name="task_id"/>
+                                </group>
+                                <group class="col-6 float-left">
+                                    <field name="uom"/>
+                                    <field name="subtotal" invisible="1"/>
+                                    <field name="cantidad"/>
+                                    <!-- <field name="task_ticket_id"/> -->
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_form_inherit_group" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.group</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="groups_id" eval="[(4, ref('task_resources.group_service_extends_xt'))]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='resources_ids']/tree/field[@name='cost']" position="attributes">
+                    <attribute name="invisible">False</attribute>
+                </xpath>
+                <xpath expr="//field[@name='resources_ids']/tree/field[@name='subtotal']" position="attributes">
+                    <attribute name="invisible">False</attribute>
+                </xpath>
+                <xpath expr="//field[@name='resources_ids']/form/field[@name='cost']" position="attributes">
+                    <attribute name="invisible">False</attribute>
+                </xpath>
+                <xpath expr="//field[@name='resources_ids']/form/field[@name='subtotal']" position="attributes">
+                    <attribute name="invisible">False</attribute>
+                </xpath>
+            </field>    
+        </record>
+
+    </data>
+</odoo>

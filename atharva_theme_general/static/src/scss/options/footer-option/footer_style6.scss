@@ -1,0 +1,91 @@
+#footer {
+	background: $as-footer-bg !important;
+	border: none !important;
+}
+.top-footer {
+	border-top: 1px solid rgba($as-footer-text, 0.12);
+	color: rgba($as-footer-text, 0.5);
+	padding: 20px 50px 50px;
+	font-size: 14px;
+	@include down-md {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	@include down-sm {
+		padding: 0px 0 30px;
+	}
+	h3 {
+		font-size: 16px;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin: 30px 0 20px;
+		color: $as-footer-title;
+	}
+	.fot-about {
+		width: 400px;
+		max-width: 100%;
+	}
+	.fot-link {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		a {
+			color: rgba($as-footer-text, 0.5);
+		    text-transform: uppercase;
+		    font-size: 14px;
+		    display: inline-block;
+		    vertical-align: top;
+		    padding: 4px 0px;
+		    &:hover {
+		 		color:$as-footer-text;
+		 	}
+		}
+	}
+	.link-follow {
+		padding-top: 12px;
+		li {
+			margin-right: 15px;
+			 a {
+			 	color: rgba($as-footer-text, 0.5);
+			 	font-size: 17px;
+			 	display: block;
+			 	&:hover {
+			 		color:$as-footer-text;
+			 	}
+			 }
+		}
+	}
+	.subscribe-section {
+		width: 320px;
+		max-width: 100%;
+		.form-control {
+			height: 40px;
+			border: none;
+			background: #eee;
+		}
+		.btn {
+			height: 40px;
+			width: 40px;
+			line-height: 40px;
+			border: none;
+			padding: 0;
+		}
+	}
+}
+
+.middle-footer {
+	border-top: 1px solid rgba($as-footer-text, 0.12);
+	padding: 25px 50px;
+	.copyright {
+		margin: 0;
+	    font-size: 14px;
+	    color: rgba($as-footer-text, 0.5);
+	    font-weight: 400;
+	    @include down-sm {
+	    	margin-bottom: 20px;
+	    }
+	}
+}
+.o_footer_copyright{
+	display: none !important;
+}

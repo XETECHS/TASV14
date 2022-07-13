@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_multitab_configure_form" model="ir.ui.view">
+        <field name="name">multitab.configure.form</field>
+        <field name="model">multitab.configure</field>
+        <field name="arch" type="xml">
+            <form string=" Snippet Tab Configuration">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="active" />
+                        <field name="image_filename" invisible="1" />
+                        <field name="image" filename="image_filename" />
+                    </group>
+                    <group string="Products">
+                        <field name="product_ids">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle" />
+                                <field name="product_id" required="1" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_collection_configure_form" model="ir.ui.view">
+        <field name="name">collection.configure.form</field>
+        <field name="model">collection.configure</field>
+        <field name="arch" type="xml">
+            <form string="Multi collection Configuration">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="active" />
+                    </group>
+                    <group string="Choose snippet tab">
+                        <field name="tab_collection_ids" no_label="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_multitab_configure" model="ir.actions.act_window">
+        <field name="name">Tab Configuration</field>
+        <field name="res_model">multitab.configure</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_collection_configure" model="ir.actions.act_window">
+        <field name="name">Slider Collection Configuration</field>
+        <field name="res_model">collection.configure</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_action_multitab_configure" parent="atharva_theme_general.menu_action_atharva_theme_general" sequence="101" action="action_multitab_configure" name="Tab Configuration" />
+    <menuitem id="menu_action_collection_configure" parent="atharva_theme_general.menu_action_atharva_theme_general" sequence="101" action="action_collection_configure" name="Slider Collection Configuration" />
+
+    <!-- Brand Slider Configuration View -->
+    <record id="view_multitab_configure_brand_form" model="ir.ui.view">
+        <field name="name">multitab.configure.brand.form</field>
+        <field name="model">multitab.configure.brand</field>
+        <field name="arch" type="xml">
+            <form string="Snippet Tab Configuration">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="item_count"/>
+                            <field name="active"/>
+                            <field name="label_active"/>
+                        </group>
+                        <group>
+                            <field name="brand_name_active"/>
+                            <field name="brand_link_active"/>
+                            <field name="auto_slider"/>
+                            <field name="slider_time" attrs="{'invisible': [('auto_slider', '=', False)]}" />
+                        </group>
+                    </group>
+                    <group string="Brands">
+                        <field name="brand_ids" no_label="1">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="brand_id" required="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_multitab_configure_brand" model="ir.actions.act_window">
+        <field name="name">Brand Tab Configuration</field>
+        <field name="res_model">multitab.configure.brand</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_action_multitab_configure_brand" parent="atharva_theme_general.menu_action_atharva_theme_general" sequence="101" action="action_multitab_configure_brand" name="Brand Slider Configuration"/>
+</odoo>

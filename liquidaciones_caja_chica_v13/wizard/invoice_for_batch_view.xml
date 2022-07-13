@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+
+        <record id="view_invoice_for_batch" model="ir.ui.view">
+            <field name="name">Facturacion por Lotes</field>
+            <field name="model">invoice.batch</field>
+            <field name="arch" type="xml">
+                <form string="Facturacion por Lotes">
+					<group>
+                    <group col="4" colspan="2" string="Facturacion por Lotes">
+                        <field name="date_start"/>
+                        <field name="date_end"/>						
+                    </group>
+					<group col="4" colspan="2">
+                        <field name="payment_id" domain="[('type','in',['cash', 'bank'])]"/>
+                        <field name="journal_id"/>						
+                    </group>
+					<group col="4" colspan="2">
+                        <field name="numero_facturas" readonly="1"/>
+                        <field name="caja_chica_id" domain="[('state','=','valido')]"/>						
+                    </group>	
+					</group>
+					<notebook>
+						<page string="Facturas">
+							<field name="invoice_batch_line">
+								<tree string="Invoice lines" editable="bottom">
+									<field name="invoice_id"/>
+									<field name="fecha"/>
+									<field name="partner_id"/>
+									<field name="amount_total"/>
+								</tree>
+							</field>
+							<group class="oe_subtotal_footer oe_right">
+                                <field name="total_facturado" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>                                
+                            </group>
+						</page>
+					</notebook>
+                    <footer>
+                        <button name="action_liquidar" type="object" string="Procesar"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_invoice_for_batch" model="ir.actions.act_window">
+            <field name="name">Liquidacion por Lotes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">invoice.batch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+		
+		<menuitem action="action_invoice_for_batch" id="menu_liquidacion_lotes" parent="account.menu_finance_payables" sequence="20"/>
+
+
+    </data>
+</odoo>

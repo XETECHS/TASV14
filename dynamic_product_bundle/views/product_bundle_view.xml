@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+<!--       <record id="product_bundle_product_kanban_view" model="ir.ui.view">-->
+<!--            <field name="name">product.template.pack</field>-->
+<!--            <field name="model">product.template</field>-->
+<!--            <field name="inherit_id" ref="product.product_template_kanban_view" />-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//templates" position="replace">-->
+<!--                    <templates>-->
+<!--                        <t t-name="kanban-box">-->
+<!--                            <div class="oe_kanban_vignette oe_semantic_html_override">-->
+<!--                                <a type="open"><img alt="product_id.name"  t-att-src="kanban_image('product.product', 'image_small', record.id.value)" class="oe_kanban_image"/></a>-->
+<!--                                <div class="oe_kanban_details">-->
+<!--                                    <h4>-->
+<!--                                        <a type="open">-->
+<!--                                            <field name="name"/>-->
+<!--                                        </a>-->
+<!--                                    </h4>-->
+<!--                                    <div name="tags"/>-->
+<!--                                    <ul>-->
+<!--                                        <li>Price: <field name="lst_price"></field></li>-->
+<!--                                    </ul>-->
+
+<!--			    <ul>-->
+<!--                   <li t-if="record.type.raw_value == 'product'">On hand: <field name="qty_available"/> <field name="uom_id"/></li>-->
+<!--                </ul>-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </templates>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="product_bundle_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.pack</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_title']/div[@name='options']" position="inside">
+                    <div>
+                    <field name="is_pack"/>
+                    <label for="is_pack"/>
+                </div>
+                </xpath>
+
+
+            </field>
+        </record>
+
+        <record id="product_bundle_product_form_view_page" model="ir.ui.view">
+            <field name="name">product.product.pack.page</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='inventory']" position="after">
+
+
+
+                    <page string='Pack Products' attrs= "{'invisible':[('is_pack','=', False)]}">
+                         <field name="bi_pack_ids">
+                             <tree editable= "bottom">
+                                <field name="product_id"/>
+                                <field name="qty_uom"/>
+                                <field name="bi_image" class="oe_avatar"/>
+                             </tree>
+                         </field>
+                    </page>
+
+                </xpath>
+            </field>
+        </record>
+
+	 <record id="product_bundle_inherit_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field[@name='order_line']" position="before">
+                      <button name="dynamic_product_bundle.bi_act_product_bundle_wizard" string="Add Bundle" type="action" attrs= "{'invisible':[('state','=', 'manual')]}" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_inherit_form" model="ir.ui.view">
+            <field name="name">product.product.pack</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='variants']" position="attributes">
+                  <attribute name="attrs">{'invisible':[('is_pack','=', True)]}</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page[@name='variants']" position="after">
+                  <page string="Variants" name="bi_variants" attrs="{'invisible':[('is_pack','=', False)]}">
+                    <h1> You cannot create variants of the Pack </h1>
+                  </page>
+                </xpath>
+            </field>
+        </record>
+
+     <record id="product_bundle_product_search_view" model="ir.ui.view">
+            <field name="name">product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//search/filter[@name='filter_to_sell']" position="after">
+                    <filter string="Is a pack" name="is_a_pack"  domain="[('is_pack','=',1)]"/>
+                </xpath>
+        </field>
+    </record>
+
+<!--        <record id="bi_action_pack" model="ir.actions.act_window">-->
+<!--            <field name="name">Product Packs</field>-->
+<!--            <field name="res_model">product.template</field>-->
+<!--            <field name="domain">[('is_pack', '=', True)]</field>-->
+<!--            <field name="context">{'default_is_pack':True}</field>-->
+<!--            <field name="binding_view_types">form</field>-->
+<!--            <field name="view_mode">kanban,tree,form</field>-->
+<!--            <field name="view_id" ref="product_bundle_product_kanban_view"/>-->
+<!--        </record>-->
+
+<!--        <menuitem id="menu_product_pack_main_bi" name="Product Pack" parent="sale.sale_order_menu" sequence="15" action="bi_action_pack"/>-->
+  </data>
+</openerp>

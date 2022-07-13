@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+	<record id="google_recaptcha_config_form" model="ir.ui.view" >
+		<field name="name">google.recaptcha.config.form</field>
+		<field name="model">google.recaptcha.config</field>
+		<field name="arch" type="xml">
+			<form string="Google reCAPTCHA Configuration" create="false" delete="false">
+				<sheet>
+					<group>
+						<field name="name" invisible="1"/>
+						<a href="https://www.google.com/recaptcha/admin#createsite" target="_blank">
+							Click here to get your site and secret keys or contact us for setup.</a>
+						<field name="enable_recaptcha"/>
+						<field name="re_site_key" attrs="{'required': [('enable_recaptcha', '=', True)], 'invisible': [('enable_recaptcha', '=', False)]}"/>
+						<field name="re_secret_key" attrs="{'required': [('enable_recaptcha', '=', True)], 'invisible': [('enable_recaptcha', '=', False)]}"/>
+						<field name="is_key_verified" invisible="1"/>
+						<field name="enable_on_login"/>
+						<field name="enable_on_contact_us"/>
+						<button name="verify_google_keys" string="Verify Keys" type="object" class="btn-primary"
+						attrs="{'invisible': ['|',('enable_recaptcha', '=', False),('is_key_verified', '=', True)]}"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record model="ir.actions.act_window" id="action_google_recaptcha_config">
+			<field name="name">reCAPTCHA Configuration</field>
+			<field name="res_model">google.recaptcha.config</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="google_recaptcha_config_form" />
+			<field name="res_id" ref="google_recaptcha_xetechs.google_recaptcha_config"/>
+		</record>
+	
+	<menuitem
+            id="menu_google_recaptcha_config"
+            name="reCAPTCHA Configuration"
+            parent="base.menu_administration"
+            sequence="3"
+            action="action_google_recaptcha_config"
+            groups="base.group_system"/>
+	
+</odoo>

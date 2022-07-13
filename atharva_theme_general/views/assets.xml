@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Assets: Variables -->
+    <template id="_assets_primary_variables" inherit_id="web._assets_primary_variables" priority="16">
+        <xpath expr="//link[last()]" position="after">
+            <link href="/atharva_theme_general/static/src/scss/atg_theme.scss" rel="stylesheet" type="text/scss" />
+            <!-- <link href="/atharva_theme_general/static/src/scss/options/colors/color_picker.scss" rel="stylesheet" type="text/scss" /> -->
+        </xpath>
+    </template>
+    <!--  -->
+    <!-- Assets: Front -->
+    <template id="assent_front" inherit_id="website.assets_frontend" priority="16">
+        <xpath expr="." position="inside">
+            <link href="/atharva_theme_general/static/src/scss/atg_variables.scss" rel="stylesheet" type="text/scss" />
+            <link href="/atharva_theme_general/static/src/scss/atg_mixin.scss" rel="stylesheet" type="text/scss" />
+            <!-- CSS File -->
+            <link href="/atharva_theme_general/static/lib/css/cookieBar.min.css" rel="stylesheet" />
+            <link href="/atharva_theme_general/static/lib/css/magnific-popup.css" rel="stylesheet" />
+            <link href="/atharva_theme_general/static/lib/css/owl.carousel.min.css" rel="stylesheet" />
+            <link href="/atharva_theme_general/static/lib/css/slick.css" rel="stylesheet" />
+            <!-- Script File -->
+            <script type="text/javascript" src="/atharva_theme_general/static/lib/js/jquery.elevateZoom-3.0.8.min.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/lib/js/jquery.magnific-popup.min.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/lib/js/owl.carousel.min.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/lib/js/slick.min.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/lib/js/jquery.cookieBar.min.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/lib/js/jquery.countdown.min.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/src/js/custom.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/src/js/custom_shop.js" />
+            <script type="text/javascript" src="/atharva_theme_general/static/src/js/zoom.js" />
+        </xpath>
+    </template>
+    <!--  -->
+</odoo>

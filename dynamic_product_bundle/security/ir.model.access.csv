@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_pack_public_user,product.bundle.public.user,model_bi_product_pack,,1,0,0,0
+access_product_pack_bundle_user,product.pack.bundle.user,model_bi_product_pack,base.group_user,1,0,0,0
+access_product_pack_manager,product.bundle.manager,model_bi_product_pack,sales_team.group_sale_manager,1,1,1,1
+access_product_pack_lead,product.bundle.manager,model_bi_product_pack,sales_team.group_sale_salesman_all_leads,1,1,1,1
+access_product_pack_user,product.bundle.public.user,model_bi_product_pack,sales_team.group_sale_salesman,1,1,1,1
+access_sale_order_line_user,sale.order.line.public.user,sale.model_sale_order_line,base.group_user,1,1,1,1
+access_product_user,access.product.user,product.model_product_product,base.group_user,1,1,1,1
+access_product_template_user,access.product.tmpl.user,product.model_product_template,base.group_user,1,1,1,0
+access_wizard_product_bundle_bi,access.wizard.product.bundle.bi,dynamic_product_bundle.model_wizard_product_bundle_bi,,1,1,1,1

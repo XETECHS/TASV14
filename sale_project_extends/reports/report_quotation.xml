@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="action_simple_quotation_pdf"
+            model="sale.order"
+            string="Presupuesto simple"
+            report_type="qweb-pdf"
+            name="sale_project_extends.simple_quotation_pdf"
+            file="sale_project_extends.simple_quotation_pdf"
+            attachment="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+            print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+    />
+
+    <template id="simple_quotation_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="sale_project_extends.report_saleorder_document" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_saleorder_document">
+    <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+        <t t-set="address">
+            <div t-field="doc.partner_id"
+                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+        </t>
+        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id
+                             and doc.partner_invoice_id != doc.partner_id
+                             or doc.partner_shipping_id != doc.partner_invoice_id">
+            <t t-set="information_block">
+                <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and shipping address:</strong>
+                <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing address:</strong>
+                <div t-field="doc.partner_invoice_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                    <strong>Shipping address:</strong>
+                    <div t-field="doc.partner_shipping_id"
+                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </t>
+            </t>
+        </t>
+        <div class="page">
+            <div class="oe_structure"/>
+
+            <h2>
+                <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                    <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                    <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                </t>
+                <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                    <span>Pro-Forma Invoice # </span>
+                </t>
+                <span t-field="doc.name"/>
+            </h2>
+
+            <div class="row mt32 mb32" id="informations">
+                <div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">
+                    <strong>Your Reference:</strong>
+                    <p class="m-0" t-field="doc.client_order_ref"/>
+                </div>
+                <div t-if="doc.commitment_date and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">
+                    <strong>Date Ordered:</strong>
+                    <p class="m-0" t-field="doc.commitment_date"/>
+                </div>
+                <div t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto mw-100 mb-2">
+                    <strong>Quotation Date:</strong>
+                    <p class="m-0" t-field="doc.date_order"/>
+                </div>
+                <div t-if="doc.user_id.name" class="col-auto mw-100 mb-2">
+                    <strong>Salesperson:</strong>
+                    <p class="m-0" t-field="doc.user_id"/>
+                </div>
+                <div name="payment_term" t-if="doc.payment_term_id" class="col-auto mw-100 mb-2">
+                    <strong>Payment Terms:</strong>
+                    <p class="m-0" t-field="doc.payment_term_id"/>
+                </div>
+                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2">
+                    <strong>Expiration Date:</strong>
+                    <p class="m-0" t-field="doc.validity_date"/>
+                </div>
+            </div>
+
+            <p t-field="doc.comments"/>
+            <div class="clearfix">
+                <div id="total" class="row" name="total">
+                    <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                        <table class="table table-sm">
+                            <tr class="border-black o_total">
+                                <td><strong>Total</strong></td>
+                                <td class="text-right">
+                                    <span t-field="doc.amount_total"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <p t-field="doc.note" />
+            <p t-if="doc.payment_term_id.note">
+                <span t-field="doc.payment_term_id.note"/>
+            </p>
+            <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.sudo().note">
+                <strong>Fiscal Position Remark:</strong>
+                <span t-field="doc.fiscal_position_id.sudo().note"/>
+            </p>
+
+            <div t-if="doc.signature" class="mt32 ml16 mr16" name="signature">
+                <div class="offset-8">
+                    <strong>Signature</strong>
+                </div>
+                <div class="offset-8">
+                    <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                </div>
+                <div class="offset-8 text-center">
+                    <p t-field="doc.signed_by"/>
+                </div>
+            </div>
+
+            <div class="oe_structure"/>
+        </div>
+    </t>
+</template>
+</odoo>

@@ -1,0 +1,10 @@
+.factura_contendedor {
+  border-radius: 15px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #148245 !important;
+  width: 100%;  /*Tested and working as expected: */
+  padding: 1%;
+  margin: 0px auto;
+  float: none;
+}

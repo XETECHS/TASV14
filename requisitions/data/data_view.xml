@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Activities -->
+        <record id="mail_act_requisition_upsell" model="mail.activity.type">
+            <field name="name">Aprobacion de requisicion</field>
+            <field name="icon">fa-line-chart</field>
+            <field name="res_model_id" ref="requisitions.model_po_requisition"/>
+        </record>
+
+    </data>
+</odoo>

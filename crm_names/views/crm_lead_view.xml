@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<odoo>
+    
+    <record id="view_crm_lead_oppor_form" model="ir.ui.view">
+        <field name="name">crm.lead.oppor.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <field name="name" position="replace">
+                <field name="name_id" placeholder="e.g. Nombre de oportunidad" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create': True}"/>
+                <field name="name" placeholder="e.g. Product Pricing" required="0" invisible="1"/>
+	        </field>
+            <field name="priority" position="before">
+                <field name="edit_customer_qualification" invisible="1"/>
+                <field name="customer_qualification" attrs="{'readonly': [('edit_customer_qualification', '=', False)]}"/>
+            </field>
+            <field name="user_id" position="attributes">
+                <attribute name="required">True</attribute>
+            </field>
+            <field name="campaign_id" position="attributes">
+                <attribute name="required">True</attribute>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="partner_shipping_id" context="{'default_type':'delivery', 'show_address': 1}" options='{"always_reload": True}'/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_crm_case_opportunities_filter_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.search.opportunity.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="customer_qualification"/>
+	        </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_crm_lead_kanban_inherit">
+        <field name="name">crm.lead.kanban.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/field[@name='stage_id']" position="after">
+                <field name="name_id"/>
+            </xpath>
+            <xpath expr="//t/div/div[@class='oe_kanban_content']/div/strong[@class='o_kanban_record_title']/field[@name='name']" position="replace">
+                <field name="name" invisible="1"/>
+                <field name="name_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_crm_lead_kanban_inherit2">
+        <field name="name">crm.lead.kanban.inherit2</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_lead_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/field[@name='name']" position="after">
+                <field name="name_id"/>
+            </xpath>
+            <xpath expr="//t/div/div/strong/span/field[@name='name']" position="replace">
+                <field name="name" invisible="1"/>
+                <field name="name_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_crm_lead_kanban_inherit3">
+        <field name="name">crm.lead.kanban.inherit3</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="replace">
+                <field name="name" invisible="1"/>
+               <field name="name_id" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create': True}" widget="selection"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,126 @@
+/*Transition Mixin*/
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    transition:         $transition;
+}
+
+/*Transition Delay Mixin*/
+@mixin delay($delay){
+	transition-delay:$delay;
+	-webkit-transition-delay:$delay;
+}
+
+// Browser Prefixes
+/*Common Transform*/
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	transform: $transforms;
+}
+
+/*Rotate*/
+@mixin rotate ($deg) { 
+	@include transform(rotate(#{$deg}deg));
+}
+
+/*Scale*/
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+/*Translate*/
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+/*Skew*/
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+/*Transform Origin*/
+@mixin transform-origin ($origin) {
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+
+/*hover focus active*/
+@mixin hfa {
+	&:hover,
+	&:focus,
+	&:active{
+		@content;
+	}
+}
+
+/*Hover*/
+@mixin h {
+	&:hover {
+		@content;
+	}
+}
+
+/*Hover & active*/
+@mixin ha {
+	&.active,
+	&:hover {
+		@content;
+	}
+}
+
+/*Media Responsive*/
+@mixin down-xs {
+	@media (max-width: #{$down-xs}){
+		@content; 
+	}
+}
+@mixin down-sm {
+	@media (max-width: #{$down-sm}){
+		@content; 
+	}
+}
+@mixin down-md {
+	@media (max-width: #{$down-md}){
+		@content; 
+	}
+}
+@mixin down-lg {
+	@media (max-width: #{$down-lg}){
+		@content; 
+	}
+}
+
+@mixin up-xs {
+	@media (min-width: #{$up-xs}){
+		@content; 
+	}
+}
+@mixin up-sm {
+	@media (min-width: #{$up-sm}){
+		@content; 
+	}
+}
+@mixin up-md {
+	@media (min-width: #{$up-md}){
+		@content; 
+	}
+}
+@mixin up-lg {
+	@media (min-width: #{$up-lg}){
+		@content; 
+	}
+}
+
+/*For RTL Mode*/
+.o_rtl .owl-carousel {
+    direction: rtl;
+    .owl-item {
+    	* {
+    		direction: ltr;
+    	}
+    }
+}

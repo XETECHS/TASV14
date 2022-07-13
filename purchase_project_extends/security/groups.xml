@@ -1,0 +1,18 @@
+<odoo>
+
+
+    <record id="group_requisition_manager" model="res.groups">
+        <field name="name">Admin. requisiciones</field>
+        <field name="category_id" ref="requisitions.module_category_po_requisition"/>
+    </record>
+
+    <record id="group_requisition_only" model="res.groups">
+        <field name="name">Unicamente requisiciones de compras</field>
+        <field name="category_id" ref="requisitions.module_category_po_requisition"/>
+    </record>
+
+        <record id="group_purchase_only" model="res.groups">
+        <field name="name">Unicamente Ordenes de compras</field>
+        <field name="category_id" ref="requisitions.module_category_po_requisition"/>
+    </record>
+</odoo>

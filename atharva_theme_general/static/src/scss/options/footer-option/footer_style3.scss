@@ -1,0 +1,132 @@
+footer {
+	&.o_footer {
+		background:none !important;
+		#footer {
+			border:none !important;
+		}
+	}
+}
+
+body footer {
+	background: none;
+	#footer {
+		padding: 0;
+	}
+}
+
+.middle-footer {
+	background: $as-footer-bg;
+    padding: 50px 0;
+    @include down-sm{
+    	padding: 40px 0 10px 0;
+    }
+	.fot-about {
+		margin-bottom: 40px;
+		.fot-logo {
+			margin-bottom: 35px;
+		}
+		p {
+	        color: rgba($as-footer-text,.5);
+		    font-weight: 500;
+		    font-size: 14px;
+		    margin: 0;
+		    line-height: 28px;
+		    width: 500px;
+		    max-width: 100%;
+		}
+	}
+	.link-follow {
+		display: inline-block;
+		margin-top: 30px;
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				list-style-type: none;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 5px;
+				a {
+					font-size: 16px;
+					line-height: 36px;
+					color: #fff;
+					width: 35px;
+					height: 35px;
+					background: #323232;
+					display: block;
+					text-align: center;
+					border-radius: 3px;
+					transition: all, 0.4s, ease; 
+					&:hover {
+						background: $as-theme;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	.fot-col {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		h3 {
+            font-size: 16px;
+		    font-weight: 600;
+		    color: $as-footer-title;
+		    margin: 0 0 15px;
+		    padding: 0 0 10px;
+		    position: relative;
+		    text-transform: uppercase;
+		    letter-spacing: 1px;
+		    &:after {
+		    	width: 35px;
+			    height: 1px;
+			    background: $as-footer-title;
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    content: "";
+			    opacity: 0.5;
+		    }
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				position: relative;
+			    padding: 0;
+			    margin: 6px 0;
+			    display: inline-block;
+			    vertical-align: top;
+			    width: 100%;
+				a {
+				    color: rgba($as-footer-text,.5);
+				    font-weight: 500;
+				    font-size: 14px;
+				    letter-spacing: 0.5px;
+					&:hover {
+						color: $as-footer-text;
+					}
+				}
+			}
+		}
+	}
+}
+
+#footer .footer-bottom {
+	border-top: 1px solid rgba($as-footer-text,.1);
+	background: $as-footer-bg;
+    padding: 20px 0;
+	.copyright {
+		margin: 0;
+	    font-weight: 500;
+	    color: rgba($as-footer-text, 0.5);
+	    font-size: 14px;
+	}
+}
+
+.o_footer_copyright {
+	display: none !important;
+}

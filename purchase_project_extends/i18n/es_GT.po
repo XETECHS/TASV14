@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_project_extends
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-30 16:51+0000\n"
+"PO-Revision-Date: 2020-04-30 16:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_project_extends
+#: model:res.groups,name:purchase_project_extends.group_requisition_manager
+msgid "Admin. requisiciones"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_purchase_order__customer_id
+msgid "Cliente"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_po_requisition__purchase_complete
+msgid "Completa"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_requisition_order_line__quantity_purchase
+msgid "Comprado"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_po_requisition__purchase_count
+#: model:ir.model.fields,field_description:purchase_project_extends.field_po_requisition__purchase_ids
+#: model_terms:ir.ui.view,arch_db:purchase_project_extends.view_requisition_order_form_inherit
+msgid "Compras"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model_terms:ir.ui.view,arch_db:purchase_project_extends.view_requisition_order_form_inherit
+msgid "Crear compra"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_requisition_order_line__quantity_available
+msgid "Disponible"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model_terms:ir.ui.view,arch_db:purchase_project_extends.view_requisition_order_form_inherit
+msgid "Incoming Shipments"
+msgstr "Envíos entrantes"
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_requisition_order_line__supplier_id
+msgid "Proveedor"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_purchase_order__project_id
+msgid "Proyecto"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model,name:purchase_project_extends.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: purchase_project_extends
+#: model:ir.model,name:purchase_project_extends.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea de pedido de compra"
+
+#. module: purchase_project_extends
+#: model:ir.model,name:purchase_project_extends.model_po_requisition
+msgid "Purchase Requisitions"
+msgstr "Requisicion de compra"
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_purchase_order_line__requisition_line_id
+msgid "Req. Line"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_purchase_order__requisition_id
+msgid "Requisicion"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model,name:purchase_project_extends.model_requisition_order_line
+msgid "Requisition Order Line"
+msgstr "Lineas de Requisicion"
+
+#. module: purchase_project_extends
+#: model:res.groups,name:purchase_project_extends.group_purchase_only
+msgid "Unicamente Ordenes de compras"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:res.groups,name:purchase_project_extends.group_requisition_only
+msgid "Unicamente requisiciones de compras"
+msgstr ""
+
+#. module: purchase_project_extends
+#: model:ir.model.fields,field_description:purchase_project_extends.field_purchase_order__is_internal
+msgid "¿Es interna?"
+msgstr ""

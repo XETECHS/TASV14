@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="service_approved_wizard_view_form" model="ir.ui.view">
+            <field name="name">service.approved.wizard.view.form</field>
+            <field name="model">wizard.service.approved</field>
+            <field name="arch" type="xml">
+                <form>
+                    <footer>
+                        <button name="action_batch_cancel" string="Aprobar" type="object"/>
+                        o
+                        <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

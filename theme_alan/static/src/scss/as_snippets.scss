@@ -1,0 +1,927 @@
+/* Brand Collections
+---------------------------------------------*/
+.js_brand_multi_collection {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	.owl-dots {
+		margin-top: 15px;
+	}
+	.owl-stage {
+		margin: 0 auto;
+	}
+	.brand-img {
+	    padding: 4px;
+		.brand_img_span {
+			height: 100px;
+    		display: block;
+		}
+		img {
+			max-width: 150px;
+			max-height: 100px;
+			width: auto;
+			display: block;
+			margin: 0 auto;
+		}
+		a {
+			display: block;
+			font-weight: 500;
+			color: $as-dark-color;
+		}
+		.brand-name {
+		    width: 100%;
+		    max-width: 100%;
+		    display: inline-block;
+		    vertical-align: top;
+		    text-align: center;
+		    color: $as-dark-color;
+		    font-size: 15px;
+		    padding-top: 8px;
+		    font-weight: 400;
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		}
+	}
+}
+
+/* Owl Dots and Nav
+---------------------------------------------*/
+.owl-dots {
+	text-align: center;
+	margin-top: 0px;
+
+	.owl-dot {
+		width: 10px;
+		height: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		background: none !important;
+		border: 1px solid #999 !important;
+		margin: 0 3px;
+		border-radius: 50%;
+		@include transition(ease all 0.55s);
+		@include scale(1);
+
+		&.active {
+			@include scale(1.2);
+			background: #999 !important;
+		}
+
+	}
+
+}
+
+.owl-nav {
+	button {
+	    width: 30px;
+	    height: 40px;
+	    border: none !important;
+	    background: none !important;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    margin: auto;
+	    @include transition(ease all 0.55s);
+		span {
+			position: relative;
+			width: 30px;
+			height: 40px;
+			display: inline-block;
+			vertical-align: top;
+			background: $as-white;
+			&:before {
+			    content: "";
+			    position: absolute;
+			    width: 20px;
+			    height: 20px;
+			    border-top: 2px solid #000;
+			    border-left: 2px solid #000;
+			    top: 0;
+			    bottom: 0;
+			    margin: auto;
+			    left: 0;
+			}
+		}
+
+		&.owl-prev {
+			left: -30px;
+			@include down-lg {
+				left: 0;
+			}
+		}
+		&.owl-next {
+			right: -30px;
+			@include down-lg {
+				right: 0;
+			}
+		}	
+
+		&.owl-prev {
+			span {
+				&:before{
+					left: 11px;
+					@include rotate(-45);
+				}
+			}
+
+		}
+
+		&.owl-next {
+			span {
+				&:before {
+					@include rotate(135);
+					left: auto;
+					right: 11px;
+				}
+			}
+
+		}
+	}
+}
+.owl-carousel {
+	&:hover {
+		.owl-nav {
+			button {
+				opacity:1;
+				&.disabled {
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}
+
+.section {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	@include down-md {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	@include down-md {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+}
+.no-padding {
+	padding: 0 !important;
+}
+
+/* carousel icon
+------------------------------*/
+.carousel-icon-bottom {
+	.carousel-control {
+	    width: 60px;
+	    height: 60px;
+	    position: absolute;
+	    bottom: 15px;
+	    top: auto;
+	    left: auto;
+	    right: 15px;
+	    margin: auto;
+	    opacity: 1;
+	    span {
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	bottom: 0;
+	    	right: 0;
+	    	margin: auto;
+	    	width: 30px;
+	    	height: 30px;
+	    	&:after {
+    		    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    right: 0;
+			    margin: auto;
+			    border-bottom: 2px solid currentColor;
+			    border-right: 2px solid currentColor;
+			    content: "";
+			    width: 20px;
+			    height: 20px;
+	    	}
+	    }
+	    &-next {
+	    	span {
+	    		&:after {
+	    			@include rotate(-45);
+	    			left: -15px;
+	    		}
+	    	}
+	    }
+	    &-prev {
+	    	right: 72px;
+	    	span {
+	    		&:after {
+	    			@include rotate(135);
+	    			left: 15px;
+	    		}
+	    	}
+	    }
+	}
+	
+	&.dark {
+		.carousel-control {
+			background: $as-black;
+			span {
+				color: $as-white;
+			}
+		}
+	}
+}
+
+/* carousel arrow
+------------------------------*/
+.carousel-indicators li {
+    border: 1px solid #000;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+}
+.carousel-arrow {
+	.carousel-item {
+		> .container {
+			> .row {
+				@include up-md {
+				    padding-left: 50px;
+					padding-right: 50px;
+				}
+			}
+		}
+	}
+	.carousel-indicators {
+		> li {
+		    width: 18px !important;
+		    height: 18px !important;
+		    border-radius: 50% !important;
+		    border: none;
+		}
+	}
+	.carousel-control {
+		width: 30px;
+	    height: 30px;
+	    position: absolute;
+	    opacity: 1;
+	    @include down-md {
+	    	display: none;
+	    }
+	    span {
+	    	position: absolute;
+	    	top: 0;
+	    	left: 0;
+	    	bottom: 0;
+	    	right: 0;
+	    	margin: auto;
+	    	width: 30px;
+	    	height: 30px;
+	    	&:after {
+    		    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    margin: auto;
+			    border-bottom: 2px solid currentColor;
+			    border-right: 2px solid currentColor;
+			    content: "";
+			    width: 14px;
+			    height: 14px;
+	    	}
+	    	&:before {
+    		    content: "";
+			    width: 30px;
+			    height: 2px;
+			    background: currentColor;
+			    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    margin: auto;
+			    @include transition(ease all 0.55s);
+	    	}
+	    }
+	    &-next {
+	    	span {
+	    		&:after {
+	    			@include rotate(-45);
+	    			right: 0;
+	    		}
+	    		&:before {
+	    			right: 0;
+	    		}
+	    	}
+	    }
+	    &-prev {
+	    	span {
+	    		&:after {
+	    			@include rotate(135);
+	    			left: 0;
+	    		}
+	    		&:before {
+	    			left: 0;
+	    		}
+	    	}
+	    }
+	    &:hover {
+	    	span {
+	    		&:before {
+	    			width:0px;
+	    		}
+	    	}
+	    }
+	}
+
+	&.center {
+		.carousel-control {
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			&-prev {
+				left: 20px;
+				@include down-md {
+					left: 15px;
+				}
+			}
+			&-next {
+				right: 20px;
+				@include down-md {
+					right: 15px;
+				}
+			}
+		}
+	}
+
+	&.bottom {
+		.carousel-control {
+		    bottom: 15px;
+		    top: auto;
+		    left: auto;
+		    right: 20px;
+		    margin: auto;
+		    &-prev {
+		    	right: 60px;
+		    }
+		}
+	}
+	&.dark {
+		.carousel-control {
+			span {
+				color: $as-black;
+			}
+		}
+		.carousel-indicators {
+			> li {
+			    background: $as-black;
+			}
+		}
+	}
+	&.white {
+		.carousel-control {
+			span {
+				color: $as-white;
+			}
+		}
+	}
+}
+
+/* carousel dots
+------------------------------*/
+.carousel-dots {
+	.carousel-indicators {
+	    position: absolute;
+	    bottom: 20px;
+	    margin: 0;
+	    padding: 0;
+		li {
+		    width: 12px;
+		    height: 12px;
+		    opacity: 1;
+		    border: 2px solid currentColor !important;
+		    border-radius: 50%;
+		    border: none;
+		    box-shadow: none;
+		    background: none;
+		    &.active {
+		    	background:currentColor !important;
+		    }
+		}
+	}
+	&.left {
+		.carousel-indicators {
+			text-align: left;
+		}
+	}
+	&.dark {
+		.carousel-indicators {
+			li {
+				color: $as-dark-color;
+			}
+		}
+	}
+	&.white {
+		.carousel-indicators {
+			li {
+				color: $as-white;
+			}
+		}
+	}
+}
+
+
+/* Cat 1
+------------------------------*/
+.cat-snippet-1 {
+	.cs-box {
+ 		position: relative;
+ 		.text {
+		    position: absolute;
+		    top: 20px;
+		    right: 10%;
+		}
+	}
+}
+
+/* Cat 2
+------------------------------*/
+.cat-snippet-2 {
+	.cs-box {
+	    position: relative;
+	    height: 100%;
+	    min-height: 300px;
+	    z-index: 1;
+	    &:before {
+		    border: 2px solid rgba(0,0,0,.2);
+		    content: "";
+		    position: absolute;
+		    top: 20px;
+		    left: 20px;
+		    right: 20px;
+		    bottom: 20px;
+		    z-index: 1;
+		    opacity: 0;
+		    @include transition(ease all 0.35s);
+		    pointer-events: none;
+		}
+		&:hover {
+			&:before {
+			    opacity: 1;
+			    top: 15px;
+			    left: 15px;
+			    right: 15px;
+			    bottom: 15px
+			}
+		}
+	}
+}
+
+/* Cat 3
+------------------------------*/
+.cat-snippet-3 {
+	background: #fff;
+	padding: 8%;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+
+	&.left {
+		@include up-md {
+			margin-left: -25%;
+		}
+	}
+
+	&.right {
+		@include up-md {
+			margin-right: -25%;
+		}
+	}
+
+}
+
+
+/* Cat 4
+------------------------------*/
+.cat-snippet-4 {
+	position: relative;
+
+	&.left {
+		@include up-md {
+			left: 100px;
+		}
+	}
+
+	&.right {
+		@include up-md {
+			right: 100px;
+		}
+		
+	}
+}
+
+
+/* Cat 4
+------------------------------*/
+.dt-deal-count {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		position: relative;
+		display: inline-block;
+		font-size: 30px;
+		color: #323232;
+		padding-right: 55px;
+		text-align: center;
+		line-height: normal;
+
+		span {
+			display: inline-block;
+			vertical-align: baseline;
+		}
+
+		label {
+			font-weight: 400;
+			font-size: 14px;
+			display: inline-block;
+			vertical-align: baseline;
+		}
+
+		&:not(:first-child):after {
+			content: "";
+			position: absolute;
+			width: 30px;
+			height: 1px;
+			background: #000;
+			transform: rotate(-65deg);
+			left: -35px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			opacity: 0.2
+		}
+	}
+
+	&.round {
+		li {
+			margin: 0 10px;
+			padding: 12px;
+			border-radius: 12px;
+			background: #fff;
+
+			&:not(:first-child):after {
+				display: none;
+			}
+		}
+	}
+}
+
+.deal-of-day-snip-rounder {
+	.dt-deal {
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			position: relative;
+		    display: inline-block;
+		    text-align: center;
+		    line-height: normal;
+		    background: #fff;
+		    padding: 10px;
+		    border-radius: 5px;
+		    margin-right: 7px;
+		    margin-bottom: 10px;
+		    box-shadow: 0px 3px 10px 0px rgba(38, 59, 94, 0.24);
+		    font-size: 14px;
+		    &:not(:first-child):after {
+		    	display:none;
+		    }
+		    span {
+	    	    display: inline-block;
+			    vertical-align: baseline;
+			    width: 100%;
+			    font-weight: 600;
+			    font-size: 34px;
+			    color: $as-dark-color;
+		    }
+		    label {
+	    	    font-weight: 600;
+			    font-size: 14px;
+			    display: inline-block;
+			    margin: 0;
+			    vertical-align: top;
+			    width: 100%;
+		    }
+		}
+	}
+}
+
+
+/* Aninmeted Slider
+------------------------------*/
+.ani-carousel {
+    .carousel-item {
+        .ani-fade {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include scale(.5);
+            position: relative;
+            top: -15px;
+            left: -15px;
+        }
+        .ani-fade-left {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include transform(translate(-140px, 0));
+            position: relative;
+        }
+        .ani-fade-right {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include transform(translate(140px, 0));
+            position: relative;
+        }
+        .ani-fade-top {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include transform(translate(0, 50px));
+            position: relative;
+        }
+        .ani-fade-bottom {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include transform(translate(0, -50px));
+            position: relative;
+        }
+        .ani-scale-down {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include scale(0);
+            position: relative;
+        }
+        .ani-scale-up {
+            @include transition(ease-in-out all 0.35s);
+            opacity: 0;
+            @include scale(1.5);
+            position: relative;
+        }
+        .delay-1 {
+            @include delay(.5s);
+        }
+        .ani-2 {
+            @include delay(.6s);
+        }
+        .ani-3 {
+            @include delay(1s);
+        }
+        .ani-4 {
+            @include delay(1.2s);
+        }
+        .ani-5 {
+            @include delay(1.4s);
+        }
+        .ani-6 {
+            @include delay(1.6s);
+        }
+        .ani-7 {
+            @include delay(1.8s);
+        }
+        .ani-8 {
+            @include delay(2s);
+        }
+        .ani-9 {
+            @include delay(2.2s);
+        }
+        .ani-10 {
+            @include delay(2.4s);
+        }
+        &.active {
+            .ani-fade {
+                opacity: 1;
+                @include scale(1);
+                top: 0;
+                left: 0;
+            }
+            .ani-fade-left {
+                opacity: 1;
+                @include transform(translate(0px, 0));
+            }
+            .ani-fade-right {
+                opacity: 1;
+                @include transform(translate(0px, 0));
+            }
+            .ani-fade-top {
+                opacity: 1;
+                @include transform(translate(0px, 0));
+            }
+            .ani-fade-bottom {
+                opacity: 1;
+                @include transform(translate(0px, 0));
+            }
+            .ani-scale-down {
+                opacity: 1;
+                @include scale(1);
+            }
+            .ani-scale-up {
+                opacity: 1;
+                @include scale(1);
+            }
+        }
+    }
+}
+
+
+/* Xmas Banner
+------------------------------*/
+.snowfall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    .snowflake {
+        color: #fff;
+        position: absolute;
+
+        &:after {
+            content: "\2744";
+        }
+
+    }
+
+}
+
+// Total numner of snowflakes
+$snow-flake: 250;
+
+// Randomize the animation and positioning for each snowflake
+@for $i from 1 through $snow-flake {
+    $top: (random(50) + 50) * 1%;
+    $left: random(100) * 1%;
+    $delay: random(20) - 1s;
+    $duration: random(6) + 4s;
+    $size: random(24);
+
+    /* Snowflake ##{$i} */
+    .snowflake:nth-of-type(#{$i}) {
+        animation-name:snowflake-#{$i};
+        animation-delay: $delay;
+        animation-duration: $duration;
+        animation-iteration-count: infinite;
+        left: $left;
+        top: -$top;
+        &:after {
+            font-size: $size * 1px;
+        }
+    }
+    @keyframes snowflake-#{$i} {
+        0% {
+            transform: rotate(0deg);
+            left: $left;
+            top: -$top;
+        }
+
+        25% {
+            left: $left + 1%;
+        }
+
+        50% {
+            left: $left;
+        }
+
+        75% {
+            left: $left + 2%;
+            opacity: 1;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            top: $top + 40%;
+            opacity: 0;
+        }
+
+    }
+
+}
+
+.x-mas-banner {
+    position: relative;
+    overflow: hidden;
+
+    .x-img {
+        position: absolute;
+
+        &.x-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10vw;
+            text-align: center;
+        }
+
+        &.x-2 {
+            right: 0;
+            width: 10vw;
+            text-align: center;
+        }
+
+        &.x-3 {
+            left: 12vw;
+            width: 3vw;
+        }
+
+        &.x-4 {
+            right: 12vw;
+            width: 2vw;
+        }
+
+        &.x-5 {
+            width: 5vw;
+            left: 20vw;
+        }
+
+        &.x-6 {
+            width: 5vw;
+            right: 20vw;
+        }
+
+        &.x-7 {
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 3vw;
+        }
+
+        &.x-9 {
+            bottom: 0;
+            right: 0;
+            width: 11vw;
+        }
+
+        &.x-10 {
+            bottom: 0;
+            left: 0;
+            width: 11vw;
+        }
+
+    }
+
+    .x-8 {
+        max-width: 70vw;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+}
+
+
+@keyframes animatedBackground {
+        from {
+            background-position: 0 center;
+        }
+
+        to {
+            background-position: 1920px center;
+        }
+
+    }
+
+    .bg-animate {
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        animation: animatedBackground 30s linear infinite;
+        position: relative;
+        padding: 10% 0;
+        background-size: cover;
+    }
+
+    .bg-animate:before {
+        background-color: rgba(0, 0, 0, 0.75);
+        content: "";
+        display: inline-block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .blink-ani {
+        animation: blinker 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        opacity: 1;
+        transform: rotate(-0deg);
+        top: -0px;
+        left: -0px;
+        position: absolute;
+        background: #dc3545;
+        border: 2px solid #fff;
+        padding: 5px 20px;
+        border-radius: 5px;
+    }
+
+    @keyframes blinker {
+        50% {
+            transform: rotate(-20deg);
+        }
+    }

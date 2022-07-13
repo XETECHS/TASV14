@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+      <!-- <template id="assets_backend_salome_quote"  inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/salome_quote/static/src/css/style.css"/>
+            <link href="/salome_quote/static/src/css/fonts.less" rel="stylesheet" type="text/less"/>
+        </xpath>
+      </template> -->
+
+        <template id="tas_quotation_template">
+          <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+              <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+              <t t-call="web.basic_layout">
+                <div class="page" style="font-size:11pt;">
+                  <div class="row">
+                    <div class="col-9">
+                      <img src="/quotation_tas_report/static/src/img/HEADER_TAS.jpg" style="max-height: 150px;width:630px;"/>
+                    </div>
+                    <div class="col-3">
+                      <img src="/quotation_tas_report/static/src/img/HEADER_25ANIOS_TAS.jpg" style="max-height: 100px;width:130px;margin-left:4em;"/>
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-6">
+                      <div class="text-justify ml-5">
+                        <b>Cliente: </b><span t-esc="o.partner_id.name"/><br/>
+                        <b>Proyecto: </b><span t-esc="''"/><br/>
+                        <b>Atención: </b><span t-esc="o.partner_id.name"/><br/>
+                        <b>E-mail: </b><span t-esc="o.partner_id.name"/><br/>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="text-justify">
+                        <b>Fecha: </b><span t-esc="o.date_order.strftime('%d de %B de %Y')"/><br/>
+                        <t t-if="o.validity_date">
+                          <b>Vigencia de Oferta: </b><span t-esc="o.validity_date.strftime('%d de %B de %Y')"/><br/>
+                        </t>
+                        <b>Proforma: </b><span t-field="o.name"/><br/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-1" style="background-color:red;height:25px;">
+                    <div class="col-12 text-center"><span t-field="o.title"/></div>
+                  </div>
+                  <div class="row">
+                    <table class="table table-sm o_main_table">
+                      <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                      <thead style="display: table-row-group">
+                          <tr>
+                              <th name="th_code" colspan="2" class="text-left">Código</th>
+                              <th name="th_description" class="text-left">Descripción del Equipo</th>
+                              <th name="th_quantity" class="text-right">Cant.</th>
+                              <th name="th_priceunit" class="text-right">Precio U.</th>
+                              <th name="th_subtotal" class="text-right">Precio Total</th>
+                          </tr>
+                      </thead>
+                      <tbody class="sale_tbody">
+
+                          <t t-set="current_subtotal" t-value="0"/>
+
+                          <t t-foreach="o.order_line" t-as="line">
+
+                              <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                              <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+
+                              <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                  <t t-if="not line.display_type">
+                                      <td name="td_img">*</td>
+                                      <td name="td_code"><span t-field="line.product_id.default_code"/></td>
+                                      <td name="td_name"><span t-field="line.name"/></td>
+                                      <td name="td_quantity" class="text-right">
+                                          <span t-field="line.product_uom_qty"/>
+                                          <span t-field="line.product_uom"/>
+                                      </td>
+                                      <td name="td_priceunit" class="text-right">
+                                          <span t-field="line.price_unit"/>
+                                      </td>
+                                      <td name="td_subtotal" class="text-right o_price_total">
+                                          <span t-field="line.price_total"/>
+                                      </td>
+                                  </t>
+                                  <t t-if="line.display_type == 'line_section'">
+                                      <td name="td_section_line" colspan="99">
+                                          <span t-field="line.name"/>
+                                      </td>
+                                      <t t-set="current_section" t-value="line"/>
+                                      <t t-set="current_subtotal" t-value="0"/>
+                                  </t>
+                                  <t t-if="line.display_type == 'line_note'">
+                                      <td name="td_note_line" colspan="99">
+                                          <span t-field="line.name"/>
+                                      </td>
+                                  </t>
+                              </tr>
+
+                              <t t-if="current_section and (line_last or o.order_line[line_index+1].display_type == 'line_section')">
+                                  <tr class="is-subtotal text-right">
+                                      <td name="td_section_subtotal" colspan="99">
+                                          <strong class="mr16">Subtotal</strong>
+                                          <span t-esc="current_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.pricelist_id.currency_id}"/>
+                                      </td>
+                                  </tr>
+                              </t>
+                          </t>
+                          <tr>
+                            <td colspan="5" class="text-right">Total  incluye IVA. Instalación en días y horas hábiles</td>
+                            <td class="text-right"> <b t-field="o.amount_total"/></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="row">
+                    <table class="table table-sm">
+                      <tbody>
+                        <t t-foreach="o.sale_order_tas_data" t-as="jojo">
+                          <tr>
+                            <td><p t-esc="jojo.name.upper()"/></td>
+                            <td><p t-field="jojo.description"/></td>
+                          </tr>
+                        </t>
+                        <tr>
+                          <td>NOTAS</td>
+                          <td><p t-field="o.notas"/></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="row">
+                    <t t-if="o.sudo().user_id.sign_signature">
+                      <div class="col-6 text-center">
+                          <img t-att-src="image_data_uri(o.user_id.sign_signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                          <p t-field="o.user_id.name"/>  
+                      </div>
+                    </t>
+                    <t t-if="o.signature">
+                      <div class="col-6 text-center">
+                          <img t-att-src="image_data_uri(o.signature)" style="max-height: 4cm; max-width: 8cm;"/>
+                          <p t-field="o.signed_by"/>
+                      </div>
+                    </t>
+                  </div>
+                  <div class="footer">
+                    <img src="/quotation_tas_report/static/src/img/FOOTER_TAS.jpg" style="max-height: 100px;"/>
+                  </div>
+                </div>
+              </t>
+            </t>
+          </t>
+        </template>
+    </data>
+</odoo>

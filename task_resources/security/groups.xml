@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="group_service_extends_xt" model="res.groups">
+            <field name="name">Administrador XT: Recursos</field>
+            <field name="category_id" ref="base.module_category_services_field_service"/>
+        </record>
+
+        <record id="group_service_collect_extends_xt" model="res.groups">
+            <field name="name">Administrador XT: A cobrar</field>
+            <field name="category_id" ref="base.module_category_services_field_service"/>
+        </record>
+
+    </data>
+</odoo>

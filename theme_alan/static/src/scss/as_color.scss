@@ -1,0 +1,65 @@
+
+// Bg color and colors
+@each $color,
+$value in $theme-colors {
+    .#{$color}-bg-alt {
+        background-color: rgba($value, .1);
+    }
+    .#{$color}-bg {
+        background-color: $value;
+    }
+    .#{$color}-after {
+      &:after {
+        background-color: $value;
+      }
+    }
+    .#{$color}-color-alt {
+        color: rgba($value, .65);
+    }
+    .#{$color}-color {
+        color: $value;
+    }
+}
+
+.white-bg-rgb {
+  background-color: rgba($as-white,.70);
+}
+
+.black-bg-rgb {
+  background-color: rgba($as-black,.70);
+}
+
+/*  Property
+---------------------------*/
+.bg-cover {
+  background-size: cover;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+ }
+.bg-fixed {
+  @include up-lg {
+      background-attachment: fixed;
+  }
+}
+.bg-center {
+  background-position: center;
+}
+
+/*  After
+---------------------------*/
+.after-50px {
+  position: relative;
+  &:after {
+    width: 50px;
+    height: 2px;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    .text-center & {
+        right: 0;
+        margin: auto;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="newly_loaded_products" name="Newly Loaded Products">
+        <t t-if="products">
+            <t t-foreach="products" t-as="product">
+                <div class="col-12 col-md-4 col-sm-6 as-pro-col" t-att-data-publish="product.website_published and 'on' or 'off'">
+                    <t t-call="website_sale.products_item" />
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="product_attribute" name="Product Attribute's Filters" inherit_id="website_sale.products_attributes">
+        <xpath expr="//form[hasclass('js_attributes')]" position="inside">
+            <input type="hidden" name="ppg" t-att-value="ppg if ppg else quantities_per_page[0].name if quantities_per_page else '18'" />
+        </xpath>
+    </template>
+    <template id="add_cover_quickview" inherit_id="website.layout" active="True">
+        <xpath expr="//div[@id='wrapwrap']" position="after">
+            <div class="quick_cover"></div>
+        </xpath>
+    </template>
+</odoo>

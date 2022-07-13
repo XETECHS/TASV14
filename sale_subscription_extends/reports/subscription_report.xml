@@ -1,0 +1,18 @@
+<odoo>
+
+    <template id="subscription_report_document">
+        <t t-call="web.basic_layout">
+            <div class="page">
+            </div>
+        </t>
+    </template>
+
+    <template id="subscription_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-call="sale_subscription_extends.subscription_report_document" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

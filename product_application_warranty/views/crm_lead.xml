@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="crm_lead_garantia" model="ir.ui.view">
+        <field name="name">crm.lead.garantia</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="garantia_producto_id"/>
+                <field name="cobertura_inicio" required="True"/>
+                <field name="cobertura_fin" required="True"/>
+            </field>
+        </field>
+    </record>
+
+	<record id="garantia_producto_form_view" model="ir.ui.view">
+		<field name="name">garantia.producto.form.view</field>
+		<field name="model">garantia.producto</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="descripcion" widget="html"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="garantia_producto_tree_view" model="ir.ui.view">
+        <field name="name">garantia.producto.tree.view</field>
+        <field name="model">garantia.producto</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+	<record id="garantia_producto_action" model="ir.actions.act_window">
+        <field name="name">Certificado de Garantía</field>
+        <field name="res_model">garantia.producto</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="garantia_producto_tree_view"/>
+    </record>
+
+	<menuitem id="garantia_producto_configuracion" action="garantia_producto_action" name="Certificado de Garantía" parent="crm.crm_menu_config" sequence="1"/>
+
+</odoo>

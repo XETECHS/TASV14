@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="external_service_email_template" model="mail.template">
+            <field name="name">Externar Service Email</field>
+            <field name="model_id" ref="external_service_extends.model_project_tasks_service_ticket"/>
+            <field name="email_from">${(object.company_id.email) |safe}</field>
+            <field name="email_to">${object.task_id.partner_child_email}</field>
+            <field name="subject">Servicio</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Apreciable cliente:
+                        <br /><br />
+                        Su boleta de servicio ${(object.name)}: a un estado concluido
+                        <br /><br />
+                        Si tiene alguna duda o consulta, por favor hacerla llegar.
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="external_service_extends.action_service_ticket_report"/>
+            <field name="report_name">${(object.name or '').replace('/','_')}</field>
+        </record>
+
+
+        <record id="external_service_email_template_external" model="mail.template">
+            <field name="name">Externar Service Email</field>
+            <field name="model_id" ref="external_service_extends.model_project_tasks_service_ticket"/>
+            <field name="email_from">${(object.company_id.email) |safe}</field>
+            <field name="email_to">${object.task_id.partner_child_email}</field>
+            <field name="subject">Servicio</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Apreciable cliente:
+                        <br /><br />
+                        Su boleta de servicio ${(object.name)}: a un estado concluido
+                        <br /><br />
+                        Si tiene alguna duda o consulta, por favor hacerla llegar.
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

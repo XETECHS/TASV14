@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <record id="paperformat_msa_report" model="report.paperformat">
+            <field name="name">MSA REPORT</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">18</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">55</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <report id="product_application_warranty_report"
+            model="project.project"
+            string="Product Application Warranty"
+            name="product_application_warranty.product_application_warranty_template"
+            file="product_application_warranty.product_application_warranty_template"
+            report_type="qweb-pdf"
+            paperformat='paperformat_msa_report'
+        />
+
+            <!-- attachment="('GAP_%s_pdf'%object.name)" -->
+    </data>
+</odoo>
+

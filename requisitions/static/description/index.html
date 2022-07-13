@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <section class="oe_container">
+        <div class="oe_row oe_spaced">
+            <div class="col-sm-12">
+                <h1 class="oe_slogan">
+                    PO Requisition
+                </h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="oe_slogan">User can place a requisition for purchase.</h2>
+                </div>
+                <div class="col-sm-12">
+                    <p>In the requisition from user will get following fields:</p>
+                    <ul>
+                        <li><strong>Product (Inventory Product reference):</strong> Select field when user can select product from inventory. Odoo entity reference</li>
+                        <li><strong>Quantity:</strong> A text field where user can place integer number</li>
+                        <li><strong>Unit of measure (UOM reference):</strong> Select field where user can select inventory’s unit of measure.</li>
+                        <li><strong>Delivery date:</strong> Odoo date field</li>
+                        <li><strong>Location (Inventory stock location reference):</strong> Select field where user can select Warehouse location.</li>
+                        <li><strong>Name:</strong> An automated sequence number</li>
+                    </ul>
+                    <p>
+                        Initially requisition is saved as draft state, when user approve that requisition by clicking a button named "Approve" a purchase order will be created in draft mode. This draft Purchase order is actually purchase order in quotation state. And later PO will be conformed by user manually.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <h4>Settings:</h4>
+                <p>Don't forget to set access for <strong>PO Requisition</strong> for per user - </p>
+            </div>
+            <div class="oe_demo oe_picture  oe_screenshot" style="max-height: 1000px;">
+                <img src="screenshots/user-settings.png" style="height: 100%;">
+            </div>
+
+        </div>
+    </section>
+
+</html>

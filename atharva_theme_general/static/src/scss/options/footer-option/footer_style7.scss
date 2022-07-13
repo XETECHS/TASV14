@@ -1,0 +1,44 @@
+#footer {
+	background: $as-footer-bg !important;
+}
+.middle-footer {
+	padding: 40px 0 30px;
+	.fot-menu {
+		.nav {
+			> li {
+				margin: 0 10px;
+				> a {
+			       	font-size: 14px;
+				    font-weight: 500;
+				    text-transform: uppercase;
+				    color: rgba($as-footer-text,.5);
+				    padding: 2px 8px;
+				    display: block;
+				    &:hover {
+				    	color:$as-footer-text;
+				    }
+				}
+			}
+		}
+	}	
+	.link-payment {
+	    margin: 35px 0 20px;
+	    border-top: 1px solid rgba($as-footer-text, 0.12);
+	    padding: 20px 0 0;
+		.nav {
+			li {
+				margin: 0 5px;
+			}
+		}
+	}
+	.copyright {
+	    text-align: center;
+	    margin: 0;
+	    font-size: 13px;
+	    color: rgba($as-footer-text,.5);
+	    font-weight: 500;
+	}
+}
+.o_footer_copyright{
+	display: none !important;
+}

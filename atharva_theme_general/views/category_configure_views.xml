@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="category_collection_configuration_action" model="ir.actions.act_window">
+        <field name="name">Category Collection Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">category.collection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="category_collection_configuration_form" model="ir.ui.view">
+        <field name="name">Category Collection Configuration Form View</field>
+        <field name="model">category.collection</field>
+        <field name="arch" type="xml">
+            <form string="eCommerce Category Brand">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="item_count"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="label_active"/>
+                            <field name="category_name_active"/>
+                            <field name="category_link_active"/>
+                        </group>
+                    </group>
+                    <group string="eCommerce Category" name="categ_lines">
+                        <field name="categ_ids" widget="section_and_note_one2many" mode="tree">
+                            <form>
+                                <field name="sequence" invisible="1"/>
+                                <group>
+                                    <field name="category_id"/>
+                                    <field name="image" widget="image"/>
+                                </group>
+                            </form>
+                            <tree editable="bottom">
+                                <control>
+                                    <create name="add_category" string="Add a category"/>
+                                </control>
+                                <field name="sequence" widget="handle"/>
+                                <field name="category_id" required="1"/>
+                                <field name="image" widget="image" options='{"preview_image": "image", "size": [50,50]}'/>
+                            </tree>
+                        </field>
+                    </group>            
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="category_collection_configuration_tree" model="ir.ui.view">
+        <field name="name">Category Collection Configuration Tree View</field>
+        <field name="model">category.collection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>     
+        </field>
+    </record>
+
+    <menuitem id="catgeory_collection_menu" action="category_collection_configuration_action" parent="atharva_theme_general.menu_action_atharva_theme_general" active="True" name="eCommerce Category Configuration"/>
+</odoo>

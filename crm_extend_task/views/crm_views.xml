@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="crm_lead_form" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='lead']/group/group[3]" position="replace"> </xpath>
+                <xpath expr="//group[@name='Misc']" position="replace"> </xpath>
+                
+                <xpath expr="//field[@name='company_id']" position="before">
+                    <field name="campaign_id"/>
+                </xpath>
+
+                <xpath expr="/form/sheet/group[1]" position="inside"> 
+
+                    <group name="Misc" string="Misc." >
+                        <field name="day_open" groups="base.group_no_one"/>
+                        <field name="day_close" groups="base.group_no_one"/>
+                        <field name="referred"/>
+                        <field name="type" invisible="1"/>
+                    </group>
+
+                    <group string="Marketing" >
+                        <field name="medium_id"/>
+                        <field name="source_id"/>
+                    </group>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

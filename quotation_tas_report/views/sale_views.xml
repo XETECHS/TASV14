@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="sale_order_tas_data" string="Observaciones TAS" widget="many2many_tags"/>
+                </xpath>
+
+                <field name="name" position="after">
+                    <br/>
+                    <field name="title" placeholder="Titulo"/>
+                </field>
+                <field name="date_order" position="attributes">
+                    <attribute name="groups"></attribute>
+                </field>
+                <notebook position="inside">
+                    <page string="Notas TAS">
+                        <group>
+                            <field name="tipo_nota" />
+                            <field name="notas"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="sale_note_type_view_tree" model="ir.ui.view">
+            <field name="name">sale.note.type.view.tree</field>
+            <field name="model">sale.note.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="text" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_note_type_view_form" model="ir.ui.view">
+            <field name="name">sale.note.type.view.form</field>
+            <field name="model">sale.note.type</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="text" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sale_order_tas_data_view_tree" model="ir.ui.view">
+            <field name="name">sale.order.tas.data.view.tree</field>
+            <field name="model">sale.order.tas.data</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_note_type_action" model="ir.actions.act_window">
+            <field name="name">Notas Cotización</field>
+            <field name="res_model">sale.note.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="sale_order_tas_data_action" model="ir.actions.act_window">
+            <field name="name">Comentarios TAS</field>
+            <field name="res_model">sale.order.tas.data</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem
+            id="sale_note_type_menu"
+            name="Notas Cotización"
+            action="sale_note_type_action"
+            parent="sale.menu_sale_config"
+            sequence="10"/>
+
+        <menuitem
+            id="sale_order_tas_data_menu"
+            name="Comentarios TAS"
+            action="sale_order_tas_data_action"
+            parent="sale.menu_sale_config"
+            sequence="11"/>
+
+    </data>
+    
+
+</odoo>

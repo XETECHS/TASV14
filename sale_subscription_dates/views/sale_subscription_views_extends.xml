@@ -1,0 +1,49 @@
+<odoo>
+
+
+    <record id="sale_subscription_view_form_inherit" model="ir.ui.view">
+        <field name="name">sale.subscription.view.form.inherit</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_start']" position="replace">
+                <field name="date_start"/>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_id']" position="after">
+                <field name="number_periods" invisible="True"/>
+                <field name="number_dates" invisible="True"/>
+                <field name="days_in_periods" invisible="True"/>
+                <field name="vencidas" invisible="True"/>
+                <field name="pendientes" invisible="True"/>
+                <field name="vencidas2" invisible="True"/>
+                <field name="pendientes2" invisible="True"/>
+            </xpath>
+            <xpath expr="//page[@id='other_info']" position="before">
+                <page name="citas" string="Citas">
+                    <field name="dates_ids">
+                        <tree editable="bottom" >
+                            <field name="name"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="date"/>
+                            <field name="vencidas" invisible="True"/>
+                            <field name="pendientes" invisible="True"/>
+                            <field name="planning_id" decoration-danger="vencidas" decoration-success="not vencidas and not pendientes" decoration-warning="pendientes"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_subscription_pricelist_inherit" model="ir.ui.view">
+        <field name="name">sale.subscription.pricelist.inherit</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pricelist_id']" position="replace">
+                <field name="pricelist_id" groups="product.group_product_pricelist" string="Moneda"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

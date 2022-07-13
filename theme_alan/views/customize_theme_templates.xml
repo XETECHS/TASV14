@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="option_colorPicker" name="option_colorPicker" inherit_id="website.assets_frontend" active="False">
+        <xpath expr="." position="inside"></xpath>
+    </template>
+    <template id="theme_customize_alan" inherit_id="website.theme_customize" name="Theme Alan Options">
+        <xpath expr="//div" position="replace">
+            <div>
+                <!-- Layout Options -->
+                <content id="theme_customize_content_layout" string="Layout" title="Choose Your Website Layout">
+                    <!-- In a <more/> so that it is on a new line if themes add options before -->
+                    <more data-depends="">
+                        <list string="Layout">
+                            <opt string="Full" data-xmlid="theme_alan.option_layout_fullwidth" data-reload="/" />
+                            <opt id="option_layout_boxed" string="Boxed" data-xmlid="theme_alan.option_layout_boxed" data-reload="/" />
+                        </list>
+                        <list string="Background Options" id="custombg">
+                            <opt id="options_bg_01" string="BG image 1" data-xmlid="theme_alan.options_bg_01" data-reload="/" />
+                            <opt id="options_bg_02" string="BG image 2" data-xmlid="theme_alan.options_bg_02" data-reload="/" />
+                            <opt id="options_bg_03" string="BG image 3" data-xmlid="theme_alan.options_bg_03" data-reload="/" />
+                            <opt id="options_bg_04" string="BG image 4" data-xmlid="theme_alan.options_bg_04" data-reload="/" />
+                            <opt id="options_bg_05" string="BG image 5" data-xmlid="theme_alan.options_bg_05" data-reload="/" />
+                            <opt id="options_bg_06" string="BG color 1" data-xmlid="theme_alan.options_bg_06" data-reload="/" />
+                            <opt id="options_bg_07" string="BG color 2" data-xmlid="theme_alan.options_bg_07" data-reload="/" />
+                            <opt id="options_bg_08" string="BG color 3" data-xmlid="theme_alan.options_bg_08" data-reload="/" />
+                            <opt id="options_bg_09" string="BG color 4" data-xmlid="theme_alan.options_bg_09" data-reload="/" />
+                            <opt id="options_bg_10" string="BG color 5" data-xmlid="theme_alan.options_bg_10" data-reload="/" />
+                            <opt id="options_bg_reset" string="BG reset" data-xmlid="theme_alan.options_bg_reset" data-reload="/" />
+                        </list>
+                    </more>
+                </content>
+                <content id="theme_customize_content_colors" string="Colors" title="Choose Your Website Color">
+                    <list string="Theme Color" id="customtheme">
+                        <opt id="custom_color_palate" data-widget="color" data-color-type="theme" data-color="theme" string="Color"/>
+                    </list>
+                </content>
+                <content id="theme_customize_content_header" string="Header" title="Header Styles">
+                    <!-- In a <more/> so that it is on a new line if themes add options before -->
+                    <more data-depends="">
+                        <list string="Header Layout" id="customheader">
+                            <opt id="option_header_layout_1" string="Header 1" data-xmlid="atharva_theme_general.header_layout_1_css,atharva_theme_general.header_layout_1" data-reload="/" />
+                            <opt id="option_header_layout_2" string="Header 2" data-xmlid="atharva_theme_general.header_layout_2_css,atharva_theme_general.header_layout_2" data-reload="/" />
+                            <opt id="option_header_layout_3" string="Header 3" data-xmlid="atharva_theme_general.header_layout_3_css,atharva_theme_general.header_layout_3" data-reload="/" />
+                            <opt id="option_header_layout_4" string="Header 4" data-xmlid="atharva_theme_general.header_layout_4_css,atharva_theme_general.header_layout_4" data-reload="/" />
+                            <opt id="option_header_layout_5" string="Header 5" data-xmlid="atharva_theme_general.header_layout_5_css,atharva_theme_general.header_layout_5" data-reload="/" />
+                            <opt id="option_header_layout_6" string="Header 6" data-xmlid="atharva_theme_general.header_layout_6_css,atharva_theme_general.header_layout_6" data-reload="/" />
+                            <opt id="option_header_layout_7" string="Header 7" data-xmlid="atharva_theme_general.header_layout_7_css,atharva_theme_general.header_layout_7" data-reload="/" />
+                            <opt id="option_header_layout_8" string="Header 8 (Transparent)" data-xmlid="atharva_theme_general.header_layout_8_css,atharva_theme_general.header_layout_8" data-reload="/" />
+                            <opt id="option_header_layout_9" string="Header 9" data-xmlid="atharva_theme_general.header_layout_9_css,atharva_theme_general.header_layout_9" data-reload="/" />
+                            <opt id="option_header_layout_10" string="Header 10 (Transparent)" data-xmlid="atharva_theme_general.header_layout_10_css,atharva_theme_general.header_layout_10" data-reload="/" />
+                            <opt id="option_header_layout_11" string="Header 11 (Transparent)" data-xmlid="atharva_theme_general.header_layout_11_css,atharva_theme_general.header_layout_11" data-reload="/" />
+                            <opt id="option_header_layout_12" string="Header 12" data-xmlid="atharva_theme_general.header_layout_12_css,atharva_theme_general.header_layout_12" data-reload="/" />
+                            <opt id="option_header_layout_13" string="Header 13" data-xmlid="atharva_theme_general.header_layout_13_css,atharva_theme_general.header_layout_13" data-reload="/" />
+                            <opt id="option_header_layout_14" string="Header 14" data-xmlid="atharva_theme_general.header_layout_14_css,atharva_theme_general.header_layout_14" data-reload="/" />
+                            <opt id="option_header_layout_15" string="Header 15" data-xmlid="atharva_theme_general.header_layout_15_css,atharva_theme_general.header_layout_15" data-reload="/" />
+                            <opt id="option_header_layout_16" string="Header 16" data-xmlid="atharva_theme_general.header_layout_16_css,atharva_theme_general.header_layout_16" data-reload="/" />
+                            <opt id="option_header_layout_17" string="Header 17" data-xmlid="atharva_theme_general.header_layout_17_css,atharva_theme_general.header_layout_17" data-reload="/" />
+                        </list>
+                        
+                    </more>
+                </content>
+                <content id="theme_customize_content_footer" string="Footer" title="Footer Styles">
+                    <list string="Footer Color" id="customfootercolor">
+                        <opt id="option_footer_dark" string="Dark Footer" data-xmlid="atharva_theme_general.option_footer_dark" data-reload="/" />
+                        <opt id="option_footer_white" string="White Footer" data-xmlid="atharva_theme_general.option_footer_white" data-reload="/" />
+                        <opt id="option_footer_gray" string="Gray Footer" data-xmlid="atharva_theme_general.option_footer_gray" data-reload="/" />
+                    </list>
+                    <list string="Footer Layout" id="customfooter">
+                        <opt id="option_footer_layout_1" string="Footer 1" data-xmlid="atharva_theme_general.footer_layout_1_css, atharva_theme_general.footer_layout_1" data-reload="/" />
+                        <opt id="option_footer_layout_2" string="Footer 2" data-xmlid="atharva_theme_general.footer_layout_2_css,atharva_theme_general.footer_layout_2" data-reload="/" />
+                        <opt id="option_footer_layout_3" string="Footer 3" data-xmlid="atharva_theme_general.footer_layout_3_css,atharva_theme_general.footer_layout_3" data-reload="/" />
+                        <opt id="option_footer_layout_4" string="Footer 4" data-xmlid="atharva_theme_general.footer_layout_4_css,atharva_theme_general.footer_layout_4" data-reload="/" />
+                        <opt id="option_footer_layout_5" string="Footer 5" data-xmlid="atharva_theme_general.footer_layout_5_css,atharva_theme_general.footer_layout_5" data-reload="/" />
+                        <opt id="option_footer_layout_6" string="Footer 6" data-xmlid="atharva_theme_general.footer_layout_6_css,atharva_theme_general.footer_layout_6" data-reload="/" />
+                        <opt id="option_footer_layout_7" string="Footer 7" data-xmlid="atharva_theme_general.footer_layout_7_css,atharva_theme_general.footer_layout_7" data-reload="/" />
+                        <opt id="option_footer_layout_8" string="Footer 8" data-xmlid="atharva_theme_general.footer_layout_8_css,atharva_theme_general.footer_layout_8" data-reload="/" />
+                        <opt id="option_footer_layout_9" string="Footer 9" data-xmlid="atharva_theme_general.footer_layout_9_css,atharva_theme_general.footer_layout_9" data-reload="/" />
+                        <opt id="option_footer_layout_10" string="Footer 10" data-xmlid="atharva_theme_general.footer_layout_10_css,atharva_theme_general.footer_layout_10" data-reload="/" />
+                        <opt id="option_footer_layout_11" string="Footer 11" data-xmlid="atharva_theme_general.footer_layout_11_css,atharva_theme_general.footer_layout_11" data-reload="/" />
+                        <opt id="option_footer_layout_12" string="Footer 12" data-xmlid="atharva_theme_general.footer_layout_12_css,atharva_theme_general.footer_layout_12" data-reload="/" />
+                        <opt id="option_footer_layout_13" string="Footer 13" data-xmlid="atharva_theme_general.footer_layout_13_css,atharva_theme_general.footer_layout_13" data-reload="/" />
+                        <opt id="option_footer_layout_14" string="Footer 14" data-xmlid="atharva_theme_general.footer_layout_14_css,atharva_theme_general.footer_layout_14" data-reload="/" />
+                        <opt id="option_footer_layout_15" string="Footer 15" data-xmlid="atharva_theme_general.footer_layout_15_css,atharva_theme_general.footer_layout_15" data-reload="/" />
+                    </list>
+                </content>
+                <content id="theme_customize_shop_layout" string="Shop" title="Choose Your Shop Layout">
+                    <more data-depends="">
+                        <list string="Shop" id="customshop">
+                            <opt id="options_shop_full_width" string="Toggle Filter" data-xmlid="theme_alan.options_shop_full_width" data-reload="/" />
+                            <opt id="options_shop_full_width_sidebar" string="Full Width" data-xmlid="theme_alan.options_shop_full_width_sidebar" data-reload="/" />
+                            <opt id="options_shop_reset" string="Boxed" data-xmlid="theme_alan.options_shop_reset" data-reload="/" />
+                        </list>
+                        <list string="Multi-image options" id="customproduct">
+                            <opt id="options_vertical_slider" string="Vertical slider" data-xmlid="theme_alan.options_vertical_slider" data-reload="/" />
+                            <opt id="options_horizontal_slider" string="Horizontal slider" data-xmlid="theme_alan.options_horizontal_slider" data-reload="/" />
+                        </list>
+                    </more>
+                </content>
+                <content id="theme_customize_font_options" string="Fonts" title="Choose Your Fonts">
+                    <more data-depends="">
+                        <list string="Body" id="customfonts">
+                            <opt id="options_font_Roboto" string="Roboto" data-xmlid="theme_alan.options_font_Roboto" data-reload="/" />
+                            <opt id="options_font_Arimo" string="Arimo" data-xmlid="theme_alan.options_font_Arimo" data-reload="/" />
+                            <opt id="options_font_Montserrat" string="Montserrat" data-xmlid="theme_alan.options_font_Montserrat" data-reload="/" />
+                            <opt id="options_Work_Sans" string="Work Sans" data-xmlid="theme_alan.options_Work_Sans" data-reload="/" />
+                            <opt id="options_font_Poppins" string="Poppins" data-xmlid="theme_alan.options_font_Poppins" data-reload="/" />
+                            <opt id="options_font_Literata" string="Literata" data-xmlid="theme_alan.options_font_Literata" data-reload="/" />
+                        </list>
+                        <list string="Heading" id="customfontsh1">
+                            <opt id="options_font_Roboto_h" string="Roboto" data-xmlid="theme_alan.options_font_Roboto_h" data-reload="/" />
+                            <opt id="options_font_Arimo_h" string="Arimo" data-xmlid="theme_alan.options_font_Arimo_h" data-reload="/" />
+                            <opt id="options_font_Montserrat_h" string="Montserrat" data-xmlid="theme_alan.options_font_Montserrat_h" data-reload="/" />
+                            <opt id="options_Work_Sans_h" string="Work Sans" data-xmlid="theme_alan.options_Work_Sans_h" data-reload="/" />
+                            <opt id="options_font_Poppins_h" string="Poppins" data-xmlid="theme_alan.options_font_Poppins_h" data-reload="/" />
+                            <opt id="options_font_Literata_h" string="Literata" data-xmlid="theme_alan.options_font_Literata_h" data-reload="/" />
+                        </list>
+                    </more>
+                </content>
+            </div>
+        </xpath>
+    </template>
+    <!-- ===================== LAYOUT OPTIONS ======================== -->
+    <template id="option_layout_fullwidth" name="theme_alan_option_layout_fullwidth" inherit_id="website.assets_frontend" active="True" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/layout/full-width.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="option_layout_boxed" name="theme_alan_option_layout_boxed" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/layout/boxed.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <!-- ===================== BG OPTIONS ======================== -->
+    <template id="options_bg_01" name="theme_alan_options_bg_01" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-1.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_02" name="theme_alan_options_bg_02" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-2.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_03" name="theme_alan_options_bg_03" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-3.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_04" name="theme_alan_options_bg_04" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-4.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_05" name="theme_alan_options_bg_05" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-5.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_06" name="theme_alan_options_bg_06" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-6.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_07" name="theme_alan_options_bg_07" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-7.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_08" name="theme_alan_options_bg_08" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-8.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_09" name="theme_alan_options_bg_09" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-9.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_10" name="theme_alan_options_bg_10" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-10.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_bg_reset" name="theme_alan_options_bg_reset" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/bg/bg-reset.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <!-- ===================== Product OPTIONS ======================== -->
+    <template id="options_vertical_slider" name="theme_alan_options_vertical_slider" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/product-details/vertical_slider.scss" rel="stylesheet" type="text/scss" />
+            <script type="text/javascript" src="/theme_alan/static/src/scss/options/product-details/vertical_slider.js"></script>
+        </xpath>
+    </template>
+    <template id="options_horizontal_slider" name="theme_alan_options_horizontal_slider" inherit_id="website.assets_frontend" active="True" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/product-details/horizontal_slider.scss" rel="stylesheet" type="text/scss" />
+            <script type="text/javascript" src="/theme_alan/static/src/scss/options/product-details/horizontal_slider.js"></script>
+        </xpath>
+    </template>
+
+    <!-- ===================== Fonts OPTIONS ======================== -->
+    <!-- body -->
+    <template id="options_font_Roboto" name="theme_alan_options_font_Roboto" inherit_id="website.assets_frontend" active="True" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/body-font-1.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Arimo" name="theme_alan_options_font_Arimo" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/body-font-2.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Montserrat" name="theme_alan_options_font_Montserrat" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/body-font-3.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_Work_Sans" name="theme_alan_options_Work_Sans" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/body-font-4.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Poppins" name="theme_alan_options_font_Poppins" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/body-font-5.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Literata" name="theme_alan_options_font_Literata" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/body-font-6.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <!-- Heading -->
+    <template id="options_font_Roboto_h" name="theme_alan_options_font_Roboto_h" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/font-heading-1.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Arimo_h" name="theme_alan_options_font_Arimo_h" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/font-heading-2.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Montserrat_h" name="theme_alan_options_font_Montserrat_h" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/font-heading-3.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_Work_Sans_h" name="theme_alan_options_Work_Sans_h" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/font-heading-4.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Poppins_h" name="theme_alan_options_font_Poppins_h" inherit_id="website.assets_frontend" active="True" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/font-heading-5.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_font_Literata_h" name="theme_alan_options_font_Literata_h" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/fonts/font-heading-6.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <!-- ===================== SHOP OPTIONS ======================== -->
+    <template id="options_shop_full_width" name="theme_alan_options_shop_full_width" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/shop/shop-full-width.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_shop_full_width_sidebar" name="theme_alan_options_shop_full_width_sidebar" inherit_id="website.assets_frontend" active="True" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/shop/shop-full-width-sidebar.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    <template id="options_shop_reset" name="theme_alan_options_shop_reset" inherit_id="website.assets_frontend" active="False" priority="20">
+        <xpath expr="." position="inside">
+            <link href="/theme_alan/static/src/scss/options/shop/shop-full-reset.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+    
+</odoo>

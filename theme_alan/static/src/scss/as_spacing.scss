@@ -1,0 +1,118 @@
+// Margin Padding mixin
+$mp-name: (
+	"m":"margin",
+	"p":"padding",
+);
+$mp-position: (
+	"t":"top",
+	"l":"left",
+	"r":"right",
+	"b":"bottom",
+);
+
+@mixin spacing($brksize: normal) {
+	@for $i from 0 through 20 {
+		@each $n-name, $n-value in $mp-name {
+			@if $brksize == normal{
+				.#{$n-name}-#{$i*5}px{
+					#{$n-value}: #{$i*5}px;
+				}
+				.#{$n-name}-#{$i*5}px-tb{
+					#{$n-value}-top: #{$i*5}px;
+					#{$n-value}-bottom: #{$i*5}px;
+				}
+				.#{$n-name}-#{$i*5}px-lr{
+					#{$n-value}-left: #{$i*5}px;
+					#{$n-value}-right: #{$i*5}px;
+				}
+			}
+
+			@if $brksize == sm{
+				.sm-#{$n-name}-#{$i*5}px{
+					#{$n-value}: #{$i*5}px;
+				}
+				.sm-#{$n-name}-#{$i*5}px-tb{
+					#{$n-value}-top: #{$i*5}px;
+					#{$n-value}-bottom: #{$i*5}px;
+				}
+				.sm-#{$n-name}-#{$i*5}px-lr{
+					#{$n-value}-left: #{$i*5}px;
+					#{$n-value}-right: #{$i*5}px;
+				}
+			}
+
+			@if $brksize == md{
+				.md-#{$n-name}-#{$i*5}px{
+					#{$n-value}: #{$i*5}px;
+				}
+				.md-#{$n-name}-#{$i*5}px-tb{
+					#{$n-value}-top: #{$i*5}px;
+					#{$n-value}-bottom: #{$i*5}px;
+				}
+				.md-#{$n-name}-#{$i*5}px-lr{
+					#{$n-value}-left: #{$i*5}px;
+					#{$n-value}-right: #{$i*5}px;
+				}
+			}
+
+			@if $brksize == lg{
+				.lg-#{$n-name}-#{$i*5}px{
+					#{$n-value}: #{$i*5}px;
+				}
+				.lg-#{$n-name}-#{$i*5}px-tb{
+					#{$n-value}-top: #{$i*5}px;
+					#{$n-value}-bottom: #{$i*5}px;
+				}
+				.lg-#{$n-name}-#{$i*5}px-lr{
+					#{$n-value}-left: #{$i*5}px;
+					#{$n-value}-right: #{$i*5}px;
+				}
+			}
+
+			@each $p-name, $p-value in $mp-position {
+				@if $brksize == normal{
+					.#{$n-name}-#{$i*5}px-#{$p-name}{
+						#{$n-value}-#{$p-value}: #{$i*5}px;
+					}
+				}
+				@if $brksize == sm {
+					.sm-#{$n-name}-#{$i*5}px-#{$p-name}{
+						#{$n-value}-#{$p-value}: #{$i*5}px;
+					}	
+				}
+				@if $brksize == md {
+					.md-#{$n-name}-#{$i*5}px-#{$p-name}{
+						#{$n-value}-#{$p-value}: #{$i*5}px;
+					}	
+				}
+				@if $brksize == lg {
+					.lg-#{$n-name}-#{$i*5}px-#{$p-name}{
+						#{$n-value}-#{$p-value}: #{$i*5}px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* Margin Padding
+--------------------*/
+@include spacing(normal);
+
+@include down-lg {
+	/* Margin Padding
+	--------------------*/
+	@include spacing(lg);
+}
+@include down-md {
+
+	/* Margin Padding
+	--------------------*/
+	@include spacing(md);
+}
+@include down-sm {
+	/* Margin Padding
+	--------------------*/
+	@include spacing(sm);
+}

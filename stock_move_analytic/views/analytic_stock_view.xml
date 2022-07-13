@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_location_form_inherit_asm" model="ir.ui.view">
+            <field name="name">stock.location.form.inheritasm</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='valuation_out_account_id']" position="after">
+                        <field name="valuation_analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_move_form_inherit_asm" model="ir.ui.view">
+            <field name="name">stock.move.form.inheritasm</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='group_id']" position="after">
+                        <field name="analytic_account_id"
+                            groups="analytic.group_analytic_accounting"
+                            attrs="{'readonly':1}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_move_picking_form_inherit_asm" model="ir.ui.view">
+            <field name="name">stock.move.picking.form.inheritasm</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_dest_id']" position="after">
+                        <field name="analytic_account_id"
+                            groups="analytic.group_analytic_accounting"
+                            attrs="{'readonly':1}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_picking_type_form_inherit_asm" model="ir.ui.view">
+            <field name="name">stock.picking.type.form.inheritasm</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                        <field name="analytic_account_id"
+                               groups="analytic.group_analytic_accounting" />
+                </xpath>
+            </field>
+        </record>
+        <record id="view_picking_form_inherit_asm" model="ir.ui.view">
+            <field name="name">stock.picking.form.inheritasm</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="after">
+                        <field name="analytic_account_id"
+                            groups="analytic.group_analytic_accounting" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

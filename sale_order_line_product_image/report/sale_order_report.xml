@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id = "sale_report_inherit_id" inherit_id = "sale.report_saleorder_document">
+		<xpath expr="//table[1]/thead/tr[1]/th[1]" position="after">   
+			<th class="text-right">Imagen</th>
+		</xpath>
+		<xpath expr="//table[1]/tbody/t[2]/tr[1]/t[1]/td[1]" position="after"> 
+			<td class="text-right"><img t-if="line.image_128" t-att-src="'data:image/png;base64,%s' % to_text(line.image_128)" style="width: 40px"/></td>
+		</xpath>
+	</template>
+	<template id = "quotation_tas_report_inherit_id" inherit_id = "quotation_tas_report.tas_quotation_template">
+		<xpath expr="//th[@name='th_code']" position="after">   
+			<th class="text-right">Imagen</th>
+		</xpath>
+		<xpath expr="//td[@name='td_code']" position="after"> 
+			<td name="td_image"><img t-if="line.image_128" t-att-src="'data:image/png;base64,%s' % to_text(line.image_128)" style="width: 50px"/></td>
+		</xpath>
+	</template>
+</odoo>
+                

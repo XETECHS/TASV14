@@ -1,0 +1,25 @@
+<odoo>
+    <record id="sale_subscription_dates_planning_view_form" model="ir.ui.view">
+        <field name="name">sale_subscription_dates_planning_view_form</field>
+        <field name="model">sale.subscription.dates.planning</field>
+        <field name="arch" type="xml">
+            <form string="sale_subscription_dates_planning_form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field  name="planning_ids">
+                            <tree editable="Bottom">
+                                <field name="name" required="True"/>
+                                <field name="employee_id" required="True"/>
+                                <field name="start_datetime"/>
+                                <field name="end_datetime"/>
+                                <field name="allocated_hours"/>
+                            </tree>
+                        </field>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

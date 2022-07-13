@@ -1,0 +1,117 @@
+/*Container Width*/
+@mixin container-mix {
+  max-width: $as-container;
+  width: 100%;
+}
+
+@mixin container-lg-mix {
+  max-width: $as-container-lg;
+  width: 100%;
+}
+
+@mixin container-xl-mix {
+  max-width: $as-container-xl;
+  width: 100%;
+}
+
+
+/* Container
+----------------------------------*/
+.container {
+  @include container-mix;
+}
+
+.container-large {
+  @include container-lg-mix;
+}
+
+.container-xl {
+  @include container-xl-mix;
+}
+
+/* Section
+----------------------------------*/
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @include down-md {
+	padding-top: 70px;
+	padding-bottom: 70px;
+  }
+  @include down-sm {
+	padding-top: 40px;
+	padding-bottom: 40px;
+  }
+}
+
+.top-150-up {
+  margin-top: -150px;
+}
+
+/* Max Width
+--------------------*/
+.max-w-100 {
+  max-width: 100%;
+}
+.min-h-350px {
+  min-height: 350px;
+}
+
+.min-h-250px {
+  min-height: 250px;
+}
+
+.max-w-650 {
+  max-width: 650px;
+}
+
+/* ----------------------
+* Height width
+---------------------------*/
+.full-screen {
+  min-height: 100vh;
+}
+.screen-65 {
+  min-height: 65vh;
+}
+.screen-85 {
+  min-height: 85vh;
+}
+.min-h-50vw {
+  min-height: 50vh;
+}
+.screen-650 {
+  min-height: 650px;
+  @include down-sm {
+	min-height: 85vh;
+  }
+}
+
+.max-width-auto {
+  max-width: none;
+  @include down-md {
+	max-width: 100%;
+  }
+}
+
+/* Back To Top
+------------------------------*/
+.cd-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: $as-black;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: $as-white !important;
+  z-index: 9;
+  opacity: 0;
+  pointer-events: none;
+  @include transition(all 0.55s ease);
+  &.cd-is-visible {
+	pointer-events: auto;
+	opacity: 1;
+  }
+}

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Demo eCommerce Categories: Start -->
+        <record id="atg_product_category_1" model="product.public.category">
+            <field name="name">Car Parts</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="atg_product_category_2" model="product.public.category">
+            <field name="name">Chairs</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="atg_product_category_3" model="product.public.category">
+            <field name="name">Women</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="atg_product_category_4" model="product.public.category">
+            <field name="name">Kids</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="atg_product_category_5" model="product.public.category">
+            <field name="name">Tools &amp; Garbage</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_1" />
+        </record>
+        <record id="atg_product_category_6" model="product.public.category">
+            <field name="name">Steering</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_1" />
+        </record>
+        <record id="atg_product_category_7" model="product.public.category">
+            <field name="name">Wheels</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_1" />
+        </record>
+        <record id="atg_product_category_8" model="product.public.category">
+            <field name="name">Exhaust</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_1" />
+        </record>
+        <record id="atg_product_category_9" model="product.public.category">
+            <field name="name">Wooden</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_2" />
+        </record>
+        <record id="atg_product_category_10" model="product.public.category">
+            <field name="name">Craft Materials</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_2" />
+        </record>
+        <record id="atg_product_category_11" model="product.public.category">
+            <field name="name">Artwork</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_2" />
+        </record>
+        <record id="atg_product_category_12" model="product.public.category">
+            <field name="name">Watches</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_2" />
+        </record>
+        <record id="atg_product_category_13" model="product.public.category">
+            <field name="name">Armchairs</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_2" />
+        </record>
+        <record id="atg_product_category_14" model="product.public.category">
+            <field name="name">Home &amp; Living</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_3" />
+        </record>
+        <record id="atg_product_category_15" model="product.public.category">
+            <field name="name">Kids</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_3" />
+        </record>
+        <record id="atg_product_category_16" model="product.public.category">
+            <field name="name">Women</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_3" />
+        </record>
+        <record id="atg_product_category_17" model="product.public.category">
+            <field name="name">Men</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_3" />
+        </record>
+        <record id="atg_product_category_18" model="product.public.category">
+            <field name="name">Wearables</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_4" />
+        </record>
+        <record id="atg_product_category_19" model="product.public.category">
+            <field name="name">Girls Clothing</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_4" />
+        </record>
+        <record id="atg_product_category_20" model="product.public.category">
+            <field name="name">Luxury Watches</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_4" />
+        </record>
+        <record id="atg_product_category_21" model="product.public.category">
+            <field name="name">Bedding Sets</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_5" />
+        </record>
+        <record id="atg_product_category_22" model="product.public.category">
+            <field name="name">Bedsheets</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_5" />
+        </record>
+        <record id="atg_product_category_23" model="product.public.category">
+            <field name="name">Blankets, Quilts and Dohars</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_5" />
+        </record>
+        <record id="atg_product_category_24" model="product.public.category">
+            <field name="name">Carpets</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_6" />
+        </record>
+        <record id="atg_product_category_25" model="product.public.category">
+            <field name="name">Door Mats</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_6" />
+        </record>
+        <record id="atg_product_category_26" model="product.public.category">
+            <field name="name">Floor Mats and Dhurries</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_6" />
+        </record>
+        <record id="atg_product_category_27" model="product.public.category">
+            <field name="name">Pillow &amp; Pillow Coves</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_5" />
+        </record>
+        <record id="atg_product_category_28" model="product.public.category">
+            <field name="name">Casual Shirts</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_10" />
+        </record>
+        <record id="atg_product_category_29" model="product.public.category">
+            <field name="name">Jackets</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_10" />
+        </record>
+        <record id="atg_product_category_30" model="product.public.category">
+            <field name="name">Suits</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_10" />
+        </record>
+        <record id="atg_product_category_31" model="product.public.category">
+            <field name="name">T-Shirts</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_10" />
+        </record>
+        <record id="atg_product_category_32" model="product.public.category">
+            <field name="name">Dresses &amp; Jumpsuits</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_16" />
+        </record>
+        <record id="atg_product_category_33" model="product.public.category">
+            <field name="name">Jeans &amp; Jeggings</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_16" />
+        </record>
+        <record id="atg_product_category_34" model="product.public.category">
+            <field name="name">Sweaters</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_16" />
+        </record>
+        <record id="atg_product_category_35" model="product.public.category">
+            <field name="name">Sweatshirts</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_16" />
+        </record>
+        <record id="atg_product_category_36" model="product.public.category">
+            <field name="name">Jeans &amp; Trousers</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_17" />
+        </record>
+        <record id="atg_product_category_37" model="product.public.category">
+            <field name="name">Shirts</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_17" />
+        </record>
+        <record id="atg_product_category_38" model="product.public.category">
+            <field name="name">T-Shirts</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_17" />
+        </record>
+        <record id="atg_product_category_39" model="product.public.category">
+            <field name="name">Track Pants</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_17" />
+        </record>
+        <record id="atg_product_category_40" model="product.public.category">
+            <field name="name">Clothing Sets</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_19" />
+        </record>
+        <record id="atg_product_category_41" model="product.public.category">
+            <field name="name">Dresses</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_19" />
+        </record>
+        <record id="atg_product_category_42" model="product.public.category">
+            <field name="name">Skirts &amp; Shorts</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_19" />
+        </record>
+        <record id="atg_product_category_43" model="product.public.category">
+            <field name="name">Tops</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_19" />
+        </record>
+        <record id="atg_product_category_44" model="product.public.category">
+            <field name="name">Flooring</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="atg_product_category_6" />
+        </record>
+        <!-- Demo eCommerce Categories: End -->
+
+        <!-- Demo Products: Start -->
+        <record id="atg_product_template_1" model="product.template">
+            <field name="name">Dresses &amp; Jumpsuits</field>
+            <field name="type">product</field>
+            <field name="list_price">47</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-001</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_3'), ref('atg_product_category_13'), ref('atg_product_category_14'), ref('atg_product_category_15'), ref('atg_product_category_16'), ref('atg_product_category_32'), ref('atg_product_category_33'), ref('atg_product_category_34'), ref('atg_product_category_35')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_001.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_2" model="product.template">
+            <field name="name">Hand Bag</field>
+            <field name="type">product</field>
+            <field name="list_price">80</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-002</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_3'), ref('atg_product_category_13'), ref('atg_product_category_14'), ref('atg_product_category_15'), ref('atg_product_category_16'), ref('atg_product_category_34'), ref('atg_product_category_35')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_002.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_3" model="product.template">
+            <field name="name">Flats &amp; Casual Bag</field>
+            <field name="type">consu</field>
+            <field name="list_price">107</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-003</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_3'), ref('atg_product_category_13'), ref('atg_product_category_14'), ref('atg_product_category_15'), ref('atg_product_category_16'), ref('atg_product_category_32'), ref('atg_product_category_33'), ref('atg_product_category_34'), ref('atg_product_category_35')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_003.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_4" model="product.template">
+            <field name="name">Formal Shirts</field>
+            <field name="type">product</field>
+            <field name="list_price">89</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-004</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_3'), ref('atg_product_category_13'), ref('atg_product_category_14'), ref('atg_product_category_15'), ref('atg_product_category_16'), ref('atg_product_category_32'), ref('atg_product_category_33'), ref('atg_product_category_34'), ref('atg_product_category_35')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_004.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_5" model="product.template">
+            <field name="name">Home chair</field>
+            <field name="type">product</field>
+            <field name="list_price">71</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-005</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_2'), ref('atg_product_category_9'), ref('atg_product_category_10'), ref('atg_product_category_11'), ref('atg_product_category_12'), ref('atg_product_category_28'), ref('atg_product_category_29'), ref('atg_product_category_30'), ref('atg_product_category_31')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_005.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_6" model="product.template">
+            <field name="name">King Size Sofa</field>
+            <field name="type">product</field>
+            <field name="list_price">34</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-006</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_2'), ref('atg_product_category_9'), ref('atg_product_category_10'), ref('atg_product_category_11'), ref('atg_product_category_12'), ref('atg_product_category_28'), ref('atg_product_category_29'), ref('atg_product_category_30'), ref('atg_product_category_31')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_006.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_7" model="product.template">
+            <field name="name">Large Size Sofa</field>
+            <field name="type">product</field>
+            <field name="list_price">56</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-007</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_2'), ref('atg_product_category_9'), ref('atg_product_category_10'), ref('atg_product_category_11'), ref('atg_product_category_12'), ref('atg_product_category_28'), ref('atg_product_category_29'), ref('atg_product_category_30'), ref('atg_product_category_31')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_007.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_product_template_8" model="product.template">
+            <field name="name">Watch</field>
+            <field name="type">consu</field>
+            <field name="list_price">21</field>
+            <field name="standard_price">10</field>
+            <field name="default_code">P-008</field>
+            <field name="inventory_availability">never</field>
+            <field name="public_categ_ids" eval="[(6,0,[ref('atg_product_category_2'), ref('atg_product_category_9'), ref('atg_product_category_10'), ref('atg_product_category_11'), ref('atg_product_category_12'), ref('atg_product_category_28'), ref('atg_product_category_29'), ref('atg_product_category_30'), ref('atg_product_category_31')])]" />
+            <field name="image_1920" type="base64" file="atharva_theme_general/static/src/img/demo-images/prod_008.jpg" />
+            <field name="website_published" eval="True" />
+        </record>
+        <!-- Demo Products: End -->
+
+        <!-- Demo Website Menus: Start -->
+        <record id="megamenu_category_listing" model="megamenu.content">
+            <field name="name">Categories List</field>
+            <field name="active" eval="True"/>
+            <field name="main_content_type">category_list</field>
+            <field name="no_of_columns">4</field>
+            <field name="category_ids" eval="[(6, 0, [ref('atg_product_category_1'), ref('atg_product_category_5'), ref('atg_product_category_6'), ref('atg_product_category_7'), ref('atg_product_category_8'), ref('atg_product_category_2'), ref('atg_product_category_9'), ref('atg_product_category_10'), ref('atg_product_category_11'), ref('atg_product_category_12'), ref('atg_product_category_3'), ref('atg_product_category_13'), ref('atg_product_category_14'), ref('atg_product_category_15'), ref('atg_product_category_16'), ref('atg_product_category_4'), ref('atg_product_category_17'), ref('atg_product_category_18'), ref('atg_product_category_19'), ref('atg_product_category_20')])]"/>
+        </record>
+
+        <record id="megamenu_product_listing" model="megamenu.content">
+            <field name="name">Products List</field>
+            <field name="active" eval="True"/>
+            <field name="is_header" eval="True"/>
+            <field name="main_content_type">product_list</field>
+            <field name="no_of_columns">4</field>
+            <field name="product_ids" eval="[(6, 0, [ref('atg_product_template_1'), ref('atg_product_template_2'), ref('atg_product_template_3'), ref('atg_product_template_4'), ref('atg_product_template_5'), ref('atg_product_template_6'), ref('atg_product_template_7'), ref('atg_product_template_8')])]"/>
+        </record>
+
+        <record id="menu_category" model="website.menu">
+            <field name="name">Categories</field>
+            <field name="url">#</field>
+            <field name="sequence" type="int">20</field>
+            <field name="is_dynamic_mega_menu" eval="True"/>
+            <field name="content_id" ref="megamenu_category_listing"/>
+        </record>
+
+        <record id="menu_product" model="website.menu">
+            <field name="name">Products</field>
+            <field name="url">#</field>
+            <field name="sequence" type="int">21</field>
+            <field name="is_dynamic_mega_menu" eval="True"/>
+            <field name="content_id" ref="megamenu_product_listing"/>
+        </record>
+        <!-- Demo Website Menus: END -->
+
+        <!-- Demo Tab Configurations: Start -->
+        <record id="tab_config_1" model="multitab.configure">
+            <field name="name">Popular</field>
+            <field name="active" eval="True" />
+        </record>
+        <record id="tab_config_2" model="multitab.configure">
+            <field name="name">Specials</field>
+            <field name="active" eval="True" />
+        </record>
+        <record id="tab_config_3" model="multitab.configure">
+            <field name="name">Best Sellers</field>
+            <field name="active" eval="True" />
+        </record>
+        <record id="tab_config_4" model="multitab.configure">
+            <field name="name">Most Viewed</field>
+            <field name="active" eval="True" />
+        </record>
+        <record id="tab_config_5" model="multitab.configure">
+            <field name="name">Featured Products</field>
+            <field name="active" eval="True" />
+        </record>
+        <!-- Demo Tab Configurations: End -->
+        <!-- Demo Tab Products: Start -->
+        <record id="tab_products_1" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_1" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_1" />
+        </record>
+        <record id="tab_products_2" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_2" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_1" />
+        </record>
+        <record id="tab_products_3" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_3" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_1" />
+        </record>
+        <record id="tab_products_4" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_4" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_1" />
+        </record>
+        <record id="tab_products_5" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_5" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_2" />
+        </record>
+        <record id="tab_products_6" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_6" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_2" />
+        </record>
+        <record id="tab_products_7" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_7" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_2" />
+        </record>
+        <record id="tab_products_8" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_8" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_2" />
+        </record>
+        <record id="tab_products_9" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_2" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_2" />
+        </record>
+        <record id="tab_products_10" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_1" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_11" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_6" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_12" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_5" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_13" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_8" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_14" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_7" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_15" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_4" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_16" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_3" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_3" />
+        </record>
+        <record id="tab_products_17" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_2" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_4" />
+        </record>
+        <record id="tab_products_18" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_5" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_4" />
+        </record>
+        <record id="tab_products_19" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_7" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_4" />
+        </record>
+        <record id="tab_products_20" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_4" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_4" />
+        </record>
+        <record id="tab_products_21" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_1" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_22" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_2" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_23" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_3" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_24" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_4" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_25" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_5" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_26" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_6" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_27" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_7" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <record id="tab_products_28" model="multitab.products">
+            <field name="product_id" ref="atg_product_template_8" />
+            <field name="sequence">0</field>
+            <field name="tab_id" ref="tab_config_5" />
+        </record>
+        <!-- Demo Tab Products: End -->
+        <!-- Demo Slider Collection Configuration: Start -->
+        <record id="collection_configure_1" model="collection.configure">
+            <field name="name">New Arrivals</field>
+            <field name="active" eval="True" />
+            <field name="tab_collection_ids" eval="[(6, 0, [ref('tab_config_1'), ref('tab_config_2'), ref('tab_config_3'), ref('tab_config_4')])]" />
+        </record>
+        <record id="collection_configure_2" model="collection.configure">
+            <field name="name">New Collections</field>
+            <field name="active" eval="True" />
+            <field name="tab_collection_ids" eval="[(6, 0, [ref('tab_config_2'), ref('tab_config_3'), ref('tab_config_4')])]" />
+        </record>
+        <!-- Demo Slider Collection Configuration: End -->
+
+        <!-- Demo Blog Blog: Start -->
+        <record id="atg_blog_blog_1" model="blog.blog">
+            <field name="name">Trending Blogs</field>
+            <field name="subtitle">Get in touch with us</field>
+        </record>
+        <!-- Demo Blog Blog: End -->
+        <!-- Demo Blog Tags: Start -->
+        <record id="atg_blog_tag_1" model="blog.tag">
+            <field name="name">Fictional</field>
+        </record>
+        <record id="atg_blog_tag_2" model="blog.tag">
+            <field name="name">Wildlife</field>
+        </record>
+        <record id="atg_blog_tag_3" model="blog.tag">
+            <field name="name">Technical</field>
+        </record>
+        <!-- Demo Blog Tags: End -->
+        <!-- Demo Blog Posts: Start -->
+        <record id="atg_blog_post_1" model="blog.post">
+            <field name="blog_id" ref="atg_blog_blog_1" />
+            <field name="cover_properties">{"opacity": 0.2, "resize_class": "cover container-fluid cover_full", "background-image": "url(http://odoo-snippets.atharvasystem.com/source/img/portfolio-item1.jpg)", "background-color": "oe_black"}</field>
+            <field name="name">Mas Creations Doctor Workshop highstool by Masquespacio</field>
+            <field name="subtitle">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed</field>
+            <field name="tag_ids" eval="[(6, 0, [ref('atg_blog_tag_1'), ref('atg_blog_tag_2'), ref('atg_blog_tag_3')])]" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_blog_post_2" model="blog.post">
+            <field name="blog_id" ref="atg_blog_blog_1" />
+            <field name="cover_properties">{"opacity": 0.2, "resize_class": "cover container-fluid cover_full", "background-image": "url(http://odoo-snippets.atharvasystem.com/source/img/testimonial-bg1.jpg)", "background-color": "oe_black"}</field>
+            <field name="name">Solo furniture for Sonos concept store, Berlin – Germany</field>
+            <field name="subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</field>
+            <field name="tag_ids" eval="[(6, 0, [ref('atg_blog_tag_1'), ref('atg_blog_tag_2')])]" />
+            <field name="website_published" eval="True" />
+        </record>
+        <record id="atg_blog_post_3" model="blog.post">
+            <field name="blog_id" ref="atg_blog_blog_1" />
+            <field name="cover_properties">{"opacity": 0.2, "resize_class": "cover container cover_narrow", "background-image": "url(http://odoo-snippets.atharvasystem.com/source/img/portfolio-item2.jpg)", "background-color": "oe_black"}</field>
+            <field name="name">Steve Stool and Bench by Liqui Group</field>
+            <field name="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur</field>
+            <field name="tag_ids" eval="[(6, 0, [ref('atg_blog_tag_2'), ref('atg_blog_tag_3')])]" />
+            <field name="website_published" eval="True" />
+        </record>
+        <!-- Demo Blog Posts: End -->
+        <!-- Demo Blog Configure: Start -->
+        <record id="atg_blog_configure_1" model="blog.configure">
+            <field name="name">Latest Blog</field>
+            <field name="active" eval="True" />
+            <field name="blog_ids" eval="[(6, 0, [ref('atg_blog_post_1'), ref('atg_blog_post_2'), ref('atg_blog_post_3')])]" />
+        </record>
+        <!-- Demo Blog Configure: End -->
+
+    </data>
+</odoo>

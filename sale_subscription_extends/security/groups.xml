@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="group_visitas_gratuitas_approve" model="res.groups">
+            <field name="name">Crear visitas gratuitas</field>
+        </record>
+    </data>
+</odoo>

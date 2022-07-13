@@ -1,0 +1,156 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_application_warranty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 18:32+0000\n"
+"PO-Revision-Date: 2020-04-17 18:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "<strong>Cobertura:</strong>"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "<strong>Presupuesto:</strong>"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "<strong>Referencia de obra:</strong>"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "Arq. Carlos M. Buenaventura P."
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"Así mismo, manifestamos que la impermeabilización fue realizada por personal competente y \n"
+"                          previamente capacitado por M.S.A.,S.A."
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "Beneficiario:"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "Condiciones de la garantía"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "GARANTIA DE APLICACION DE PRODUCTO"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "Gerente General"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"La presente se extiende para los fines que al interesado convengan en la "
+"Ciudad de Guatemala,"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"M.S.A.,  S.A.  garantiza  el  buen  funcionamiento  de  esta  impermeabilización  siempre  \n"
+"                            y cuando se respeten las especificaciones de uso del producto;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"M.S.A.,  S.A.  no  se  responsabiliza  por  daños  ocasionados  por  desastres  naturales  \n"
+"                            tales como sismos, incendios o terremotos que afecten la estructura;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"M.S.A., S.A. cancelara la garantía proporcionalmente al uso de la misma;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "Por M.S.A., S.A."
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"Por este medio certificamos que la impermeabilización \n"
+"                        realizada en"
+msgstr ""
+
+#. module: product_application_warranty
+#: model:ir.actions.report,name:product_application_warranty.product_application_warranty_report
+msgid "Product Application Warranty"
+msgstr "Garantia Aplicación de Producto"
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"Que  la  superficie  del  material  no  sea  sometido  a  golpes,  rayones,  empozamientos \n"
+"                            de agua,  acumulación  de  materiales  o  cualquier  otro  maltrato  para  el  cual  el  \n"
+"                            producto  no este especificado, ocasionado por personal del cliente o por terceros;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"Que  la  superficie  no  este  afectada  por  el  tráfico  de  personas,  animales,  equipo \n"
+"                            o materiales como hierro, toneles, piedrín, blocks, arena  o cualquier otro material después\n"
+"                            de haber finalizado los trabajos;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"Que  la  superficie  sufra  cambios  en  su  estructura  original,  tales  como  ampliaciones, \n"
+"                            perforaciones o añadiduras;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"Que el ambiente o la superficie no sea sometido a químicos o sustancias corrosivas del medio \n"
+"                            o sus vecindades;"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"a partir de la fecha de \n"
+"                        finalización  de  los trabajos de aplicación."
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid ""
+"corresponde con las especificaciones del producto por lo que garantizamos el"
+" sistema de"
+msgstr ""
+
+#. module: product_application_warranty
+#: model_terms:ir.ui.view,arch_db:product_application_warranty.product_application_warranty_template
+msgid "por un periodo de"
+msgstr ""

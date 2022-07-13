@@ -1,0 +1,402 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* external_service_extends
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20220126\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-10 14:18+0000\n"
+"PO-Revision-Date: 2022-02-10 14:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__tipo_visita
+msgid "A Cobrar"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields.selection,name:external_service_extends.selection__project_task__tipo_visita__a_facturar
+#: model:ir.model.fields.selection,name:external_service_extends.selection__project_tasks_service_ticket__tipo_visita__a_facturar
+msgid "A Facturar"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__active_sign
+msgid "Active"
+msgstr "Activo"
+
+#. module: external_service_extends
+#: model:ir.model.fields,help:external_service_extends.field_project_tasks_service_ticket__partner_id_state_id
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model,name:external_service_extends.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea analítica"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id
+msgid "Cliente"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__company_id
+msgid "Company"
+msgstr "Compañia"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__company_logo
+msgid "Company Logo"
+msgstr "Logo Compañia"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__name
+msgid "Correlativo"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__create_uid
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__create_date
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__display_name
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_resource__display_name
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__display_name
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__display_name
+#: model:ir.model.fields,field_description:external_service_extends.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__display_timer_pause
+msgid "Display Timer Pause"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__display_timer_resume
+msgid "Display Timer Resume"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__display_timer_start_primary
+msgid "Display Timer Start Primary"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__display_timer_stop
+msgid "Display Timer Stop"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__stage_id
+msgid "Etapa"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__date_assign
+msgid "Fecha"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_sign
+msgid "Firma del Cliente"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__technical_sign
+msgid "Firma del Técnico"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields.selection,name:external_service_extends.selection__project_task__tipo_visita__gratuita
+#: model:ir.model.fields.selection,name:external_service_extends.selection__project_tasks_service_ticket__tipo_visita__gratuita
+msgid "Gratuita"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__hours_planned_out
+msgid "Hora Salida"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__hours_planned_in
+msgid "Hora de Inicio"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_account_analytic_line__id
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__id
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_resource__id
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__id
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__id
+#: model:ir.model.fields,field_description:external_service_extends.field_sale_order__id
+msgid "ID"
+msgstr "Identificación"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__is_timer_running
+msgid "Is Timer Running"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_account_analytic_line____last_update
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task____last_update
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_resource____last_update
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type____last_update
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket____last_update
+#: model:ir.model.fields,field_description:external_service_extends.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__write_uid
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__write_date
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: external_service_extends
+#: code:addons/external_service_extends/models/project_task.py:0
+#: code:addons/external_service_extends/models/project_task.py:0
+#: code:addons/external_service_extends/models/project_task.py:0
+#: code:addons/external_service_extends/models/project_task.py:0
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_service_type__name
+msgid "Nombre"
+msgstr ""
+
+#. module: external_service_extends
+#: model_terms:ir.ui.view,arch_db:external_service_extends.project_tasks_service_ticket_view_form
+msgid "Nuevo Presupuesto"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__number
+msgid "Number"
+msgstr "Número"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: external_service_extends
+#: model:ir.model,name:external_service_extends.model_project_tasks_service_ticket
+msgid "Project Tasks Service Ticket"
+msgstr "Boletas de servicio"
+
+#. module: external_service_extends
+#: model_terms:ir.ui.view,arch_db:external_service_extends.project_tasks_service_ticket_view_form
+msgid "REPORTE DE SERVICIO"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__resources_ids
+#: model_terms:ir.ui.view,arch_db:external_service_extends.project_tasks_service_ticket_view_form
+msgid "Recursos"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__order_ids
+msgid "Sale Order"
+msgstr "Orden de Ventas"
+
+#. module: external_service_extends
+#: model:ir.model,name:external_service_extends.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_sale_order__service_task_id
+msgid "Service Task"
+msgstr "Boleta de Servicio"
+
+#. module: external_service_extends
+#: model:ir.actions.act_window,name:external_service_extends.project_tasks_service_ticket_action
+#: model:ir.actions.act_window,name:external_service_extends.service_ticket_action
+#: model:ir.model.fields,field_description:external_service_extends.field_account_analytic_line__timesheet_invoice_ticket_id
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__service_ticket_ids
+#: model:ir.ui.menu,name:external_service_extends.service_ticket_menu
+#: model_terms:ir.ui.view,arch_db:external_service_extends.project_task_form_inherit
+msgid "Service Ticket"
+msgstr "Boleta de Servicio"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__service_ticket_count
+msgid "Service Ticket count"
+msgstr "Boleta de Servicio Contador"
+
+#. module: external_service_extends
+#: model:ir.model,name:external_service_extends.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task_resource__task_ticket_id
+msgid "Task Ticket"
+msgstr "Boleta de Servicio"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__text
+msgid "Text"
+msgstr "Texto"
+
+#. module: external_service_extends
+#: model:ir.model.fields,help:external_service_extends.field_project_task__partner_id_vat
+#: model:ir.model.fields,help:external_service_extends.field_project_tasks_service_ticket__partner_id_vat
+msgid ""
+"The Tax Identification Number. Complete it if the contact is subjected to "
+"government taxes. Used in some legal statements."
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,help:external_service_extends.field_project_tasks_service_ticket__partner_id_country_id
+msgid "The full name of the country."
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__timer_pause
+msgid "Timer Last Pause"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__timer_start
+msgid "Timer Start"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__timesheet_ids
+msgid "Timesheets"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.actions.act_window,name:external_service_extends.project_tasks_service_type_action
+#: model:ir.ui.menu,name:external_service_extends.fsm_menu_service_type_res_config
+msgid "Tipo Servicio"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model,name:external_service_extends.model_project_task_service_type
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__service_type_id
+msgid "Tipo de servicio"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__tipo_visita
+msgid "Tipo de visita"
+msgstr ""
+
+#. module: external_service_extends
+#: model_terms:ir.ui.view,arch_db:external_service_extends.project_tasks_service_ticket_view_form
+msgid "Total"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__work_done_xt
+msgid "Trabajo Realizado"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__user_id
+msgid "Técnico Asignado"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__user_timer_id
+msgid "User Timer"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_city
+msgid "city"
+msgstr "Ciudad"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_country_id
+msgid "country_id"
+msgstr "País"
+
+#. module: external_service_extends
+#: model:ir.model,name:external_service_extends.model_project_task_resource
+msgid "project.task.resource"
+msgstr ""
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_state_id
+msgid "state_id"
+msgstr "Estado"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_street
+msgid "street"
+msgstr "Calle"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__partner_id_vat
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_vat
+msgid "vat"
+msgstr "NIT"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_tasks_service_ticket__partner_id_zip
+msgid "zip"
+msgstr "ZIP"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_tasks_menu
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "My Tasks"
+msgstr "Órdenes de Trabajo"
+
+#. module: industry_fsm
+#: model:ir.actions.act_window,name:industry_fsm.project_task_action_all_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_all_tasks_root
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_all_tasks_todo
+msgid "All Tasks"
+msgstr "Todas las Órdenes"
+
+#. module: industry_fsm
+#: model:ir.ui.menu,name:industry_fsm.fsm_menu_tasks_kanban
+#: model:project.project,label_tasks:industry_fsm.fsm_project
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_calendar_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_list_fsm
+#: model_terms:ir.ui.view,arch_db:industry_fsm.project_task_view_search_fsm
+msgid "Tasks"
+msgstr "Órdenes de Trabajo"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__assign_to
+msgid "Assign To"
+msgstr "Técnico"
+
+#. module: external_service_extends
+#: model:ir.model.fields,field_description:external_service_extends.field_project_task__number
+msgid "Number"
+msgstr "Número"

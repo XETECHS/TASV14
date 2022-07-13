@@ -1,0 +1,619 @@
+/* Base
+------------------------------*/
+.o_theme_customize_option .o_theme_customize_color_theme {
+  background: $as-theme !important;
+}
+
+a {
+	@include hfa {
+		text-decoration: none;
+	}
+}
+
+a,
+.btn,
+button {
+	@include hfa {
+		outline: none !important;
+	}
+}
+
+a.dropdown-item, 
+.dropdown-item {
+  color: $as-dark-color;
+
+  @include hfa {
+    background-color: $as-theme;
+    color: #fff;
+  }
+
+  &.active, &:active {
+    background-color: $as-theme;
+    color: #fff;
+  }
+
+}
+
+.text-primary {
+  color: $as-theme !important;
+}
+
+.badge-primary {
+  background-color: $as-theme;
+
+  &[href]:hover, &[href]:focus {
+    background-color: darken($as-theme, 10%);
+  }
+  
+}
+
+.border_primary {
+  border-color: $as-theme;
+}
+
+.badge-secondary {
+	background: $as-theme;
+}
+
+/*----------------------------------
+* Buttons
+----------------------------------*/
+.overlay-link {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border: 0;
+}
+.as-btn-dual {
+	.as-btn {
+		margin: 0.3125rem;
+	}
+}
+
+.as-line-btn {
+	font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none !important;
+    overflow: hidden;
+    display: inline-block;
+	&:before {
+		content:"";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		@include transition(ease all 0.55s);
+		width: 100%;
+		background: currentColor;
+	}
+	&:hover {
+		&:before {
+			-webkit-animation: link-effect .8s cubic-bezier(.58,.3,.005,1) 0s 1;
+			animation: link-effect .8s cubic-bezier(.58,.3,.005,1) 0s 1;
+		}
+	}
+	&.dark {
+		color: $as-dark-color;
+	}
+	&.white {
+		color: $as-white;
+	}
+}
+
+@-webkit-keyframes link-effect {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+
+    50% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+
+    50.01% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+@keyframes link-effect {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+
+    50% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+
+    50.01% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+
+    to {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+
+.video-btn {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    @include transition(ease all 0.55s);
+    z-index: 1;
+    border: none;
+    &:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border-radius: 50%;
+		animation: pulse-border 1500ms ease-out infinite;
+		pointer-events: none;
+		z-index: -1;
+	}
+	&.white {
+		background: $as-white;
+		&:after {
+			background: $as-white;
+		}
+		span {
+			color:$as-theme;
+		}
+	}
+	&.theme {
+		background: $as-theme;
+		&:after {
+			background: $as-theme;
+		}
+		span {
+			color:$as-white;
+		}
+	}
+
+
+	span {
+	    border-top: 1rem solid transparent;
+	    border-bottom: 1rem solid transparent;
+	    border-left: 1.25rem solid currentcolor;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 9px;
+	    right: 0;
+	    margin: auto;
+	    width: 0px;
+	    height: 0px;
+	}
+}
+
+@keyframes pulse-border {
+  0% {
+    @include scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    @include scale(2);
+    opacity: 0;
+  }
+}
+
+
+.social-icon {
+	a {
+		margin: 0 4px;
+		&:first-child {
+			margin-left:0px;
+		}
+		&:last-child {
+			margin-right:0px;
+		}
+	}
+	&.si-30 {
+		a {
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			font-size: 13px;
+		}
+	}
+	&.si-40 {
+		a {
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+	}
+	&.white-icon {
+		a {
+			color: $as-white;
+		}
+	}
+	&.theme {
+		a {
+			background-color: $as-theme;
+			color: $as-white;
+			&:hover {
+				background-color: $as-dark-color;
+			}
+		}
+	}
+	&.white {
+		a {
+			background-color: $as-white;
+			color: $as-dark-color;
+			border: 1px solid $as-white;
+			&:hover {
+				background-color: transparent;
+				color: $as-white;
+			}
+		}
+	}
+	&.dark {
+		a {
+			background-color: $as-dark-color;
+			color: $as-white;
+			&:hover {
+				background-color: transparent;
+				background-color: $as-theme;
+			}
+		}
+	}
+	&.radisu {
+		a {
+			border-radius: 50%;
+		}
+	}
+}
+
+
+a.as-btn {
+	text-decoration: none !important;
+}
+
+@mixin as_btn {
+	display: inline-block;
+    border: 1px solid transparent;
+    color: inherit;
+    line-height: inherit;
+    border-radius: $as-btn-radius;
+    padding: 0.70rem 1.35rem;
+    font-size: .85rem;
+    text-transform: uppercase;
+	letter-spacing: 0.02rem;
+    cursor: pointer;
+    font-weight: 500;
+	@include transition(ease-in-out all 0.55s);
+	text-align: center;
+	box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,0.08) !important;
+	i {
+		vertical-align: middle;
+	}
+}
+
+@mixin as_btn_shadow {
+	box-shadow: 0 1.25rem 2.25rem -0.3125rem rgba(0,0,0,0.30) !important;
+}
+
+@mixin as_btn_round {
+	border-radius: 3.5rem;
+}
+
+@mixin as_btn_radius {
+	border-radius: 1.25rem;
+}
+
+@mixin as_btn_sm {
+	padding: .25rem .9rem;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+@mixin as_btn_lg {
+	font-size: 1.10rem;
+    padding: 0.85rem 1.8rem;
+    line-height: 25px;
+}
+
+@mixin as_btn_black {
+    background: $as-btn-dark;
+    border-color: $as-btn-border-dark;
+    color: $as-btn-color-dark;
+    &:focus,
+    &:hover {
+        background: $as-btn-dark-hover;
+        border-color: $as-btn-dark-hover;
+        color: $as-btn-color-dark-hover;
+    }
+}
+
+@mixin as_btn_t_black {
+    background: transparent;
+    border-color: $as-btn-border-dark;
+    color: $as-btn-border-dark;
+    &:focus,
+    &:hover {
+        background: $as-btn-dark;
+        border-color: $as-btn-border-dark;
+        color: $as-btn-color-dark;
+    }
+}
+
+
+@mixin as_btn_white {
+    background: $as-btn-white;
+    border-color: $as-btn-border-white;
+    color: $as-btn-color-white;
+    &:focus,
+    &:hover {
+        background: $as-btn-white-hover;
+        border-color: $as-btn-white-hover;
+        color: $as-btn-color-white-hover;
+    }
+}
+
+@mixin as_btn_t_white {
+    background: transparent;
+    border-color: $as-btn-border-white;
+    color: $as-btn-border-white;
+    &:focus,
+    &:hover {
+        background: $as-btn-white-hover;
+        border-color: $as-btn-white-hover;
+        color: $as-btn-color-white-hover;
+    }
+}
+
+@mixin as_btn_theme {
+    background: $as-btn-theme;
+    border-color: $as-btn-border-theme;
+    color: $as-btn-color-theme;
+    &:focus,
+    &:hover {
+        background: $as-btn-theme-hover;
+        border-color: $as-btn-border-theme-hover;
+        color: $as-btn-color-theme-hover;
+    }
+}
+
+@mixin as_btn_t_theme {
+    background: transparent;
+    border-color: $as-btn-border-theme;
+    color: $as-btn-border-theme;
+    &:focus,
+    &:hover {
+        background: $as-btn-theme-hover;
+        border-color: $as-btn-border-theme-hover;
+        color: $as-btn-color-theme-hover;
+    }
+}
+
+.as-btn {
+	&:not(.btn){
+		@include as_btn;
+		&.as-btn-shadow {
+			@include as_btn_shadow;
+		}
+		&.as-btn-round {
+			@include as_btn_round;
+		}
+		&.as-btn-radius {
+			@include as_btn_radius;
+		}
+		&.as-btn-sm {
+			@include as_btn_sm;
+		}
+		&.as-btn-lg {
+			@include as_btn_lg;
+		}
+		&.as-btn-black {
+			@include as_btn_black;
+		}
+		&.as-btn-t-black {
+			@include as_btn_t_black;
+		}
+		&.as-btn-white {
+			@include as_btn_white;
+		}
+		&.as-btn-t-white {
+			@include as_btn_t_white;
+		}
+		&.as-btn-theme {
+			@include as_btn_theme;
+		}
+		&.as-btn-t-theme {
+			@include as_btn_t_theme;
+		}
+		&.as-btn-dark {
+			@include as_btn_black;
+		}
+		&.as-btn-t-dark {
+			@include as_btn_t_black;
+		}
+	}
+}
+
+
+/* Default Buttons
+---------------------------------------------*/
+.btn {
+	border-radius: 0 !important;
+	text-transform: uppercase;
+}
+
+.btn-primary {
+	color: $as-white;
+	background-color: $as-theme;
+	border: 1px solid $as-theme;
+	&.focus, &:focus, &:hover {
+		background-color: $as-white;
+		border-color: $as-theme;
+		outline: none;
+		box-shadow: none;
+		color: $as-theme;
+	}
+
+	&:not(:disabled):not(.disabled) {
+		&:active, &.active {
+			color: $as-theme;
+			background-color: $as-white;
+			border-color: $as-theme;
+			outline: none;
+			box-shadow: none;
+
+			&:focus {
+				color: $as-theme;
+				border-color: $as-theme;
+				background-color: $as-white;
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+	&.disabled,
+	&:disabled {
+		color: $as-white;
+		background-color: $as-theme;
+		border: 1px solid $as-theme;
+	}
+}
+
+.show > .btn-primary.dropdown-toggle, 
+.show > .btn-primary.dropdown-toggle:focus {
+	background-color: $as-white;
+	border-color: $as-theme;
+	outline: none;
+	box-shadow: none;
+}
+
+.btn-secondary {
+	color: $as-white;
+	background-color: $as-dark-color;
+	border: 1px solid $as-dark-color;
+	line-height: 36px;
+	padding-top: 0;
+	padding-bottom: 0;
+	&.focus, &:focus, &:hover {
+		background-color: #fff;
+		border-color: $as-dark-color;
+		color: $as-dark-color;
+		outline: none;
+		box-shadow: none;
+	}
+
+	&:not(:disabled):not(.disabled) {
+		&:active, &.active {
+			background-color: #fff;
+			border-color: $as-dark-color;
+			color: $as-dark-color;
+			outline: none;
+			box-shadow: none;
+			&:focus {
+				background-color: #fff;
+				border-color: $as-dark-color;
+				color: $as-dark-color;
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
+	&.disabled,
+	&:disabled {
+		color: $as-white;
+		background-color: $as-dark-color;
+		border: 1px solid $as-dark-color;
+	}
+
+}
+
+.show > .btn-secondary.dropdown-toggle, 
+.show > .btn-secondary.dropdown-toggle:focus {
+	background-color: #333;
+	border-color: #333;
+	outline: none;
+	box-shadow: none;
+}
+
+.btn-link {
+	color: $as-theme;
+
+	@include hfa {
+		color: darken($as-theme, 8%);
+	}
+
+}
+
+
+.spf-action button {
+	@include as_btn;
+	@include as_btn_theme;
+	padding: 5px 12px;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+
+.btn_load_more_products {
+	@include as_btn;
+	@include as_btn_theme;
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.35;
+	}
+}
+
+
+/* Custome Radio
+---------------------------------------------*/
+.custom-control-input:checked ~ .custom-control-label:before {
+	background-color: $as-theme;
+	border-color: $as-theme;
+}
+.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
+    background-color: rgba($as-theme, 0.5);
+}
+
+.custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
+    background-color: rgba($as-theme, 0.5);
+}
+
+.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
+    background-color: rgba($as-theme, 0.5);
+}
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+	background-color: rgba($as-theme, 0.5);	
+}
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+	border-color: rgba($as-theme, 0.5);
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+	box-shadow: none;
+}
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+	background-color: rgba($as-theme, 0.5);	
+	border-color: rgba($as-theme, 0.5);
+}
+
+.o_carousel_product_control {
+	background: $as-theme;
+}

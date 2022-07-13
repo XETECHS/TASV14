@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="date_order" position="after">
+                <field name="is_internal"/>
+                <field name="requisition_id" attrs="{'required': [('is_internal', '=', False)], 'invisible': [('is_internal', '=', True)]}"/>
+                <field name="project_id" attrs="{'required': [('is_internal', '=', False)], 'invisible': [('is_internal', '=', True)]}"/>
+                <field name="customer_id" attrs="{'required': [('is_internal', '=', False)], 'invisible': [('is_internal', '=', True)]}"/>
+            </field>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='date_planned']" position="after">
+                <field name="requisition_line_id" invisible="1"/>
+                <!--<field name="analytic_account_id"/>
+                <field name="analytic_tag_ids" widget="many2many_tags"/>-->
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

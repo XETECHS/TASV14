@@ -1,0 +1,13 @@
+<odoo>
+
+    <record model="ir.module.category" id="module_category_po_requisition">
+        <field name="name">PO Requsition</field>
+        <field name="sequence">7</field>
+    </record>
+
+    <record id="group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_po_requisition"/>
+    </record>
+
+</odoo>

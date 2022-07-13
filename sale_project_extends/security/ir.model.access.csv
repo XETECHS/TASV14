@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_project_stage,product.project.project.stage,model_project_project_stage,,1,1,1,1
+access_product_kit_items_users,product.template.kit.items.users,model_product_item,sales_team.group_sale_salesman,1,1,1,0
+access_product_kit_items_manager,product.template.kit.items.manager,model_product_item,sales_team.group_sale_manager,1,1,1,1
+access_project_requisition_lines,project.requisition.lines.user,model_project_requisition_lines,project.group_project_user,1,1,1,0
+access_project_requisition_lines_manager,project.requisition.lines.manager,model_project_requisition_lines,project.group_project_manager,1,1,1,1

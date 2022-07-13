@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <template id="product_application_warranty_template">
+             <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page" style="font-size:15px;">
+                            <style>
+                                p {
+                                margin: 0px !important;
+                                }
+                            </style>
+                            <div class="row">
+                                <div class="col-9" style="padding-top: 50px;">
+                                    <h5 class="text-center">GARANTIA DE APLICACION DE PRODUCTO</h5>
+                                    <h4 style="text-align: center;"></h4>
+                                    <p>Beneficiario: <span t-field="o.beneficiario"/></p>
+                                    <t t-set="partner" t-value="o.sale_id.partner_id"/>
+                                    <p style="text-align:justify;">
+                                        Por este medio certificamos que la impermeabilización
+                                        realizada en <span style="color:white;">_</span><b><span t-esc="o.direccion_proyecto or ''"/></b><span style="color:white;">_</span>
+                                        
+                                        corresponde con las especificaciones del producto por lo que garantizamos el sistema de
+                                        <span t-esc="o.name"/>
+                                        por un periodo de <span t-esc="o.garantia_pediodo"/>. a partir de la fecha de
+                                        finalización  de  los trabajos de aplicación.
+                                    </p>
+
+                                </div>
+                                <div class="col-3 text-center">
+                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 160px;margin: 0;padding: 0;" alt="Logo"/>
+                                </div>
+                            </div>
+                            <div style="height:50px;"/>
+                            <table style="border-spacing: 15px;" width="70%">
+                                <tr>
+                                    <td><strong>Referencia de obra: </strong></td>
+                                    <td><span t-esc="o.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Presupuesto: </strong></td>
+                                    <td>
+                                        <span t-esc="o.sale_id.name"/><br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cobertura: </strong></td>
+                                    <td> Desde <span t-field="o.cobertura_inicio"/> hasta <span t-field="o.cobertura_fin"/></td>
+                                </tr>
+                            </table>
+                            <t t-raw="o.garantia_producto_id.descripcion" />
+                            <p>
+                                La presente se extiende para los fines que al interesado convengan en la Ciudad de Guatemala,
+                                <span t-esc="o.translate_date"/>.
+                            </p>
+                            <p>Por M.S.A., S.A.</p>
+                            <div style="display: inline-block; width: 100%; page-break-inside: avoid;">
+                                <p class="section text-center">
+                                    <span>Atentamente,</span> <br/><br/><br/><br/><br/>
+                                </p>
+                                <div class="row" style="line-height: 30px;">
+                                    <div class="col-12 text-center"><span class="text-center" style="padding-right: 30px;" t-raw="o.user_id.signature"/></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

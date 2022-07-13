@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+            <record id="sale_view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.view.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="title" nolabel="1" placeholder="Title"/>
+            </field>
+
+            <field name="partner_shipping_id" position="after">
+                <field name="is_project"/>
+                <field name="project_date_start" attrs="{'readonly':[('is_project','=',True)], 'required':[('is_project', '=', False)]}"/>
+                <field name="project_date" attrs="{'readonly':[('is_project','=', True)], 'required':[('is_project', '=', False)]}"/>
+                <field name="presentation_date" attrs="{'readonly':[('is_project','=', True)], 'required':[('is_project', '=', False)]}"/>
+
+            </field>
+
+            <notebook position="inside">
+                <page name="page_project_sale" string="Project">
+                    <group string="Project">
+                        <field name="project_date_start" attrs="{'readonly':[('is_project','=',True)], 'required':[('is_project', '=', False)]}"/>
+                        <field name="project_date" attrs="{'readonly':[('is_project','=', True)], 'required':[('is_project', '=', False)]}"/>
+                        <field name="project_id" attrs="{'readonly':[('is_project','=',False)], 'required':[('is_project', '=', True)]}"/>
+                        <field name="analytic_account_id" attrs="{'readonly':[('is_project','=',False)], 'required':[('is_project', '=', True)]}"/>
+                        <field name="analytic_tag_ids" widget="many2many_tags" attrs="{'readonly':[('is_project','=',False)], 'required':[('is_project', '=', True)]}"/>
+                    </group>
+                    <field name="comments" placeholder="Type your comments"/>
+                </page>
+            </notebook>
+            <xpath expr="//page/field[@name='order_line']/tree/field[@name='analytic_tag_ids']" position="before">
+                <field name="analytic_account_id"/>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

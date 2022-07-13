@@ -1,0 +1,12 @@
+<odoo>
+
+    <record id="planning_filter" model="ir.ui.view">
+       <field name="name">Contratos de mantenimiento con tareas vencidas</field>
+       <field name="model">sale.subscription</field>
+        <field name="arch" type="xml">
+            <search string="Contratos de mantenimiento con tareas vencidas">
+            </search>
+       </field>
+    </record>
+
+</odoo>

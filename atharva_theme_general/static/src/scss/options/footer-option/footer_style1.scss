@@ -1,0 +1,131 @@
+footer {
+	.o_footer {
+		background: none !important;
+		#footer {
+			border: none;
+		}
+	}
+	.o_footer_copyright {
+		display: none !important;
+	}
+	.top-footer {
+		background-color: $as-footer-bg;
+		padding: 60px 0;
+		color: rgba($as-footer-text, 0.5);
+    	font-size: 14px;
+    	@include down-md {
+    		padding: 30px 0;
+    	}
+    	.fot-col {
+		    padding-top: 20px;
+		    padding-bottom: 20px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		h3 {
+		    font-size: 16px;
+		    font-weight: 600;
+		    margin-bottom: 20px;
+		    color: $as-footer-title;
+		    text-transform: capitalize;
+		}
+		li {
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+			a {
+				color: rgba($as-footer-text, 0.5);
+    			font-size: 14px;
+    			display: inline-block;
+    			text-decoration: none;
+    			text-decoration: none;
+    			margin-left: 0;
+    			@include transition(all 0.55s ease);
+    			@include h {
+    				color:$as-footer-text;
+    				margin-left: 5px;
+    			}
+			}
+		}
+		.fot-logo {
+			margin-bottom: 25px;
+		}
+		address {
+			margin: 0;
+			div[itemprop="address"] {
+				> div {
+				    position: relative;
+					padding: 6px 0 6px 25px;
+					&:last-child{
+						margin-bottom:0;
+					}
+					i {
+					    font-size: 18px;
+					    margin-left: -25px;
+					    vertical-align: top;
+					    width: 25px;
+					    text-align: left;
+					    color: rgba($as-footer-text, 0.5);
+					}
+					span {
+						display: inline-block;
+    					vertical-align: top;
+    					color: rgba($as-footer-text, 0.5);
+					}
+				}
+			}
+		}
+		.js_subscribe {
+			.form-control {
+			    width: 100%;
+			    border: 1px solid #000;
+			    border-radius: 30px !important;
+			    height: 45px;
+			    padding: 8px 120px 8px 20px;
+			    color: #000;
+			    z-index: 0;
+			}
+			.btn {
+				position: absolute;
+			    top: 3px;
+			    right: 3px;
+			    height: 39px;
+			    line-height: 39px;
+			    padding: 0 15px;
+			    border-radius: 30px !important;
+			    background: #000;
+			    color: #fff;
+			    border: none;
+			    z-index: 1;
+			    &.btn-success {
+			    	background: #28a745;
+			    }
+			}
+		}
+		.payment-icon {
+			margin-top: 20px;
+		}
+	}
+	.footer-bottom {
+		background: $as-footer-bg;
+		border-top: 1px solid rgba($as-footer-text, 0.14);
+		padding: 10px 0;
+		.copyright {
+			margin: 0;
+			font-size: 14px;
+			color: rgba($as-footer-text, 0.5);
+		}
+		.nav {
+			a {
+		        margin-left: 10px;
+			    color: rgba($as-footer-text, 0.5);
+			    line-height: 1.75;
+			    font-size: 14px;
+			    padding: 8px 0;
+			}
+		}
+	}
+}
